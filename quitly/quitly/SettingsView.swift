@@ -5,6 +5,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 private let currencies = [("₺", "TRY"), ("$", "USD"), ("€", "EUR"), ("£", "GBP"), ("¥", "JPY"), ("₽", "RUB")]
 
@@ -12,6 +13,7 @@ struct SettingsView: View {
     @Bindable var habit: Habit
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Environment(PremiumManager.self) private var premiumManager
     @AppStorage("setupComplete") private var setupComplete = false
 
     @State private var habitName: String = ""
@@ -158,6 +160,8 @@ struct SettingsView: View {
             habit.dailyCostAmount = cost
         }
         try? modelContext.save()
+        // Immediately push updated data (currency, cost, name) to the widget
+        writeHabitToWidget(habit, premiumManager: premiumManager)
     }
 
     private func resetAllData() {

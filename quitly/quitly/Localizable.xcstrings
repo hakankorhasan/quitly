@@ -53,6 +53,9 @@
     "0" : {
 
     },
+    "A an example control that runs a timer." : {
+
+    },
     "app_name" : {
       "localizations" : {
         "en" : {
@@ -68,9 +71,6 @@
           }
         }
       }
-    },
-    "Continue →" : {
-
     },
     "home_daily_cost" : {
       "localizations" : {
@@ -212,6 +212,72 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Güçlü Kal"
+          }
+        }
+      }
+    },
+    "home_welcome_cta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start My Journey"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Comenzar Mi Viaje"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yolculuğuma Başla"
+          }
+        }
+      }
+    },
+    "home_welcome_subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every hour without a cigarette is a victory. Stay strong."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cada hora sin cigarrillo es una victoria. Mantente fuerte."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigarasız geçen her saat bir zaferdir. Güçlü kal."
+          }
+        }
+      }
+    },
+    "home_welcome_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Journey Starts Now"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu Viaje Comienza Ahora"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yolculuğun Şimdi Başlıyor"
           }
         }
       }
@@ -5322,7 +5388,14 @@
         }
       }
     },
+    "Off" : {
+
+    },
+    "On" : {
+
+    },
     "onboarding_alcohol" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5339,6 +5412,7 @@
       }
     },
     "onboarding_caffeine" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5355,6 +5429,7 @@
       }
     },
     "onboarding_custom" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5451,6 +5526,7 @@
       }
     },
     "onboarding_pick_habit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5515,6 +5591,7 @@
       }
     },
     "onboarding_social_media" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5531,6 +5608,7 @@
       }
     },
     "onboarding_sugar" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5979,6 +6057,9 @@
           }
         }
       }
+    },
+    "Quitly" : {
+
     },
     "relapse_cancel" : {
       "localizations" : {
@@ -6434,6 +6515,173 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ayarlar"
+          }
+        }
+      }
+    },
+    "Start a timer" : {
+
+    },
+    "Start Timer" : {
+
+    },
+    "Timer" : {
+
+    },
+    "Timer is running" : {
+
+    },
+    "widget_day_clean" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "day clean"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "día limpio"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "gün başardın"
+          }
+        }
+      }
+    },
+    "widget_days_clean" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "days clean"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "días limpios"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "gün başardın"
+          }
+        }
+      }
+    },
+    "widget_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track your streak and savings at a glance."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue tu racha y ahorros de un vistazo."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serinizi ve tasarruflarınızı bir bakışta takip edin."
+          }
+        }
+      }
+    },
+    "widget_go_premium" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go Premium"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hazte Premium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium Ol"
+          }
+        }
+      }
+    },
+    "widget_keep_going" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "keep going"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sigue así"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "devam et"
+          }
+        }
+      }
+    },
+    "widget_keep_widget" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to keep your widget"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "para conservar tu widget"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "widgetı kullanmaya devam et"
+          }
+        }
+      }
+    },
+    "widget_saved" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorrado"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasarruf"
           }
         }
       }

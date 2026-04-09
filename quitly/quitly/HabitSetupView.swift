@@ -16,7 +16,9 @@ private let currencies = [
 ]
 
 struct HabitSetupView: View {
-    let habit: (emoji: String, name: String, key: String)
+    // Smoking-only app: hardcoded
+    private let smokingEmoji = "wind"
+    private let smokingName  = "Smoking"
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -35,7 +37,7 @@ struct HabitSetupView: View {
 
                 // Header
                 VStack(alignment: .leading, spacing: 6) {
-                    Image(systemName: habit.emoji)
+                    Image(systemName: smokingEmoji)
                         .font(.system(size: 42))
                         .foregroundStyle(AppGradient.fire)
                     Text(NSLocalizedString("onboarding_setup_title", comment: ""))
@@ -114,18 +116,18 @@ struct HabitSetupView: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .onAppear {
-            habitName = habit.key == "onboarding_custom" ? "" : NSLocalizedString(habit.key, comment: "")
+            habitName = smokingName
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) { appeared = true }
         }
     }
 
     private var resolvedName: String {
-        habitName.trimmingCharacters(in: .whitespaces).isEmpty ? habit.name : habitName
+        habitName.trimmingCharacters(in: .whitespaces).isEmpty ? smokingName : habitName
     }
 
     private func saveAndLaunch() {
         let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) ?? 0
-        let new = Habit(name: resolvedName, emoji: habit.emoji, streakStart: quitDate,
+        let new = Habit(name: resolvedName, emoji: smokingEmoji, streakStart: quitDate,
                         dailyCostAmount: cost, currencySymbol: selectedCurrency)
         modelContext.insert(new)
         try? modelContext.save()

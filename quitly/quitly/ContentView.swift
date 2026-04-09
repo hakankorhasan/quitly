@@ -5,9 +5,11 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct ContentView: View {
     @Environment(AppState.self) private var appState
+    @Environment(PremiumManager.self) private var premiumManager
     @Query private var habits: [Habit]
     @AppStorage("setupComplete") private var setupComplete = false
 
@@ -34,5 +36,16 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut(duration: 0.4), value: setupComplete)
+        .onAppear {
+            if let first = habits.first(where: { $0.isActive }) {
+                writeHabitToWidget(first, premiumManager: premiumManager)
+            }
+        }
+        .onChange(of: habits) {
+            if let first = habits.first(where: { $0.isActive }) {
+                writeHabitToWidget(first, premiumManager: premiumManager)
+            }
+        }
     }
 }
+

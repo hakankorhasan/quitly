@@ -12,7 +12,6 @@ final class AppState {
     var showingMotivation = false
     var motivationalQuote = ""
     var showingRelapseSupport = false
-    var showingAddHabit = false
     var showingPaywall = false
 
     private var lastQuoteIndex = -1

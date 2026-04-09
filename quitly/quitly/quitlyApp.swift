@@ -8,7 +8,8 @@ import SwiftData
 
 @main
 struct quitlyApp: App {
-    @State private var appState = AppState()
+    @State private var appState      = AppState()
+    @State private var premiumManager = PremiumManager()
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Habit.self])
@@ -24,6 +25,7 @@ struct quitlyApp: App {
         WindowGroup {
             ContentView()
                 .environment(appState)
+                .environment(premiumManager)
                 .preferredColorScheme(.dark)
         }
         .modelContainer(sharedModelContainer)
