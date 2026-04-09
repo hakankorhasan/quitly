@@ -68,6 +68,7 @@ struct HomeView: View {
                     // Cards
                     VStack(spacing: 16) {
                         MoneySavedView(habit: habit)
+                        SavingsChartView(habit: habit)
                         HealthMilestonesView(habit: habit)
                     }
                     .padding(.horizontal, 20)

@@ -56,6 +56,9 @@
     "A an example control that runs a timer." : {
 
     },
+    "Amount" : {
+
+    },
     "app_name" : {
       "localizations" : {
         "en" : {
@@ -71,6 +74,12 @@
           }
         }
       }
+    },
+    "Day" : {
+
+    },
+    "Day %lld" : {
+
     },
     "home_daily_cost" : {
       "localizations" : {
@@ -196,6 +205,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kurtarılan Para"
+          }
+        }
+      }
+    },
+    "home_savings_chart_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Projected Wealth (30 Days)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorro Proyectado (30 Días)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "30 Günlük Tasarruf Projeksiyonu"
           }
         }
       }
