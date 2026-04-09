@@ -8,9 +8,6 @@ import SwiftUI
 struct HomeView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
-    @State private var flamePulse = false
-    @State private var showingRewardsStore = false
-    @State private var showingInsights = false
     @AppStorage("hasSeenWelcomeScreen") private var welcomeShown = false
 
     var body: some View {
@@ -26,10 +23,10 @@ struct HomeView: View {
                 .offset(x: 60, y: -120)
 
             Circle()
-                .fill(Color.purpleAccent.opacity(0.07))
+                .fill(Color.purpleAccent.opacity(0.06))
                 .frame(width: 280, height: 280)
                 .blur(radius: 90)
-                .offset(x: -80, y: 400)
+                .offset(x: -80, y: 380)
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -49,86 +46,31 @@ struct HomeView: View {
                                 .foregroundStyle(Color.textSecondary)
                         }
                         Spacer()
-                        HStack(spacing: 4) {
-                            Button {
-                                showingInsights = true
-                            } label: {
-                                Image(systemName: "chart.xyaxis.line")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color.textSecondary)
-                                    .frame(width: 44, height: 44)
-                            }
-                            
-                            Button {
-                                appState.showingSettings = true
-                            } label: {
-                                Image(systemName: "gearshape.fill")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color.textSecondary)
-                                    .frame(width: 44, height: 44)
-                            }
+                        Button {
+                            appState.showingSettings = true
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color.textSecondary)
+                                .frame(width: 44, height: 44)
                         }
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 16)
-                    .padding(.bottom, 16)
+                    .padding(.bottom, 8)
 
                     // Streak Counter
                     StreakCounterView(habit: habit)
                         .padding(.top, 8)
-                        .padding(.bottom, 32)
+                        .padding(.bottom, 28)
 
-                    // Cards
+                    // Daily Motivation Card
                     VStack(spacing: 16) {
-                        MoneySavedView(habit: habit)
-                        
-                        // Rewards Store Launcher
-                        Button {
-                            showingRewardsStore = true
-                        } label: {
-                            HStack {
-                                ZStack {
-                                    Circle().fill(Color.greenClean.opacity(0.15)).frame(width: 40, height: 40)
-                                    Image(systemName: "gift.fill")
-                                        .font(.system(size: 18))
-                                        .foregroundStyle(Color.greenClean)
-                                }
-                                
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(NSLocalizedString("rewards_store_title", comment: ""))
-                                        .font(.system(size: 16, weight: .bold, design: .rounded))
-                                        .foregroundStyle(.white)
-                                    
-                                    let affordable = habit.rewards.filter { !$0.isPurchased && habit.moneySaved >= $0.price }.count
-                                    if affordable > 0 {
-                                        Text("\(affordable) rewards available!")
-                                            .font(.system(size: 13, weight: .medium, design: .rounded))
-                                            .foregroundStyle(Color.greenClean)
-                                    } else {
-                                        Text("Set a goal & treat yourself")
-                                            .font(.system(size: 13, weight: .regular, design: .rounded))
-                                            .foregroundStyle(Color.textSecondary)
-                                    }
-                                }
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .bold))
-                                    .foregroundStyle(Color.textMuted)
-                            }
-                            .padding(16)
-                            .glassCard(cornerRadius: 24)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 24)
-                                    .stroke(Color.greenClean.opacity(0.3), lineWidth: 1)
-                            )
-                        }
-                        .buttonStyle(.plain)
+                        DailyMotivationCardView()
                     }
                     .padding(.horizontal, 20)
 
-                    Spacer().frame(height: 36)
+                    Spacer().frame(height: 32)
 
                     // Action Buttons
                     VStack(spacing: 14) {
@@ -151,7 +93,7 @@ struct HomeView: View {
                         .buttonStyle(GhostButtonStyle())
                     }
 
-                    Spacer().frame(height: 56)
+                    Spacer().frame(height: 100) // Tab bar clearance
                 }
             }
 
@@ -168,7 +110,7 @@ struct HomeView: View {
                     Spacer()
                     RelapseSuportBanner()
                         .padding(.horizontal, 20)
-                        .padding(.bottom, 100)
+                        .padding(.bottom, 120)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
                 .zIndex(10)
@@ -195,12 +137,6 @@ struct HomeView: View {
         .sheet(isPresented: $state.showingSettings) {
             SettingsView(habit: habit)
                 .presentationBackground(Color(red: 0.08, green: 0.08, blue: 0.13))
-        }
-        .sheet(isPresented: $showingRewardsStore) {
-            RewardsStoreView(habit: habit)
-        }
-        .sheet(isPresented: $showingInsights) {
-            InsightsView(habit: habit)
         }
     }
 }

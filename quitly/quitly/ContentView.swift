@@ -24,7 +24,7 @@ struct ContentView: View {
                 } else {
                     TabView {
                         ForEach(activeHabits) { habit in
-                            HomeView(habit: habit)
+                            MainTabView(habit: habit)
                                 .tag(habit.id)
                         }
                     }
