@@ -9,6 +9,7 @@ struct HomeView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
     @State private var flamePulse = false
+    @State private var showingRewardsStore = false
     @AppStorage("hasSeenWelcomeScreen") private var welcomeShown = false
 
     var body: some View {
@@ -57,7 +58,7 @@ struct HomeView: View {
                         }
                     }
                     .padding(.horizontal, 24)
-                    .padding(.top, 60)
+                    .padding(.top, 16)
                     .padding(.bottom, 16)
 
                     // Streak Counter
@@ -68,6 +69,51 @@ struct HomeView: View {
                     // Cards
                     VStack(spacing: 16) {
                         MoneySavedView(habit: habit)
+                        
+                        // Rewards Store Launcher
+                        Button {
+                            showingRewardsStore = true
+                        } label: {
+                            HStack {
+                                ZStack {
+                                    Circle().fill(Color.greenClean.opacity(0.15)).frame(width: 40, height: 40)
+                                    Image(systemName: "gift.fill")
+                                        .font(.system(size: 18))
+                                        .foregroundStyle(Color.greenClean)
+                                }
+                                
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(NSLocalizedString("rewards_store_title", comment: ""))
+                                        .font(.system(size: 16, weight: .bold, design: .rounded))
+                                        .foregroundStyle(.white)
+                                    
+                                    let affordable = habit.rewards.filter { !$0.isPurchased && habit.moneySaved >= $0.price }.count
+                                    if affordable > 0 {
+                                        Text("\(affordable) rewards available!")
+                                            .font(.system(size: 13, weight: .medium, design: .rounded))
+                                            .foregroundStyle(Color.greenClean)
+                                    } else {
+                                        Text("Set a goal & treat yourself")
+                                            .font(.system(size: 13, weight: .regular, design: .rounded))
+                                            .foregroundStyle(Color.textSecondary)
+                                    }
+                                }
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 14, weight: .bold))
+                                    .foregroundStyle(Color.textMuted)
+                            }
+                            .padding(16)
+                            .glassCard(cornerRadius: 24)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 24)
+                                    .stroke(Color.greenClean.opacity(0.3), lineWidth: 1)
+                            )
+                        }
+                        .buttonStyle(.plain)
+
                         SavingsChartView(habit: habit)
                         HealthMilestonesView(habit: habit)
                     }
@@ -140,6 +186,9 @@ struct HomeView: View {
         .sheet(isPresented: $state.showingSettings) {
             SettingsView(habit: habit)
                 .presentationBackground(Color(red: 0.08, green: 0.08, blue: 0.13))
+        }
+        .sheet(isPresented: $showingRewardsStore) {
+            RewardsStoreView(habit: habit)
         }
     }
 }

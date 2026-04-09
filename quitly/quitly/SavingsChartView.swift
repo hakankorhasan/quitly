@@ -65,28 +65,25 @@ struct SavingsChartView: View {
             
             Chart {
                 ForEach(chartData) { point in
-                    let actualAmount = animateChart ? point.amount : 0.0
-                    
                     AreaMark(
                         x: .value("Day", point.day),
-                        y: .value("Amount", actualAmount)
+                        y: .value("Amount", point.amount)
                     )
                     .foregroundStyle(chartGradient)
                     
                     LineMark(
                         x: .value("Day", point.day),
-                        y: .value("Amount", actualAmount)
+                        y: .value("Amount", point.amount)
                     )
                     .foregroundStyle(AppGradient.green)
                     .lineStyle(chartStroke)
                 }
                 
-                // Moved OUTSIDE the ForEach loop so compiler doesn't choke on inline logic
-                if let currentPoint = chartData.first(where: { $0.day == habit.streakDays }) {
-                    let actualAmount = animateChart ? currentPoint.amount : 0.0
+                // Keep the PointMark out of the loop
+                if habit.streakDays > 0, let currentPoint = chartData.first(where: { $0.day == habit.streakDays }) {
                     PointMark(
                         x: .value("Day", currentPoint.day),
-                        y: .value("Amount", actualAmount)
+                        y: .value("Amount", currentPoint.amount)
                     )
                     .foregroundStyle(.white)
                     .symbolSize(100)
@@ -108,10 +105,20 @@ struct SavingsChartView: View {
                 }
             }
             .chartYAxis(.hidden)
+            .chartPlotStyle { plotContent in
+                plotContent
+                    .mask(alignment: .leading) {
+                        GeometryReader { geo in
+                            Rectangle()
+                                .frame(width: animateChart ? geo.size.width : 0)
+                        }
+                    }
+            }
             .frame(height: 140)
             .chartYScale(domain: [0.0, (habit.dailyCostAmount * 30.0) * 1.1])
             .onAppear {
-                withAnimation(.easeOut(duration: 1.5).delay(0.2)) {
+                // Slower, smooth drawing effect left-to-right
+                withAnimation(.easeInOut(duration: 2.0).delay(0.3)) {
                     animateChart = true
                 }
             }

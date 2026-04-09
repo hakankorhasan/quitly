@@ -14,7 +14,6 @@ struct PaywallView: View {
         ("crown.fill",           .goldAccent,   "paywall_feature_habits",   "paywall_feature_habits_desc"),
         ("shield.checkered",     .purpleAccent, "paywall_feature_streak",   "paywall_feature_streak_desc"),
         ("chart.bar.fill",       .greenClean,   "paywall_feature_insights", "paywall_feature_insights_desc"),
-        ("paintbrush.fill",      .fireOrange,   "paywall_feature_themes",   "paywall_feature_themes_desc"),
         ("rectangle.grid.2x2.fill", .purpleAccent, "paywall_feature_widgets", "paywall_feature_widgets_desc"),
     ]
 

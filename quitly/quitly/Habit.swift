@@ -16,6 +16,9 @@ final class Habit {
     var currencySymbol: String
     var isActive: Bool
     var createdAt: Date
+    
+    @Relationship(deleteRule: .cascade, inverse: \Reward.habit)
+    var rewards: [Reward] = []
 
     init(
         name: String,
@@ -46,8 +49,7 @@ final class Habit {
     }
 
     var moneySaved: Double {
-        let days = max(0, Date().timeIntervalSince(streakStart)) / 86400
-        return days * dailyCostAmount
+        return Double(streakDays) * dailyCostAmount
     }
 
     var formattedMoneySaved: String {
