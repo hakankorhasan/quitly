@@ -10,6 +10,7 @@ struct HomeView: View {
     @Environment(AppState.self) private var appState
     @State private var flamePulse = false
     @State private var showingRewardsStore = false
+    @State private var showingInsights = false
     @AppStorage("hasSeenWelcomeScreen") private var welcomeShown = false
 
     var body: some View {
@@ -48,13 +49,24 @@ struct HomeView: View {
                                 .foregroundStyle(Color.textSecondary)
                         }
                         Spacer()
-                        Button {
-                            appState.showingSettings = true
-                        } label: {
-                            Image(systemName: "gearshape.fill")
-                                .font(.system(size: 20, weight: .medium))
-                                .foregroundStyle(Color.textSecondary)
-                                .frame(width: 44, height: 44)
+                        HStack(spacing: 4) {
+                            Button {
+                                showingInsights = true
+                            } label: {
+                                Image(systemName: "chart.xyaxis.line")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color.textSecondary)
+                                    .frame(width: 44, height: 44)
+                            }
+                            
+                            Button {
+                                appState.showingSettings = true
+                            } label: {
+                                Image(systemName: "gearshape.fill")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color.textSecondary)
+                                    .frame(width: 44, height: 44)
+                            }
                         }
                     }
                     .padding(.horizontal, 24)
@@ -113,9 +125,6 @@ struct HomeView: View {
                             )
                         }
                         .buttonStyle(.plain)
-
-                        SavingsChartView(habit: habit)
-                        HealthMilestonesView(habit: habit)
                     }
                     .padding(.horizontal, 20)
 
@@ -189,6 +198,9 @@ struct HomeView: View {
         }
         .sheet(isPresented: $showingRewardsStore) {
             RewardsStoreView(habit: habit)
+        }
+        .sheet(isPresented: $showingInsights) {
+            InsightsView(habit: habit)
         }
     }
 }

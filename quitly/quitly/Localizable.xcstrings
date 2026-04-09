@@ -354,7 +354,11 @@
         }
       }
     },
+    "insights_title" : {
+
+    },
     "milestone_1m_desc" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -371,6 +375,7 @@
       }
     },
     "milestone_1m_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -419,6 +424,7 @@
       }
     },
     "milestone_1y_desc" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -435,6 +441,7 @@
       }
     },
     "milestone_1y_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -483,6 +490,7 @@
       }
     },
     "milestone_3m_desc" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -499,6 +507,7 @@
       }
     },
     "milestone_3m_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

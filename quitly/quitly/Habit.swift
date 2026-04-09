@@ -62,13 +62,13 @@ final class Habit {
 
     var nextMilestoneHours: Double {
         let elapsed = streakHoursTotal
-        let thresholds: [Double] = [0.333, 8, 24, 48, 72, 168, 336, 720, 2160, 8760]
-        return thresholds.first(where: { $0 > elapsed }) ?? 8760
+        let thresholds = HealthMilestone.all.map { $0.hours }
+        return thresholds.first(where: { $0 > elapsed }) ?? thresholds.last!
     }
 
     var milestoneProgress: Double {
         let elapsed = streakHoursTotal
-        let thresholds: [Double] = [0, 0.333, 8, 24, 48, 72, 168, 336, 720, 2160, 8760]
+        let thresholds = [0.0] + HealthMilestone.all.map { $0.hours }
         guard let nextIdx = thresholds.firstIndex(where: { $0 > elapsed }), nextIdx > 0 else {
             return 1.0
         }
