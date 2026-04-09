@@ -120,9 +120,11 @@ struct RewardsStoreView: View {
     
     private var emptyStateView: some View {
         VStack(spacing: 20) {
-            Image(systemName: "bag.badge.plus")
-                .font(.system(size: 60))
-                .foregroundStyle(Color.textMuted)
+            Image("gift-box")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+                .opacity(0.8)
             Text("No rewards yet!")
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .foregroundStyle(Color.textPrimary)

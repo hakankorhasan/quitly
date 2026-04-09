@@ -12,14 +12,15 @@ struct HealthMilestone: Identifiable {
     let titleKey: String
     let descKey: String
     let color: Color
+    var isCustomIcon: Bool = false
 }
 
 extension HealthMilestone {
     static let all: [HealthMilestone] = [
-        .init(hours: 0.333, icon: "heart.fill", titleKey: "milestone_20min_title", descKey: "milestone_20min_desc", color: .fireOrange),
-        .init(hours: 8,     icon: "drop.fill",  titleKey: "milestone_8hr_title",   descKey: "milestone_8hr_desc",   color: .purpleAccent),
-        .init(hours: 24,    icon: "bolt.heart.fill", titleKey: "milestone_24hr_title",  descKey: "milestone_24hr_desc",  color: .fireOrange),
-        .init(hours: 48,    icon: "eye.fill",   titleKey: "milestone_48hr_title",  descKey: "milestone_48hr_desc",  color: .purpleAccent),
+        .init(hours: 0.333, icon: "heart_attack", titleKey: "milestone_20min_title", descKey: "milestone_20min_desc", color: .fireOrange, isCustomIcon: true),
+        .init(hours: 8,     icon: "oxygen_block", titleKey: "milestone_8hr_title",   descKey: "milestone_8hr_desc",   color: .purpleAccent, isCustomIcon: true),
+        .init(hours: 24,    icon: "energy_flash", titleKey: "milestone_24hr_title",  descKey: "milestone_24hr_desc",  color: .fireOrange, isCustomIcon: true),
+        .init(hours: 48,    icon: "lungs",        titleKey: "milestone_48hr_title",  descKey: "milestone_48hr_desc",  color: .purpleAccent, isCustomIcon: true),
         .init(hours: 72,    icon: "lungs.fill", titleKey: "milestone_72hr_title",  descKey: "milestone_72hr_desc",  color: .greenClean),
         
         .init(hours: 168,   icon: "star.fill",   titleKey: "milestone_1w_title",   descKey: "milestone_1w_desc",   color: .greenClean),

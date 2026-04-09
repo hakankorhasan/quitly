@@ -69,10 +69,19 @@ private struct MilestoneCard: View {
                         .frame(width: 52, height: 52)
                 }
 
-                Image(systemName: milestone.icon)
-                    .font(.system(size: 20))
-                    .foregroundStyle(isUnlocked ? milestone.color : Color.textMuted)
-                    .opacity(isUnlocked ? 1.0 : 0.6)
+                if milestone.isCustomIcon {
+                    Image(milestone.icon)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
+                        .foregroundStyle(isUnlocked ? milestone.color : Color.textMuted)
+                        .opacity(isUnlocked ? 1.0 : 0.6)
+                } else {
+                    Image(systemName: milestone.icon)
+                        .font(.system(size: 20))
+                        .foregroundStyle(isUnlocked ? milestone.color : Color.textMuted)
+                        .opacity(isUnlocked ? 1.0 : 0.6)
+                }
             }
 
             // Time label

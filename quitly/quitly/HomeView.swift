@@ -9,6 +9,7 @@ struct HomeView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
     @AppStorage("hasSeenWelcomeScreen") private var welcomeShown = false
+    @State private var showingRewardsStore = false
 
     var body: some View {
         @Bindable var state = appState
@@ -17,16 +18,22 @@ struct HomeView: View {
 
             // Background glow blobs
             Circle()
-                .fill(Color.fireOrange.opacity(0.08))
-                .frame(width: 340, height: 340)
+                .fill(Color.fireOrange.opacity(0.09))
+                .frame(width: 360, height: 360)
                 .blur(radius: 90)
-                .offset(x: 60, y: -120)
+                .offset(x: 70, y: -130)
 
             Circle()
-                .fill(Color.purpleAccent.opacity(0.06))
-                .frame(width: 280, height: 280)
+                .fill(Color.purpleAccent.opacity(0.07))
+                .frame(width: 300, height: 300)
                 .blur(radius: 90)
-                .offset(x: -80, y: 380)
+                .offset(x: -90, y: 420)
+
+            Circle()
+                .fill(Color.goldAccent.opacity(0.05))
+                .frame(width: 220, height: 220)
+                .blur(radius: 70)
+                .offset(x: 120, y: 320)
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
@@ -59,20 +66,31 @@ struct HomeView: View {
                     .padding(.top, 16)
                     .padding(.bottom, 8)
 
-                    // Streak Counter
-                    StreakCounterView(habit: habit)
+                    // ── Hero: Streak circle + Timer + Money ───────────
+                    StreakHeroView(habit: habit)
                         .padding(.top, 8)
                         .padding(.bottom, 28)
 
-                    // Daily Motivation Card
-                    VStack(spacing: 16) {
+                    // ── Cards ─────────────────────────────────────────
+                    VStack(spacing: 14) {
+                        // Mood check-in (always visible)
+                        MoodCheckInView(habit: habit)
+
+                        // Daily motivation quote
                         DailyMotivationCardView()
+
+                        // Next reward progress (only if rewards exist)
+                        if !habit.rewards.isEmpty {
+                            NextRewardProgressView(habit: habit, onTap: {
+                                showingRewardsStore = true
+                            })
+                        }
                     }
                     .padding(.horizontal, 20)
 
-                    Spacer().frame(height: 32)
+                    Spacer().frame(height: 28)
 
-                    // Action Buttons
+                    // ── Action Buttons ────────────────────────────────
                     VStack(spacing: 14) {
                         Button {
                             let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -93,7 +111,7 @@ struct HomeView: View {
                         .buttonStyle(GhostButtonStyle())
                     }
 
-                    Spacer().frame(height: 100) // Tab bar clearance
+                    Spacer().frame(height: 110) // Tab bar clearance
                 }
             }
 
@@ -137,6 +155,10 @@ struct HomeView: View {
         .sheet(isPresented: $state.showingSettings) {
             SettingsView(habit: habit)
                 .presentationBackground(Color(red: 0.08, green: 0.08, blue: 0.13))
+        }
+        .sheet(isPresented: $showingRewardsStore) {
+            RewardsStoreView(habit: habit)
+                .presentationBackground(AppGradient.background)
         }
     }
 }

@@ -7,6 +7,7 @@ import SwiftUI
 
 struct NextRewardProgressView: View {
     let habit: Habit
+    var onTap: (() -> Void)? = nil
     @State private var showingRewardsStore = false
     @State private var animateBar = false
 
@@ -30,7 +31,11 @@ struct NextRewardProgressView: View {
 
     var body: some View {
         Button {
-            showingRewardsStore = true
+            if let onTap {
+                onTap()
+            } else {
+                showingRewardsStore = true
+            }
         } label: {
             VStack(spacing: 14) {
                 if let reward = nextReward {
@@ -40,9 +45,10 @@ struct NextRewardProgressView: View {
                             Circle()
                                 .fill(Color.greenClean.opacity(0.15))
                                 .frame(width: 38, height: 38)
-                            Image(systemName: reward.iconName)
-                                .font(.system(size: 16, weight: .medium))
-                                .foregroundStyle(Color.greenClean)
+                            Image("gift-box")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 22, height: 22)
                         }
 
                         VStack(alignment: .leading, spacing: 2) {
@@ -110,9 +116,10 @@ struct NextRewardProgressView: View {
                             Circle()
                                 .fill(Color.purpleAccent.opacity(0.12))
                                 .frame(width: 38, height: 38)
-                            Image(systemName: "gift")
-                                .font(.system(size: 16))
-                                .foregroundStyle(Color.purpleAccent)
+                            Image("gift-box")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
                         }
 
                         VStack(alignment: .leading, spacing: 2) {
@@ -152,6 +159,7 @@ struct NextRewardProgressView: View {
         }
         .sheet(isPresented: $showingRewardsStore) {
             RewardsStoreView(habit: habit)
+                .presentationBackground(AppGradient.background)
         }
     }
 }

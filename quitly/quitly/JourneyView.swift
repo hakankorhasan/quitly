@@ -53,16 +53,21 @@ struct JourneyView: View {
                         HealthMilestonesView(habit: habit)
 
                         // Ödül İlerleme Kartı
-                        NextRewardProgressView(habit: habit)
+                        NextRewardProgressView(habit: habit, onTap: {
+                            showingRewardsStore = true
+                        })
 
                         // Ödül Mağazası Butonu (Ödül varsa göster)
                         if !habit.rewards.isEmpty {
                             rewardsStoreButton
                         }
+
+                        // Önceki Denemeler (Relapse geçmişi)
+                        PreviousAttemptsView(habit: habit)
                     }
                     .padding(.horizontal, 20)
 
-                    Spacer().frame(height: 56)
+                    Spacer().frame(height: 110) // Tab bar clearance
                 }
             }
         }
@@ -78,9 +83,10 @@ struct JourneyView: View {
             HStack(spacing: 12) {
                 ZStack {
                     Circle().fill(Color.greenClean.opacity(0.15)).frame(width: 40, height: 40)
-                    Image(systemName: "gift.fill")
-                        .font(.system(size: 17))
-                        .foregroundStyle(Color.greenClean)
+                    Image("gift-box")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
                 }
 
                 VStack(alignment: .leading, spacing: 2) {

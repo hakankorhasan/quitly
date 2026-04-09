@@ -5,6 +5,10 @@
 
 import SwiftUI
 
+extension Notification.Name {
+    static let relapseConfirmed = Notification.Name("quitly.relapseConfirmed")
+}
+
 @Observable
 final class AppState {
     var showingRelapse = false
@@ -27,6 +31,20 @@ final class AppState {
     }
 
     func confirmRelapse(habit: Habit) {
+        // Mevcut streak'i kaydet
+        let record = RelapseRecord(
+            id: UUID(),
+            habitId: habit.id,
+            streakStart: habit.streakStart,
+            relapseDate: Date(),
+            streakDays: habit.streakDays
+        )
+        RelapseStore.shared.save(record: record)
+
+        // Journey tab'ını haberdar et
+        NotificationCenter.default.post(name: .relapseConfirmed, object: nil)
+
+        // Streak'i sıfırla
         habit.streakStart = Date()
         showingRelapse = false
         withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {

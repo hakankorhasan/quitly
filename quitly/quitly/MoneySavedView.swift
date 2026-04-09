@@ -15,9 +15,11 @@ struct MoneySavedView: View {
                 Circle()
                     .fill(AppGradient.gold)
                     .frame(width: 48, height: 48)
-                Image(systemName: "banknote.fill")
-                    .font(.system(size: 20))
-                    .foregroundStyle(.white)
+                Image("wallet")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                    .opacity(0.9)
             }
 
             VStack(alignment: .leading, spacing: 4) {
