@@ -19,6 +19,7 @@ struct HabitSetupView: View {
     let habit: (emoji: String, name: String, key: String)
 
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @AppStorage("setupComplete") private var setupComplete = false
 
     @State private var habitName: String = ""
@@ -129,6 +130,7 @@ struct HabitSetupView: View {
         modelContext.insert(new)
         try? modelContext.save()
         withAnimation { setupComplete = true }
+        dismiss()
     }
 
     @ViewBuilder

@@ -32,6 +32,14 @@ struct HomeView: View {
                 VStack(spacing: 0) {
                     // Top Bar
                     HStack {
+                        Button {
+                            appState.showingAddHabit = true
+                        } label: {
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color.textSecondary)
+                                .frame(width: 44, height: 44)
+                        }
                         VStack(alignment: .leading, spacing: 2) {
                             HStack(spacing: 6) {
                                 Image(systemName: habit.emoji)
@@ -127,6 +135,9 @@ struct HomeView: View {
         .sheet(isPresented: $state.showingSettings) {
             SettingsView(habit: habit)
                 .presentationBackground(Color(red: 0.08, green: 0.08, blue: 0.13))
+        }
+        .fullScreenCover(isPresented: $state.showingAddHabit) {
+            OnboardingView(isAddingHabit: true)
         }
     }
 }

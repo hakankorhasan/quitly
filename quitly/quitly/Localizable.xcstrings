@@ -47,6 +47,9 @@
         }
       }
     },
+    "•" : {
+
+    },
     "0" : {
 
     },
@@ -719,6 +722,4606 @@
         }
       }
     },
+    "mq_quote_0" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve come too far to quit now. Don’t let a moment destroy your progress."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has llegado demasiado lejos para rendirte ahora. No dejes que un momento destruya tu progreso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdi bırakmak için çok fazla yol kat ettin. Bir anlık zayıflığın ilerlemeni mahvetmesine izin verme."
+          }
+        }
+      }
+    },
+    "mq_quote_1" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every day you stay strong, you’re building a better version of yourself."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada día que te mantienes fuerte, estás construyendo una mejor versión de ti mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü kaldığın her gün, kendinin daha iyi bir versiyonunu inşa ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_2" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This streak is proof of your discipline. Don’t break it for a temporary feeling."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esta racha es prueba de tu disciplina. No la rompas por un sentimiento temporal.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu seri senin disiplininin kanıtı. Geçici bir his için onu bozma."
+          }
+        }
+      }
+    },
+    "mq_quote_3" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You didn’t come this far just to start over again. Keep going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No llegaste tan lejos solo para empezar de nuevo. Sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buraya kadar sadece en baştan başlamak için gelmedin. Devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_4" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress is slow, but losing it is instant. Protect what you’ve built."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El progreso es lento, pero perderlo es instantáneo. Protege lo que has construido.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İlerleme yavaştır, ancak onu kaybetmek an meselesidir. İnşa ettiğin şeyi koru."
+          }
+        }
+      }
+    },
+    "mq_quote_5" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One bad decision can reset everything. Stay in control right now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Una mala decisión puede reiniciar todo. Mantén el control ahora mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kötü bir karar her şeyi sıfırlayabilir. Şu an kontrolü elinde tut."
+          }
+        }
+      }
+    },
+    "mq_quote_6" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your future self will thank you for staying strong in this moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tu yo del futuro te agradecerá por mantenerte fuerte en este momento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelecekteki sen, şu an güçlü kaldığın için sana teşekkür edecek."
+          }
+        }
+      }
+    },
+    "mq_quote_7" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is where most people quit. Don’t be like most people."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Aquí es donde la mayoría se rinde. No seas como la mayoría.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çoğu insanın pes ettiği yer burası. Çoğu insan gibi olma."
+          }
+        }
+      }
+    },
+    "mq_quote_8" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are closer than ever to becoming who you want to be."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás más cerca que nunca de convertirte en quien quieres ser.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olmak istediğin kişiye hiç olmadığın kadar yakınsın."
+          }
+        }
+      }
+    },
+    "mq_quote_9" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every extra day matters more than you think. Don’t stop now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada día extra importa más de lo que crees. No te detengas ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her fazladan gün düşündüğünden daha önemli. Şimdi durma."
+          }
+        }
+      }
+    },
+    "mq_quote_10" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This urge feels strong, but it will pass faster than you think. Stay patient."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este impulso se siente fuerte, pero pasará más rápido de lo que crees. Sé paciente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu dürtü güçlü hissettiriyor ama düşündüğünden daha hızlı geçecek. Sabırlı ol."
+          }
+        }
+      }
+    },
+    "mq_quote_11" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t actually need it, your brain is just asking for comfort."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"En realidad no lo necesitas, tu cerebro solo pide comodidad.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aslında buna ihtiyacın yok, beynin sadece rahatlık arıyor."
+          }
+        }
+      }
+    },
+    "mq_quote_12" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urges are temporary, but regret lasts much longer. Choose wisely."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Los impulsos son temporales, pero el arrepentimiento dura mucho más. Elige sabiamente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dürtüler geçicidir ama pişmanlık çok daha uzun sürer. Seçimini akıllıca yap."
+          }
+        }
+      }
+    },
+    "mq_quote_13" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Give yourself 10 minutes. Most urges disappear if you wait."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Date 10 minutos. La mayoría de los impulsos desaparecen si esperas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kendine 10 dakika ver. Beklersen çoğu dürtü kaybolur."
+          }
+        }
+      }
+    },
+    "mq_quote_14" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are in control, not your cravings. Remember that."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tú tienes el control, no tus antojos. Recuérdalo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrol senin elinde, arzularının değil. Bunu unutma."
+          }
+        }
+      }
+    },
+    "mq_quote_15" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just because you feel it doesn’t mean you have to act on it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Solo porque lo sientas no significa que debas actuar en consecuencia.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sırf hissediyorsun diye ona göre hareket etmek zorunda değilsin."
+          }
+        }
+      }
+    },
+    "mq_quote_16" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is just your mind testing you. Don’t fail the test."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esto es solo tu mente poniéndote a prueba. No repruebes la prueba.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu sadece zihninin seni test etmesi. Sınavda başarısız olma."
+          }
+        }
+      }
+    },
+    "mq_quote_17" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The urge is loud, but your discipline must be louder."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El impulso es ruidoso, pero tu disciplina debe serlo aún más.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dürtünün sesi yüksek olabilir ama disiplininin sesi daha yüksek olmalı."
+          }
+        }
+      }
+    },
+    "mq_quote_18" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause, breathe, and let this moment pass. You’ve done it before."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Haz una pausa, respira y deja pasar este momento. Ya lo has hecho antes.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durakla, nefes al ve bu anın geçmesine izin ver. Bunu daha önce yaptın."
+          }
+        }
+      }
+    },
+    "mq_quote_19" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve beaten this feeling before. You can do it again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has vencido este sentimiento antes. Puedes hacerlo de nuevo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu hissi daha önce yendin. Tekrar yapabilirsin."
+          }
+        }
+      }
+    },
+    "mq_quote_20" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are becoming someone who doesn’t give in easily. Keep proving it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Te estás convirtiendo en alguien que no cede fácilmente. Sigue demostrándolo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kolayca pes etmeyen birine dönüşüyorsun. Bunu kanıtlamaya devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_21" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discipline is doing what needs to be done, even when you don’t feel like it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La disciplina es hacer lo que se debe hacer, incluso cuando no tienes ganas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disiplin, canın istemese bile yapılması gerekeni yapmaktır."
+          }
+        }
+      }
+    },
+    "mq_quote_22" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is your moment to prove how strong you really are."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este es tu momento de demostrar lo fuerte que realmente eres.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçekte ne kadar güçlü olduğunu kanıtlama anın işte bu."
+          }
+        }
+      }
+    },
+    "mq_quote_23" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are not weak. You are in control of your choices."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No eres débil. Tienes el control de tus elecciones.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zayıf değilsin. Seçimlerinin kontrolü sende."
+          }
+        }
+      }
+    },
+    "mq_quote_24" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every time you resist, you build real strength."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada vez que te resistes, construyes verdadera fuerza.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her direndiğinde, gerçek bir güç inşa ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_25" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is how discipline is built—one hard decision at a time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Así se construye la disciplina: una decisión difícil a la vez.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disiplin böyle inşa edilir; her seferinde zor bir karar vererek."
+          }
+        }
+      }
+    },
+    "mq_quote_26" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re not the same person you were before. Don’t go backwards."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya no eres la misma persona que antes. No des marcha atrás.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artık eskisi gibi değilsin. Geriye gitme."
+          }
+        }
+      }
+    },
+    "mq_quote_27" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strong people don’t quit when it gets hard. They push through."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Las personas fuertes no se rinden cuando las cosas se ponen difíciles. Siguen adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü insanlar işler zorlaştığında pes etmezler. Sonuna kadar zorlarlar."
+          }
+        }
+      }
+    },
+    "mq_quote_28" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are training your mind right now. Don’t give up."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás entrenando tu mente en este momento. No te rindas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an zihnini eğitiyorsun. Pes etme."
+          }
+        }
+      }
+    },
+    "mq_quote_29" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is what growth feels like. It’s uncomfortable, but worth it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Así se siente el crecimiento. Es incómodo, pero vale la pena.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Büyümek böyle hissettirir. Rahatsız edicidir ama buna değer."
+          }
+        }
+      }
+    },
+    "mq_quote_30" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It’s not worth it. It never was, and it never will be."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No vale la pena. Nunca lo fue y nunca lo será.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buna değmez. Hiçbir zaman değmedi ve hiçbir zaman da değmeyecek."
+          }
+        }
+      }
+    },
+    "mq_quote_31" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ll regret it later. Stay strong now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Te arrepentirás más tarde. Mantente fuerte ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonra pişman olacaksın. Şimdi güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_32" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment will pass, but your decision will stay with you."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento pasará, pero tu decisión se quedará contigo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu an geçecek ama kararın seninle kalacak."
+          }
+        }
+      }
+    },
+    "mq_quote_33" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You know exactly how you’ll feel after giving in. Don’t do it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sabes exactamente cómo te sentirás si cedes. No lo hagas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pes ettikten sonra nasıl hissedeceğini çok iyi biliyorsun. Bunu yapma."
+          }
+        }
+      }
+    },
+    "mq_quote_34" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose pride tomorrow instead of regret tonight."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Elige el orgullo mañana en lugar del arrepentimiento esta noche.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu geceki pişmanlık yerine yarınki gururu seç."
+          }
+        }
+      }
+    },
+    "mq_quote_35" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t trade your progress for a few minutes of relief."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No cambies tu progreso por unos minutos de alivio.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İlerlemeni birkaç dakikalık rahatlama için feda etme."
+          }
+        }
+      }
+    },
+    "mq_quote_36" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You deserve better than falling back into old habits."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mereces algo mejor que recaer en viejos hábitos.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eski alışkanlıklara geri dönmekten daha iyisini hak ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_37" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong now so you can feel proud later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte ahora para poder sentirte orgulloso después.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha sonra gurur duyabilmek için şimdi güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_38" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is a small moment in a much bigger journey."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este es un pequeño momento en un viaje mucho más grande.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu, çok daha büyük bir yolculukta küçük bir an."
+          }
+        }
+      }
+    },
+    "mq_quote_39" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t let a weak moment define you."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No dejes que un momento de debilidad te defina.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zayıf bir anın seni tanımlamasına izin verme."
+          }
+        }
+      }
+    },
+    "mq_quote_40" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a deep breath. You don’t need to react immediately."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Respira profundo. No necesitas reaccionar de inmediato.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Derin bir nefes al. Hemen tepki vermek zorunda değilsin."
+          }
+        }
+      }
+    },
+    "mq_quote_41" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slow down. This feeling will pass if you give it time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ve más despacio. Este sentimiento pasará si le das tiempo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yavaşla. Zaman verirsen bu his geçecek."
+          }
+        }
+      }
+    },
+    "mq_quote_42" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are safe. You are okay. Just breathe and stay present."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás a salvo. Estás bien. Solo respira y mantente presente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güvendesin. İyisin. Sadece nefes al ve anda kal."
+          }
+        }
+      }
+    },
+    "mq_quote_43" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not every thought deserves a reaction. Let it go."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No todo pensamiento merece una reacción. Déjalo ir.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her düşünce bir tepkiyi hak etmez. Bırak gitsin."
+          }
+        }
+      }
+    },
+    "mq_quote_44" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay calm and observe the feeling without acting on it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén la calma y observa el sentimiento sin actuar.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sakin ol ve harekete geçmeden o hissi gözlemle."
+          }
+        }
+      }
+    },
+    "mq_quote_45" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are not your thoughts. You are the one who controls them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No eres tus pensamientos. Eres quien los controla.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen düşüncelerin değilsin. Sen onları kontrol edensin."
+          }
+        }
+      }
+    },
+    "mq_quote_46" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breathe in strength, breathe out the urge."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Inhala fuerza, exhala el impulso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gücü içine çek, dürtüyü dışarı üfle."
+          }
+        }
+      }
+    },
+    "mq_quote_47" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay grounded. This moment doesn’t control you."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén los pies en la tierra. Este momento no te controla.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayakların yere sağlam bassın. Bu an seni kontrol edemez."
+          }
+        }
+      }
+    },
+    "mq_quote_48" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calm your mind and trust your decision."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Calma tu mente y confía en tu decisión.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zihnini sakinleştir ve kararına güven."
+          }
+        }
+      }
+    },
+    "mq_quote_49" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peace comes from control, not from giving in."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La paz viene del control, no de rendirse.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Huzur pes etmekten değil, kontrolü elinde tutmaktan gelir."
+          }
+        }
+      }
+    },
+    "mq_quote_50" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starting over is harder than continuing. Don’t reset now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Empezar de nuevo es más difícil que continuar. No reinicies ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baştan başlamak, devam etmekten daha zordur. Şimdi sıfırlama."
+          }
+        }
+      }
+    },
+    "mq_quote_51" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You already know where going back leads. Choose forward."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya sabes a dónde lleva mirar atrás. Elige ir hacia adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geriye dönmenin nereye vardığını zaten biliyorsun. İleri gitmeyi seç."
+          }
+        }
+      }
+    },
+    "mq_quote_52" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One mistake can undo days of effort. Stay focused."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Un error puede deshacer días de esfuerzo. Mantente enfocado.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir hata günlerce süren çabayı yok edebilir. Odaklan."
+          }
+        }
+      }
+    },
+    "mq_quote_53" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t break your promise to yourself."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No rompas la promesa que te hiciste.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kendine verdiğin sözü bozma."
+          }
+        }
+      }
+    },
+    "mq_quote_54" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve worked too hard to throw it away now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has trabajado demasiado duro para tirarlo todo por la borda ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdi çöpe atmak için çok fazla çalıştın."
+          }
+        }
+      }
+    },
+    "mq_quote_55" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re not missing anything by saying no."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No te estás perdiendo de nada al decir \\\"no\\\".\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Hayır\" diyerek hiçbir şey kaçırmıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_56" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is just a test. Pass it and move forward."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esto es solo una prueba. Pásala y sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu sadece bir test. Onu geç ve ilerlemeye devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_57" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve made it this far. Don’t sabotage yourself."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has llegado muy lejos. No te sabotees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buraya kadar geldin. Kendi kendini sabote etme."
+          }
+        }
+      }
+    },
+    "mq_quote_58" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The hardest part is right now. Get through it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La parte más difícil es justo ahora. Supérala.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En zor kısım tam olarak şu an. Bunu atlat."
+          }
+        }
+      }
+    },
+    "mq_quote_59" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong for just one more hour."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte por solo una hora más.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sadece bir saat daha güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_60" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve invested time, effort, and energy into this. Don’t waste it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has invertido tiempo, esfuerzo y energía en esto. No lo desperdicies.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buna zaman, çaba ve enerji yatırdın. Boşa harcama."
+          }
+        }
+      }
+    },
+    "mq_quote_61" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your progress has value. Protect it like it matters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tu progreso tiene valor. Protégelo como si importara.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İlerlemenin bir değeri var. Önemliymiş gibi onu koru."
+          }
+        }
+      }
+    },
+    "mq_quote_62" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are saving more than money—you are saving your future."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás ahorrando más que dinero: estás salvando tu futuro.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paradan daha fazlasını biriktiriyorsun; geleceğini kurtarıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_63" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every day you resist, you gain something valuable."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada día que resistes, ganas algo valioso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direndiğin her gün değerli bir şey kazanıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_64" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t throw away something valuable for something temporary."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No tires algo valioso por algo temporal.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geçici bir şey için değerli bir şeyi çöpe atma."
+          }
+        }
+      }
+    },
+    "mq_quote_65" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve already paid the price. Don’t lose the reward."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya has pagado el precio. No pierdas la recompensa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedelini zaten ödedin. Ödülü kaybetme."
+          }
+        }
+      }
+    },
+    "mq_quote_66" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What you’re building is worth more than this moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Lo que estás construyendo vale más que este momento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İnşa ettiğin şey bu andan çok daha değerli."
+          }
+        }
+      }
+    },
+    "mq_quote_67" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay committed to what truly matters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén tu compromiso con lo que realmente importa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçekten önemli olana sadık kal."
+          }
+        }
+      }
+    },
+    "mq_quote_68" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your future is more important than this urge."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tu futuro es más importante que este impulso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geleceğin bu dürtüden daha önemli."
+          }
+        }
+      }
+    },
+    "mq_quote_69" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t trade long-term success for short-term comfort."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No cambies el éxito a largo plazo por la comodidad a corto plazo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uzun vadeli başarıyı kısa vadeli rahatlığa değişme."
+          }
+        }
+      }
+    },
+    "mq_quote_70" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re building momentum. Don’t break it now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás ganando impulso. No lo rompas ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir ivme kazanıyorsun. Şimdi bunu bozma."
+          }
+        }
+      }
+    },
+    "mq_quote_71" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep the streak alive, it’s getting stronger every day."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén la racha viva, se hace más fuerte cada día.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seriyi canlı tut, her geçen gün daha da güçleniyor."
+          }
+        }
+      }
+    },
+    "mq_quote_72" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The longer you go, the easier it gets. Stay consistent."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cuanto más tiempo sigas, más fácil se vuelve. Sé constante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne kadar uzun süre devam edersen o kadar kolaylaşır. İstikrarlı ol."
+          }
+        }
+      }
+    },
+    "mq_quote_73" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re in a good place. Don’t fall back."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás en un buen lugar. No retrocedas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İyi bir yerdesin. Geriye düşme."
+          }
+        }
+      }
+    },
+    "mq_quote_74" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every win builds the next one. Keep winning."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada victoria construye la siguiente. Sigue ganando.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her galibiyet bir sonrakini inşa eder. Kazanmaya devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_75" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re moving forward. Don’t step back."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás avanzando. No des un paso atrás.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İleriye doğru gidiyorsun. Geri adım atma."
+          }
+        }
+      }
+    },
+    "mq_quote_76" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Momentum is hard to build and easy to lose. Protect it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El impulso es difícil de construir y fácil de perder. Protégelo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İvme kazanmak zordur, kaybetmek kolaydır. Onu koru."
+          }
+        }
+      }
+    },
+    "mq_quote_77" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay on track, you’re doing better than you think."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente en el camino, lo estás haciendo mejor de lo que crees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yolda kal, düşündüğünden daha iyisini yapıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_78" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is how real progress looks. Keep going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Así se ve el verdadero progreso. Sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçek ilerleme işte böyle görünür. Devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_79" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One more strong decision keeps everything going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Una decisión fuerte más mantiene todo en marcha.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü bir karar daha, her şeyin devam etmesini sağlar."
+          }
+        }
+      }
+    },
+    "mq_quote_80" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve handled worse. This is nothing compared to that."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has lidiado con cosas peores. Esto no es nada en comparación.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha kötüleriyle başa çıktın. Bu onların yanında hiçbir şey."
+          }
+        }
+      }
+    },
+    "mq_quote_81" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are stronger than this moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres más fuerte que este momento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen bu andan daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_82" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are capable of saying no."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres capaz de decir que no.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hayır diyebilecek güce sahipsin."
+          }
+        }
+      }
+    },
+    "mq_quote_83" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve already proven your strength. Do it again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya has demostrado tu fuerza. Hazlo de nuevo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gücünü zaten kanıtladın. Tekrar yap."
+          }
+        }
+      }
+    },
+    "mq_quote_84" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need this to feel better."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No necesitas esto para sentirte mejor.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha iyi hissetmek için buna ihtiyacın yok."
+          }
+        }
+      }
+    },
+    "mq_quote_85" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are in control right now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tienes el control ahora mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an kontrol tamamen sende."
+          }
+        }
+      }
+    },
+    "mq_quote_86" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can do hard things. This is one of them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Puedes hacer cosas difíciles. Esta es una de ellas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zor şeyleri başarabilirsin. Bu da onlardan biri."
+          }
+        }
+      }
+    },
+    "mq_quote_87" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trust yourself. You’ve got this."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Confía en ti. Tú puedes con esto.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kendine güven. Bunu halledeceksin."
+          }
+        }
+      }
+    },
+    "mq_quote_88" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are stronger than your habits."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres más fuerte que tus hábitos.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen alışkanlıklarından daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_89" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are building real self-control."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás construyendo un verdadero autocontrol.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçek bir otokontrol inşa ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_90" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just get through this moment. That’s all you need to do."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Solo supera este momento. Es todo lo que necesitas hacer.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sadece bu anı atlat. Tek yapman gereken bu."
+          }
+        }
+      }
+    },
+    "mq_quote_91" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong for the next 10 minutes. Then decide again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte por los próximos 10 minutos. Luego decide de nuevo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önümüzdeki 10 dakika boyunca güçlü kal. Sonra tekrar karar ver."
+          }
+        }
+      }
+    },
+    "mq_quote_92" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One small decision right now changes everything."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Una pequeña decisión ahora mismo cambia todo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu anda vereceğin küçük bir karar her şeyi değiştirir."
+          }
+        }
+      }
+    },
+    "mq_quote_93" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t quit. Not today."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No te rindas. Hoy no.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pes etme. Bugün değil."
+          }
+        }
+      }
+    },
+    "mq_quote_94" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep going. You’re almost past this feeling."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sigue adelante. Ya casi superas este sentimiento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam et. Bu hissi atlatmak üzeresin."
+          }
+        }
+      }
+    },
+    "mq_quote_95" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong. You’re doing better than you think."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte. Lo estás haciendo mejor de lo que crees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü kal. Düşündüğünden daha iyi gidiyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_96" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold on a little longer. You’ve got this."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Aguanta un poco más. Lo tienes bajo control.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biraz daha dayan. Bunu başaracaksın."
+          }
+        }
+      }
+    },
+    "mq_quote_97" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment will pass. Stay in control."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento pasará. Mantén el control.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu an geçecek. Kontrolü elinde tut."
+          }
+        }
+      }
+    },
+    "mq_quote_98" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re closer to success than failure right now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás más cerca del éxito que del fracaso ahora mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an başarıya, başarısızlıktan daha yakınsın."
+          }
+        }
+      }
+    },
+    "mq_quote_99" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong. This is your turning point."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte. Este es tu punto de inflexión.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü kal. Bu senin dönüm noktan."
+          }
+        }
+      }
+    },
+    "mq_quote_100" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discipline is choosing what you want most over what you want now. Stay focused."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La disciplina es elegir lo que más quieres por encima de lo que quieres ahora. Mantente enfocado.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disiplin, şu an istediğin şey yerine en çok istediğin şeyi seçmektir. Odaklan."
+          }
+        }
+      }
+    },
+    "mq_quote_101" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is where your self-control gets stronger. Don’t waste this moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Aquí es donde tu autocontrol se fortalece. No desperdicies este momento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Özdenetiminin güçlendiği yer burasıdır. Bu anı boşa harcama."
+          }
+        }
+      }
+    },
+    "mq_quote_102" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are building discipline right now, not just resisting a habit."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás construyendo disciplina ahora mismo, no solo resistiendo un hábito.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an sadece bir alışkanlığa direnmiyorsun, disiplin inşa ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_103" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The strongest version of you is created in moments like this."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tu versión más fuerte se crea en momentos como este.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senin en güçlü versiyonun işte böyle anlarda yaratılır."
+          }
+        }
+      }
+    },
+    "mq_quote_104" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Control now means freedom later. Stay strong."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Control ahora significa libertad después. Mantente fuerte.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdiki kontrol, gelecekteki özgürlük demektir. Güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_105" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This decision defines your discipline. Make it count."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esta decisión define tu disciplina. Haz que cuente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu karar senin disiplinini tanımlar. Hakkını ver."
+          }
+        }
+      }
+    },
+    "mq_quote_106" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re not denying yourself, you’re upgrading yourself."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No te estás privando, te estás superando a ti mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kendini kısıtlamıyorsun, kendini bir üst seviyeye taşıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_107" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re choosing growth over comfort. That’s power."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás eligiendo el crecimiento sobre la comodidad. Eso es poder.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahatlık yerine büyümeyi seçiyorsun. İşte güç budur."
+          }
+        }
+      }
+    },
+    "mq_quote_108" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discipline is your advantage. Use it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La disciplina es tu ventaja. Úsala.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disiplin senin avantajındır. Onu kullan."
+          }
+        }
+      }
+    },
+    "mq_quote_109" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every time you say no, you get stronger."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada vez que dices \\\"no\\\", te vuelves más fuerte.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Hayır\" dediğin her an, daha da güçlenirsin."
+          }
+        }
+      }
+    },
+    "mq_quote_110" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Think about why you started. That reason still matters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Piensa en por qué empezaste. Esa razón aún importa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neden başladığını düşün. O sebep hâlâ geçerli."
+          }
+        }
+      }
+    },
+    "mq_quote_111" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need to react to every thought. Let this one pass."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No necesitas reaccionar a cada pensamiento. Deja pasar este.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her düşünceye tepki vermek zorunda değilsin. Bırak bu da geçip gitsin."
+          }
+        }
+      }
+    },
+    "mq_quote_112" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your mind is trying to trick you. Don’t fall for it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tu mente está intentando engañarte. No caigas en la trampa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zihnin seni kandırmaya çalışıyor. Bu tuzağa düşme."
+          }
+        }
+      }
+    },
+    "mq_quote_113" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You already know the outcome. Choose better this time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya conoces el resultado. Elige mejor esta vez.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonucun ne olacağını zaten biliyorsun. Bu kez daha iyisini seç."
+          }
+        }
+      }
+    },
+    "mq_quote_114" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This isn’t worth breaking your progress."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No vale la pena arruinar tu progreso por esto.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu, ilerlemeni bozmaya değmez."
+          }
+        }
+      }
+    },
+    "mq_quote_115" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Be aware of the moment instead of controlled by it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sé consciente del momento en lugar de ser controlado por él.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anın seni kontrol etmesine izin vermek yerine anın farkında ol."
+          }
+        }
+      }
+    },
+    "mq_quote_116" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your thoughts don’t control you. Your actions do."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tus pensamientos no te controlan. Tus acciones sí.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düşüncelerin seni kontrol etmez. Eylemlerin eder."
+          }
+        }
+      }
+    },
+    "mq_quote_117" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is just noise. Stay focused on your goal."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esto es solo ruido. Mantente enfocado en tu objetivo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu sadece bir gürültü. Hedefine odaklı kal."
+          }
+        }
+      }
+    },
+    "mq_quote_118" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay conscious. Don’t act on impulse."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente consciente. No actúes por impulso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilincini açık tut. Dürtüyle hareket etme."
+          }
+        }
+      }
+    },
+    "mq_quote_119" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make a decision your future self will respect."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Toma una decisión que tu yo del futuro respetará.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelecekteki senin saygı duyacağı bir karar ver."
+          }
+        }
+      }
+    },
+    "mq_quote_120" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are stronger than your weakest moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres más fuerte que tu momento más débil.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen en zayıf anından daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_121" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This feeling is temporary, but your strength is permanent."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este sentimiento es temporal, pero tu fuerza es permanente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu his geçici, ancak gücün kalıcı."
+          }
+        }
+      }
+    },
+    "mq_quote_122" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve survived worse than this. Keep going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has sobrevivido a cosas peores. Sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bundan daha kötülerini atlattın. Devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_123" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strength is built in moments like this. Don’t waste it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La fuerza se construye en momentos como este. No lo desperdicies.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güç böyle anlarda inşa edilir. Onu ziyan etme."
+          }
+        }
+      }
+    },
+    "mq_quote_124" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are not alone in this fight. Stay strong."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No estás solo en esta lucha. Mantente fuerte.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu savaşta yalnız değilsin. Güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_125" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment doesn’t define you, your decision does."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento no te define, tu decisión sí.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu an seni tanımlamaz, kararların tanımlar."
+          }
+        }
+      }
+    },
+    "mq_quote_126" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are growing, even if it feels hard."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás creciendo, incluso si se siente difícil.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zor hissettirse bile büyüyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_127" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The discomfort means you are changing."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La incomodidad significa que estás cambiando.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahatsızlık hissi, değiştiğin anlamına gelir."
+          }
+        }
+      }
+    },
+    "mq_quote_128" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re doing something most people can’t. Be proud."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás haciendo algo que la mayoría no puede. Siéntete orgulloso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çoğu insanın yapamadığı bir şeyi yapıyorsun. Gurur duy."
+          }
+        }
+      }
+    },
+    "mq_quote_129" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong, you’re rewriting your story."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte, estás reescribiendo tu historia.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü kal, kendi hikayeni yeniden yazıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_130" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is the exact moment where old habits try to come back. Don’t let them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este es el momento exacto donde los viejos hábitos intentan volver. No los dejes.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İşte tam bu an, eski alışkanlıkların geri gelmeye çalıştığı andır. Onlara izin verme."
+          }
+        }
+      }
+    },
+    "mq_quote_131" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Break the cycle now, not tomorrow."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Rompe el ciclo ahora, no mañana.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Döngüyü yarın değil, şimdi kır."
+          }
+        }
+      }
+    },
+    "mq_quote_132" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need to repeat the same mistake again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No necesitas repetir el mismo error de nuevo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aynı hatayı tekrar yapmak zorunda değilsin."
+          }
+        }
+      }
+    },
+    "mq_quote_133" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is your chance to do it differently."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esta es tu oportunidad de hacerlo diferente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu, işleri farklı yapmak için senin şansın."
+          }
+        }
+      }
+    },
+    "mq_quote_134" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Old patterns don’t belong in your new life."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Los viejos patrones no pertenecen a tu nueva vida.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eski kalıpların yeni hayatında yeri yok."
+          }
+        }
+      }
+    },
+    "mq_quote_135" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve outgrown this habit. Act like it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya has superado este hábito. Actúa como tal.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu alışkanlığı çoktan aştın. Buna göre davran."
+          }
+        }
+      }
+    },
+    "mq_quote_136" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is where change actually happens. Stay strong."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Aquí es donde el cambio realmente ocurre. Mantente fuerte.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Değişimin gerçekten gerçekleştiği yer burasıdır. Güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_137" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re not stuck, you’re transforming."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No estás atascado, te estás transformando.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sıkışıp kalmadın, dönüşüyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_138" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a new path right now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Elige un nuevo camino ahora mismo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tam şu an yeni bir yol seç."
+          }
+        }
+      }
+    },
+    "mq_quote_139" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is the moment that changes everything."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este es el momento que cambia todo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu, her şeyi değiştiren andır."
+          }
+        }
+      }
+    },
+    "mq_quote_140" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You are capable of more than you think."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres capaz de más de lo que crees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Düşündüğünden çok daha fazlasını yapabilirsin."
+          }
+        }
+      }
+    },
+    "mq_quote_141" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is easy for the person you’re becoming."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esto es fácil para la persona en la que te estás convirtiendo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dönüştüğün kişi için bu çok kolay."
+          }
+        }
+      }
+    },
+    "mq_quote_142" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve already proven your strength. Keep proving it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya has demostrado tu fuerza. Sigue demostrándola.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gücünü zaten kanıtladın. Kanıtlamaya devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_143" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re not weak, you’re in control."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No eres débil, tienes el control.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zayıf değilsin, kontrol sende."
+          }
+        }
+      }
+    },
+    "mq_quote_144" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have the power to say no. Use it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tienes el poder de decir que no. Úsalo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hayır deme gücüne sahipsin. Kullan onu."
+          }
+        }
+      }
+    },
+    "mq_quote_145" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re stronger than your past habits."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Eres más fuerte que tus hábitos del pasado.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen geçmiş alışkanlıklarından daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_146" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment is yours to win."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento es tuyo para ganar.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kazanılacak olan an bu andır."
+          }
+        }
+      }
+    },
+    "mq_quote_147" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re in charge right now. Act like it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tú estás a cargo ahora mismo. Actúa como tal.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an patron sensin. Öyle davran."
+          }
+        }
+      }
+    },
+    "mq_quote_148" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can handle this. Stay calm and strong."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Puedes manejar esto. Mantente tranquilo y fuerte.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bunun üstesinden gelebilirsin. Sakin ve güçlü kal."
+          }
+        }
+      }
+    },
+    "mq_quote_149" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Believe in your ability to stay consistent."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cree en tu capacidad de mantenerte constante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstikrarlı kalma yeteneğine inan."
+          }
+        }
+      }
+    },
+    "mq_quote_150" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Give it a little time. This feeling will fade."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Dale un poco de tiempo. Este sentimiento se desvanecerá.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biraz zaman ver. Bu his kaybolup gidecek."
+          }
+        }
+      }
+    },
+    "mq_quote_151" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need to act right away. Wait it out."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No necesitas actuar de inmediato. Espera.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hemen harekete geçmek zorunda değilsin. Bekle ve gör."
+          }
+        }
+      }
+    },
+    "mq_quote_152" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time weakens urges. Stay patient."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El tiempo debilita los impulsos. Sé paciente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaman dürtüleri zayıflatır. Sabırlı ol."
+          }
+        }
+      }
+    },
+    "mq_quote_153" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The longer you resist, the easier it gets."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cuanto más resistes, más fácil se vuelve.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne kadar uzun süre direnirsen o kadar kolaylaşır."
+          }
+        }
+      }
+    },
+    "mq_quote_154" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment is temporary. Your progress is not."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento es temporal. Tu progreso no lo es.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu an geçici. Ancak ilerlemen kalıcı."
+          }
+        }
+      }
+    },
+    "mq_quote_155" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong just a bit longer. You’re almost there."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte un poco más. Ya casi estás ahí.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biraz daha güçlü kal. Neredeyse başardın."
+          }
+        }
+      }
+    },
+    "mq_quote_156" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every minute you resist, you win."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada minuto que resistes, ganas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direndiğin her dakika kazanıyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_157" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let the urge pass like a wave."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Deja que el impulso pase como una ola.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dürtünün bir dalga gibi geçip gitmesine izin ver."
+          }
+        }
+      }
+    },
+    "mq_quote_158" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay patient. You’re doing better than you think."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sé paciente. Lo estás haciendo mejor de lo que crees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sabırlı ol. Düşündüğünden daha iyi gidiyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_159" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time is on your side. Don’t rush into a mistake."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El tiempo está de tu lado. No te apresures a cometer un error.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaman senin lehine. Aceleyle bir hata yapma."
+          }
+        }
+      }
+    },
+    "mq_quote_160" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve worked hard for this progress. Don’t waste it now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has trabajado duro por este progreso. No lo desperdicies ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu ilerleme için çok çalıştın. Şimdi onu heba etme."
+          }
+        }
+      }
+    },
+    "mq_quote_161" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This journey has value. Treat it like it matters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este viaje tiene valor. Trátalo como si importara.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu yolculuğun bir değeri var. Ona hak ettiği değeri ver."
+          }
+        }
+      }
+    },
+    "mq_quote_162" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve invested too much to give up now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Has invertido demasiado para rendirte ahora.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdi pes etmek için çok fazla yatırım yaptın."
+          }
+        }
+      }
+    },
+    "mq_quote_163" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protect your effort like it’s something valuable."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Protege tu esfuerzo como si fuera algo valioso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çabanı değerli bir şeymiş gibi koru."
+          }
+        }
+      }
+    },
+    "mq_quote_164" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What you’ve built is worth more than this moment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Lo que has construido vale más que este momento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İnşa ettiğin şey bu andan çok daha değerli."
+          }
+        }
+      }
+    },
+    "mq_quote_165" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t throw away your progress for a quick feeling."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No tires por la borda tu progreso por un sentimiento fugaz.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anlık bir his için ilerlemeni çöpe atma."
+          }
+        }
+      }
+    },
+    "mq_quote_166" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay committed to what truly matters."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén tu compromiso con lo que realmente importa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerçekten önemli olana sadık kal."
+          }
+        }
+      }
+    },
+    "mq_quote_167" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re building something meaningful. Keep going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás construyendo algo significativo. Sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anlamlı bir şey inşa ediyorsun. Devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_168" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respect the effort you’ve already put in."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Respeta el esfuerzo que ya has invertido.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdiye kadar harcadığın çabaya saygı duy."
+          }
+        }
+      }
+    },
+    "mq_quote_169" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You deserve to see this through."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mereces ver esto hasta el final.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bunun sonunu görmeyi hak ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_170" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re building something powerful. Don’t break it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Estás construyendo algo poderoso. No lo rompas.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü bir şey inşa ediyorsun. Onu bozma."
+          }
+        }
+      }
+    },
+    "mq_quote_171" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep the momentum going. You’re on the right path."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén el impulso. Estás en el camino correcto.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İvmeyi koru. Doğru yoldasın."
+          }
+        }
+      }
+    },
+    "mq_quote_172" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every day adds up. Don’t interrupt the process."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Cada día suma. No interrumpas el proceso.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her günün birikimi var. Süreci kesintiye uğratma."
+          }
+        }
+      }
+    },
+    "mq_quote_173" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re getting stronger day by day."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Te estás haciendo más fuerte día a día.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Günden güne güçleniyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_174" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay consistent. That’s where success lives."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sé constante. Ahí es donde reside el éxito.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstikrarlı ol. Başarı tam da orada yatar."
+          }
+        }
+      }
+    },
+    "mq_quote_175" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’re already winning. Keep going."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Ya estás ganando. Sigue adelante.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaten kazanıyorsun. Devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_176" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One strong decision keeps everything moving forward."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Una decisión fuerte mantiene todo avanzando.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü bir karar her şeyin ileriye gitmesini sağlar."
+          }
+        }
+      }
+    },
+    "mq_quote_177" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Progress is happening, even if you don’t see it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"El progreso está ocurriendo, incluso si no lo ves.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sen görmesen bile ilerleme kaydediliyor."
+          }
+        }
+      }
+    },
+    "mq_quote_178" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t slow down now. You’re doing great."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No bajes el ritmo ahora. Lo estás haciendo genial.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şimdi yavaşlama. Harika gidiyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_179" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep stacking wins, one day at a time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sigue acumulando victorias, un día a la vez.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Her gün bir yenisini ekleyerek zaferleri biriktirmeye devam et."
+          }
+        }
+      }
+    },
+    "mq_quote_180" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pause for a moment. You don’t need to act."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Haz una pausa por un momento. No necesitas actuar.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir an durakla. Harekete geçmek zorunda değilsin."
+          }
+        }
+      }
+    },
+    "mq_quote_181" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breathe deeply and let the feeling pass."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Respira profundamente y deja pasar el sentimiento.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Derin nefes al ve hissin geçmesine izin ver."
+          }
+        }
+      }
+    },
+    "mq_quote_182" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay calm. You’re in control."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén la calma. Tienes el control.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sakin ol. Kontrol sende."
+          }
+        }
+      }
+    },
+    "mq_quote_183" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is just a moment. Don’t give it power."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Es solo un momento. No le des poder.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu sadece bir an. Ona güç verme."
+          }
+        }
+      }
+    },
+    "mq_quote_184" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let the urge exist without acting on it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Deja que el impulso exista sin actuar sobre él.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harekete geçmeden dürtünün var olmasına izin ver."
+          }
+        }
+      }
+    },
+    "mq_quote_185" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay grounded. You’re stronger than this."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén los pies en la tierra. Eres más fuerte que esto.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayakların yere sağlam bassın. Bundan daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_186" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calm your mind and trust your decision."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Calma tu mente y confía en tu decisión.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zihnini sakinleştir ve kararına güven."
+          }
+        }
+      }
+    },
+    "mq_quote_187" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need to react. Just observe."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No necesitas reaccionar. Solo observa.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tepki vermek zorunda değilsin. Sadece gözlemle."
+          }
+        }
+      }
+    },
+    "mq_quote_188" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay present. This will pass."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente presente. Esto pasará.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda kal. Bu da geçecek."
+          }
+        }
+      }
+    },
+    "mq_quote_189" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peace comes from control, not from giving in."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"La paz viene del control, no de rendirse.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Huzur pes etmekten değil, kontrolü elinde tutmaktan gelir."
+          }
+        }
+      }
+    },
+    "mq_quote_190" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just get through this moment. That’s enough."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Solo supera este momento. Con eso es suficiente.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sadece bu anı atlat. Bu kadarı yeterli."
+          }
+        }
+      }
+    },
+    "mq_quote_191" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong for the next few minutes. You can do it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte por los próximos minutos. Tú puedes hacerlo.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önümüzdeki birkaç dakika boyunca güçlü kal. Bunu yapabilirsin."
+          }
+        }
+      }
+    },
+    "mq_quote_192" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One small decision right now changes your future."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Una pequeña decisión ahora mismo cambia tu futuro.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şu an vereceğin küçük bir karar geleceğini değiştirir."
+          }
+        }
+      }
+    },
+    "mq_quote_193" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t give up. Not this time."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"No te rindas. Esta vez no.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pes etme. Bu sefer değil."
+          }
+        }
+      }
+    },
+    "mq_quote_194" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay in control. You’re almost past this."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantén el control. Ya casi superas esto.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrolü bırakma. Bunu atlatmak üzeresin."
+          }
+        }
+      }
+    },
+    "mq_quote_195" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is your chance to win. Take it."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Esta es tu oportunidad de ganar. Tómala.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu senin kazanma şansın. Yakala onu."
+          }
+        }
+      }
+    },
+    "mq_quote_196" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep going. You’re stronger than you feel."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Sigue adelante. Eres más fuerte de lo que te sientes.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devam et. Hissettiğinden daha güçlüsün."
+          }
+        }
+      }
+    },
+    "mq_quote_197" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This moment matters more than you think."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Este momento importa más de lo que crees.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu an sandığından daha önemli."
+          }
+        }
+      }
+    },
+    "mq_quote_198" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay strong. You’re building something real."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Mantente fuerte. Estás construyendo algo real.\","
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü kal. Gerçek bir şey inşa ediyorsun."
+          }
+        }
+      }
+    },
+    "mq_quote_199" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ve got this. Don’t stop now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Tú puedes con esto. No te detengas ahora.\""
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bunu halledeceksin. Şimdi durma."
+          }
+        }
+      }
+    },
     "onboarding_alcohol" : {
       "localizations" : {
         "en" : {
@@ -959,6 +5562,424 @@
         }
       }
     },
+    "paywall_cta" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stay Strong – Go Premium"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantente Fuerte – Hazte Premium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Güçlü Kal – Premium'a Geç"
+          }
+        }
+      }
+    },
+    "paywall_feature_habits" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlimited Habits"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hábitos Ilimitados"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sınırsız Alışkanlık"
+          }
+        }
+      }
+    },
+    "paywall_feature_habits_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Track multiple habits at once"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rastrea múltiples hábitos a la vez"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Birden fazla alışkanlığı aynı anda takip et"
+          }
+        }
+      }
+    },
+    "paywall_feature_insights" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced Insights"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estadísticas Avanzadas"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelişmiş İstatistikler"
+          }
+        }
+      }
+    },
+    "paywall_feature_insights_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed progress stats"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estadísticas detalladas de progreso"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detaylı ilerleme analizleri"
+          }
+        }
+      }
+    },
+    "paywall_feature_streak" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Streak Protection"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protección de Racha"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seri Koruması"
+          }
+        }
+      }
+    },
+    "paywall_feature_streak_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never lose your streak"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nunca pierdas tu racha"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serini asla kaybetme"
+          }
+        }
+      }
+    },
+    "paywall_feature_themes" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium Themes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temas Premium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium Temalar"
+          }
+        }
+      }
+    },
+    "paywall_feature_themes_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beautiful app themes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hermosos temas de la app"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şık uygulama temaları"
+          }
+        }
+      }
+    },
+    "paywall_feature_widgets" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Better Widgets"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mejores Widgets"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelişmiş Widget'lar"
+          }
+        }
+      }
+    },
+    "paywall_feature_widgets_desc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home screen widgets"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widgets de pantalla de inicio"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana ekran widget'ları"
+          }
+        }
+      }
+    },
+    "paywall_headline" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't Lose Your Progress"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Pierdas Tu Progreso"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İlerlemeni Kaybetme"
+          }
+        }
+      }
+    },
+    "paywall_price" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$4.99 / month"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4,99 € / mes"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "₺149.99 / ay"
+          }
+        }
+      }
+    },
+    "paywall_price_period" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel anytime. No commitment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancela en cualquier momento. Sin compromiso."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstediğin zaman iptal et. Taahhüt yok."
+          }
+        }
+      }
+    },
+    "paywall_privacy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacidad"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gizlilik"
+          }
+        }
+      }
+    },
+    "paywall_restore" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurar"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geri Yükle"
+          }
+        }
+      }
+    },
+    "paywall_skip" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maybe later"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quizás más tarde"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belki daha sonra"
+          }
+        }
+      }
+    },
+    "paywall_subtitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've come too far to quit now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has llegado demasiado lejos para rendirte."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bırakmak için çok fazla yol kat ettin."
+          }
+        }
+      }
+    },
+    "paywall_terms" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koşullar"
+          }
+        }
+      }
+    },
     "relapse_cancel" : {
       "localizations" : {
         "en" : {
@@ -1120,6 +6141,7 @@
       }
     },
     "settings_coming_soon" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1199,6 +6221,28 @@
         }
       }
     },
+    "settings_go_premium" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go Premium"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hazte Premium"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium'a Geç"
+          }
+        }
+      }
+    },
     "settings_habit_name" : {
       "localizations" : {
         "en" : {
@@ -1232,6 +6276,7 @@
       }
     },
     "settings_premium_label" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1248,6 +6293,7 @@
       }
     },
     "settings_premium_subtitle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1264,6 +6310,7 @@
       }
     },
     "settings_premium_title" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

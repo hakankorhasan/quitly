@@ -15,6 +15,8 @@ private let presetHabits: [(emoji: String, name: String, key: String)] = [
 ]
 
 struct OnboardingView: View {
+    var isAddingHabit: Bool = false
+    @Environment(\.dismiss) private var dismiss
     @State private var page = 0
     @State private var selectedHabit: (emoji: String, name: String, key: String)? = nil
     @State private var animateIn = false
@@ -22,6 +24,25 @@ struct OnboardingView: View {
     var body: some View {
         ZStack {
             AppGradient.background.ignoresSafeArea()
+            
+            if isAddingHabit {
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.system(size: 30))
+                                .foregroundStyle(Color.textSecondary)
+                        }
+                        .padding()
+                    }
+                    Spacer()
+                }
+                .zIndex(20)
+            }
+            
             // Glow blobs
             Circle()
                 .fill(Color.fireOrange.opacity(0.12))

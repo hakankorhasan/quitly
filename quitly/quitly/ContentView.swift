@@ -15,8 +15,20 @@ struct ContentView: View {
         ZStack {
             AppGradient.background.ignoresSafeArea()
 
-            if setupComplete, let habit = habits.first(where: { $0.isActive }) {
-                HomeView(habit: habit)
+            if setupComplete {
+                let activeHabits = habits.filter { $0.isActive }
+                if activeHabits.isEmpty {
+                    OnboardingView()
+                } else {
+                    TabView {
+                        ForEach(activeHabits) { habit in
+                            HomeView(habit: habit)
+                                .tag(habit.id)
+                        }
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .always))
+                    .ignoresSafeArea()
+                }
             } else {
                 OnboardingView()
             }

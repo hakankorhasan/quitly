@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State private var habitName: String = ""
     @State private var dailyCost: String = ""
     @State private var showingResetAlert = false
+    @State private var showingPaywall = false
 
     var body: some View {
         NavigationStack {
@@ -73,33 +74,35 @@ struct SettingsView: View {
                             .padding(.vertical, 10)
                         }
 
-                        // Premium teaser
-                        SettingsSection(title: NSLocalizedString("settings_premium_title", comment: "")) {
-                            HStack(spacing: 16) {
+                        // Go Premium
+                        Button {
+                            showingPaywall = true
+                        } label: {
+                            HStack(spacing: 14) {
                                 ZStack {
-                                    Circle().fill(AppGradient.purple).frame(width: 40, height: 40)
-                                    Image(systemName: "sparkles")
+                                    Circle().fill(AppGradient.fire).frame(width: 40, height: 40)
+                                    Image(systemName: "flame.fill")
                                         .font(.system(size: 18))
                                         .foregroundStyle(.white)
                                 }
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text(NSLocalizedString("settings_premium_label", comment: ""))
+                                    Text(NSLocalizedString("settings_go_premium", comment: ""))
                                         .font(.system(size: 15, weight: .semibold, design: .rounded))
                                         .foregroundStyle(.white)
-                                    Text(NSLocalizedString("settings_premium_subtitle", comment: ""))
+                                    Text(NSLocalizedString("paywall_subtitle", comment: ""))
                                         .font(.system(size: 12, weight: .regular, design: .rounded))
                                         .foregroundStyle(Color.textSecondary)
                                 }
                                 Spacer()
-                                Text(NSLocalizedString("settings_coming_soon", comment: ""))
-                                    .font(.system(size: 11, weight: .bold, design: .rounded))
-                                    .foregroundStyle(Color.purpleAccent)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 5)
-                                    .background(Capsule().fill(Color.purpleAccent.opacity(0.15)))
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(Color.fireOrange)
                             }
                             .padding(16)
+                            .glassCard(cornerRadius: 16)
                         }
+                        .buttonStyle(.plain)
+                        .padding(.horizontal, 20)
 
                         // Danger Zone
                         Button(NSLocalizedString("settings_reset_data", comment: "")) {
@@ -142,6 +145,9 @@ struct SettingsView: View {
         .onAppear {
             habitName = habit.name
             dailyCost = "\(Int(habit.dailyCostAmount))"
+        }
+        .fullScreenCover(isPresented: $showingPaywall) {
+            PaywallView()
         }
     }
 
