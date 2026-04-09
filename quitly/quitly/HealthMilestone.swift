@@ -12,15 +12,18 @@ struct HealthMilestone: Identifiable {
     let titleKey: String
     let descKey: String
     let color: Color
-    var isCustomIcon: Bool = false
+    
+    var isCustomIcon: Bool {
+        icon == "lungs" || icon == "heart_attack" || icon == "oxygen_block" || icon == "energy_flash" || icon == "burning_fire"
+    }
 }
 
 extension HealthMilestone {
     static let all: [HealthMilestone] = [
-        .init(hours: 0.333, icon: "heart_attack", titleKey: "milestone_20min_title", descKey: "milestone_20min_desc", color: .fireOrange, isCustomIcon: true),
-        .init(hours: 8,     icon: "oxygen_block", titleKey: "milestone_8hr_title",   descKey: "milestone_8hr_desc",   color: .purpleAccent, isCustomIcon: true),
-        .init(hours: 24,    icon: "energy_flash", titleKey: "milestone_24hr_title",  descKey: "milestone_24hr_desc",  color: .fireOrange, isCustomIcon: true),
-        .init(hours: 48,    icon: "lungs",        titleKey: "milestone_48hr_title",  descKey: "milestone_48hr_desc",  color: .purpleAccent, isCustomIcon: true),
+        .init(hours: 0.333, icon: "heart_attack", titleKey: "milestone_20min_title", descKey: "milestone_20min_desc", color: .fireOrange),
+        .init(hours: 8,     icon: "oxygen_block", titleKey: "milestone_8hr_title",   descKey: "milestone_8hr_desc",   color: .purpleAccent),
+        .init(hours: 24,    icon: "energy_flash", titleKey: "milestone_24hr_title",  descKey: "milestone_24hr_desc",  color: .fireOrange),
+        .init(hours: 48,    icon: "lungs",        titleKey: "milestone_48hr_title",  descKey: "milestone_48hr_desc",  color: .purpleAccent),
         .init(hours: 72,    icon: "lungs.fill", titleKey: "milestone_72hr_title",  descKey: "milestone_72hr_desc",  color: .greenClean),
         
         .init(hours: 168,   icon: "star.fill",   titleKey: "milestone_1w_title",   descKey: "milestone_1w_desc",   color: .greenClean),
@@ -32,7 +35,7 @@ extension HealthMilestone {
         .init(hours: 1176,  icon: "sun.max.fill",titleKey: "milestone_7w_title",   descKey: "milestone_7w_desc",   color: .greenClean),
         .init(hours: 1344,  icon: "moon.stars.fill", titleKey: "milestone_8w_title", descKey: "milestone_8w_desc", color: .purpleAccent),
         .init(hours: 1512,  icon: "bolt.fill",   titleKey: "milestone_9w_title",   descKey: "milestone_9w_desc",   color: .purpleAccent),
-        .init(hours: 1680,  icon: "flame.fill",  titleKey: "milestone_10w_title",  descKey: "milestone_10w_desc",  color: .purpleAccent),
+        .init(hours: 1680,  icon: "burning_fire",  titleKey: "milestone_10w_title",  descKey: "milestone_10w_desc",  color: .purpleAccent),
         .init(hours: 1848,  icon: "hare.fill",   titleKey: "milestone_11w_title",  descKey: "milestone_11w_desc",  color: .purpleAccent),
         .init(hours: 2016,  icon: "crown.fill",  titleKey: "milestone_12w_title",  descKey: "milestone_12w_desc",  color: .goldAccent),
 

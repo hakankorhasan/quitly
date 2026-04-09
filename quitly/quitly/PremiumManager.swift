@@ -29,16 +29,28 @@ final class PremiumManager {
         set { UserDefaults.standard.set(newValue, forKey: "grace_period_start") }
     }
 
+    /// App installation/first-launch date
+    var installDate: Date {
+        if let exp = UserDefaults.standard.object(forKey: "install_date") as? Date {
+            return exp
+        } else {
+            let now = Date()
+            UserDefaults.standard.set(now, forKey: "install_date")
+            return now
+        }
+    }
+
     // MARK: - Constants
     private let streakTriggerDays = 3        // Show paywall after this many streak days
     private let gracePeriodDays   = 4        // Free extension after skipping paywall
 
     // MARK: - Computed
 
-    /// Is widget accessible? Free for first 3 streak days, then premium-only.
-    func isWidgetEnabled(streakDays: Int) -> Bool {
+    /// Is widget accessible? Free for first 3 days after app install, then premium-only.
+    var isWidgetEnabled: Bool {
         if isPremium { return true }
-        return streakDays < streakTriggerDays   // 0,1,2 = free trial; 3+ = locked
+        let daysPassed = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: installDate), to: Calendar.current.startOfDay(for: Date())).day ?? 0
+        return daysPassed < 3   // 0, 1, 2 days since install = free trial; 3+ = locked
     }
 
     /// Should we show the paywall RIGHT NOW?

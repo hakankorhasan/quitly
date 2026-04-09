@@ -8,6 +8,7 @@ import SwiftUI
 struct RelapseSheetView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
+    @Environment(PremiumManager.self) private var premiumManager
     @Environment(\.dismiss) private var dismiss
     @State private var showConfirm = false
 
@@ -40,9 +41,10 @@ struct RelapseSheetView: View {
 
                 // Mevcut streak hatırlatıcısı
                 HStack(spacing: 12) {
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: 22))
-                        .foregroundStyle(AppGradient.fire)
+                    Image("burning_fire")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 22, height: 22)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("\(habit.streakDays) \(NSLocalizedString("home_days_clean", comment: ""))")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -124,7 +126,7 @@ struct RelapseSheetView: View {
                     VStack(spacing: 14) {
                         // GERÇEK reset butonu
                         Button {
-                            appState.confirmRelapse(habit: habit)
+                            appState.confirmRelapse(habit: habit, premiumManager: premiumManager)
                             dismiss()
                         } label: {
                             Text(NSLocalizedString("relapse_confirm_action", comment: ""))

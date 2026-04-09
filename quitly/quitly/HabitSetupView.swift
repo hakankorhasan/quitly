@@ -103,7 +103,13 @@ struct HabitSetupView: View {
 
                 // CTA
                 Button(action: saveAndLaunch) {
-                    Text(NSLocalizedString("onboarding_finish", comment: ""))
+                    HStack(spacing: 8) {
+                        Text(NSLocalizedString("onboarding_finish", comment: ""))
+                        Image("burning_fire")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 22, height: 22)
+                    }
                 }
                 .buttonStyle(FireButtonStyle())
                 .padding(.horizontal, 24)

@@ -75,9 +75,10 @@ struct StreakCounterView: View {
                 // Center content
                 VStack(spacing: 6) {
                     // Flame
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: 28))
-                        .foregroundStyle(AppGradient.fire)
+                    Image("burning_fire")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 80, height: 80)
                         .scaleEffect(flamePulse ? 1.12 : 1.0)
                         .shadow(color: Color.fireOrange.opacity(0.5), radius: 8)
                         .animation(

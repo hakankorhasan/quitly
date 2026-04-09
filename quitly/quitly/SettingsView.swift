@@ -83,8 +83,10 @@ struct SettingsView: View {
                             HStack(spacing: 14) {
                                 ZStack {
                                     Circle().fill(AppGradient.fire).frame(width: 40, height: 40)
-                                    Image(systemName: "flame.fill")
-                                        .font(.system(size: 18))
+                                    Image("burning_fire")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 16, height: 16)
                                         .foregroundStyle(.white)
                                 }
                                 VStack(alignment: .leading, spacing: 2) {

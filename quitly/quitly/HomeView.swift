@@ -190,9 +190,10 @@ private struct WelcomeOverlay: View {
                         .fill(Color.fireOrange.opacity(0.15))
                         .frame(width: 150, height: 150)
                         .blur(radius: 40)
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: 80))
-                        .foregroundStyle(AppGradient.fire)
+                    Image("burning_fire")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 64, height: 64)
                         .scaleEffect(flamePulse ? 1.07 : 1.0)
                         .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: flamePulse)
                 }

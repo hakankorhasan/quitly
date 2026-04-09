@@ -30,7 +30,7 @@ final class AppState {
         }
     }
 
-    func confirmRelapse(habit: Habit) {
+    func confirmRelapse(habit: Habit, premiumManager: PremiumManager) {
         // Mevcut streak'i kaydet
         let record = RelapseRecord(
             id: UUID(),
@@ -46,6 +46,10 @@ final class AppState {
 
         // Streak'i sıfırla
         habit.streakStart = Date()
+        
+        // Widget'ı DA güncelle ki anında eski streak'i yerine 0 göstersin
+        writeHabitToWidget(habit, premiumManager: premiumManager)
+        
         showingRelapse = false
         withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
             showingRelapseSupport = true

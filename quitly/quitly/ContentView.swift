@@ -12,6 +12,7 @@ struct ContentView: View {
     @Environment(PremiumManager.self) private var premiumManager
     @Query private var habits: [Habit]
     @AppStorage("setupComplete") private var setupComplete = false
+    @State private var showSplash = true
 
     var body: some View {
         ZStack {
@@ -33,6 +34,13 @@ struct ContentView: View {
                 }
             } else {
                 OnboardingView()
+            }
+
+            // Splash screen overlay — uygulama ilk açılışında gösterilir
+            if showSplash {
+                SplashView(isVisible: $showSplash)
+                    .transition(.opacity)
+                    .zIndex(10)
             }
         }
         .animation(.easeInOut(duration: 0.4), value: setupComplete)

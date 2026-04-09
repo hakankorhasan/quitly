@@ -125,15 +125,15 @@ struct RewardsStoreView: View {
                 .scaledToFit()
                 .frame(width: 80, height: 80)
                 .opacity(0.8)
-            Text("No rewards yet!")
+            Text(NSLocalizedString("rewards_empty_title", comment: ""))
                 .font(.system(size: 18, weight: .semibold, design: .rounded))
                 .foregroundStyle(Color.textPrimary)
-            Text("Add things you want to buy using your saved money.")
+            Text(NSLocalizedString("rewards_empty_desc", comment: ""))
                 .font(.system(size: 14, design: .rounded))
                 .foregroundStyle(Color.textSecondary)
                 .multilineTextAlignment(.center)
             
-            Button("Add Custom Reward") {
+            Button(NSLocalizedString("rewards_empty_btn", comment: "")) {
                 showingAddReward = true
             }
             .buttonStyle(GhostButtonStyle())
@@ -273,7 +273,7 @@ struct AddRewardSheet: View {
                             .font(.system(size: 14, weight: .semibold, design: .rounded))
                             .foregroundStyle(Color.textSecondary)
                         
-                        TextField("New Phone, Sneakers...", text: $title)
+                        TextField(NSLocalizedString("reward_add_placeholder", comment: ""), text: $title)
                             .font(.system(size: 18, weight: .medium, design: .rounded))
                             .padding(16)
                             .background(Color.cardSurface)
@@ -289,7 +289,7 @@ struct AddRewardSheet: View {
                             Text(habit.currencySymbol)
                                 .font(.system(size: 18, weight: .bold))
                                 .foregroundStyle(Color.textSecondary)
-                            TextField("0.00", text: $priceStr)
+                            TextField(NSLocalizedString("reward_price_placeholder", comment: ""), text: $priceStr)
                                 .keyboardType(.decimalPad)
                                 .font(.system(size: 18, weight: .medium, design: .rounded))
                         }
@@ -320,7 +320,7 @@ struct AddRewardSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
+                    Button(NSLocalizedString("reward_add_cancel", comment: "")) { dismiss() }
                         .foregroundStyle(Color.textSecondary)
                 }
             }

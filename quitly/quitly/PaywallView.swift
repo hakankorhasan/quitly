@@ -60,8 +60,10 @@ struct PaywallView: View {
                             .frame(width: 140, height: 140)
                             .blur(radius: 30)
 
-                        Image(systemName: "flame.fill")
-                            .font(.system(size: 80, weight: .bold))
+                        Image("burning_fire")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
                             .foregroundStyle(
                                 LinearGradient(
                                     colors: [.fireOrange, Color(red: 1.0, green: 0.239, blue: 0.0), .purpleAccent],
@@ -138,8 +140,10 @@ struct PaywallView: View {
                         // TODO: RevenueCat purchase
                     } label: {
                         HStack(spacing: 8) {
-                            Image(systemName: "flame.fill")
-                                .font(.system(size: 18, weight: .bold))
+                            Image("burning_fire")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 18, height: 18)
                             Text(NSLocalizedString("paywall_cta", comment: ""))
                         }
                     }

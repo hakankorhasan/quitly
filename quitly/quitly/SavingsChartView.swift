@@ -37,7 +37,7 @@ struct SavingsChartView: View {
     
     @ViewBuilder
     private func currentDayAnnotation(day: Int) -> some View {
-        Text("Day \(day)")
+        Text(String(format: NSLocalizedString("chart_day_annotation", comment: ""), day))
             .font(.system(size: 10, weight: .bold, design: .rounded))
             .foregroundStyle(Color.greenClean)
             .padding(.horizontal, 6)

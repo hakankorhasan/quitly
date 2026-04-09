@@ -75,10 +75,7 @@
     },
     "•": {},
     "0": {},
-    "0.00": {},
     "A an example control that runs a timer.": {},
-    "Add Custom Reward": {},
-    "Add things you want to buy using your saved money.": {},
     "Amount": {},
     "app_name": {
       "localizations": {
@@ -124,6 +121,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d deneme"
+          }
+        }
+      }
+    },
+    "attempts_empty": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No previous attempts. Keep going strong!"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz deneme yok. Böyle devam et!"
           }
         }
       }
@@ -192,9 +205,23 @@
         }
       }
     },
-    "Cancel": {},
+    "chart_day_annotation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Day %d"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d. Gün"
+          }
+        }
+      }
+    },
     "Day": {},
-    "Day %lld": {},
     "home_daily_cost": {
       "localizations": {
         "en": {
@@ -5831,7 +5858,6 @@
         }
       }
     },
-    "New Phone, Sneakers...": {},
     "next_reward_empty": {
       "localizations": {
         "en": {
@@ -5880,7 +5906,6 @@
         }
       }
     },
-    "No rewards yet!": {},
     "Off": {},
     "On": {},
     "onboarding_alcohol": {
@@ -5955,13 +5980,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Let's Go! 🚀"
+            "value": "Let's Go!"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Başlıyoruz! 🚀"
+            "value": "Başlıyoruz!"
           }
         }
       }
@@ -6630,6 +6655,22 @@
         }
       }
     },
+    "relapse_go_back": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Go back"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geri Dön"
+          }
+        }
+      }
+    },
     "relapse_streak_reminder": {
       "localizations": {
         "en": {
@@ -6694,6 +6735,22 @@
         }
       }
     },
+    "reward_add_cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İptal"
+          }
+        }
+      }
+    },
     "reward_add_name": {
       "localizations": {
         "en": {
@@ -6712,6 +6769,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ne almak istiyorsun?"
+          }
+        }
+      }
+    },
+    "reward_add_placeholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Phone, Sneakers..."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yeni Telefon, Ayakkabı..."
           }
         }
       }
@@ -6871,6 +6944,22 @@
         }
       }
     },
+    "reward_price_placeholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0.00"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0.00"
+          }
+        }
+      }
+    },
     "reward_purchased": {
       "localizations": {
         "en": {
@@ -6905,6 +6994,54 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d ödül mevcut!"
+          }
+        }
+      }
+    },
+    "rewards_empty_btn": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Custom Reward"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Özel Ödül Ekle"
+          }
+        }
+      }
+    },
+    "rewards_empty_desc": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add things you want to buy using your saved money."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydettiğin paranla almak istediklerini ekle."
+          }
+        }
+      }
+    },
+    "rewards_empty_title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No rewards yet!"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz ödül yok!"
           }
         }
       }
@@ -7471,38 +7608,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tasarruf"
-          }
-        }
-      }
-    },
-    "relapse_go_back": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Go back"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Geri Dön"
-          }
-        }
-      }
-    },
-    "attempts_empty": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No previous attempts. Keep going strong!"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Henüz deneme yok. Böyle devam et!"
           }
         }
       }

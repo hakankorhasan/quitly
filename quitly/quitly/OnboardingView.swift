@@ -68,9 +68,10 @@ private struct WelcomePageView: View {
                     .fill(Color.fireOrange.opacity(0.18))
                     .frame(width: 160, height: 160)
                     .blur(radius: 40)
-                Image(systemName: "flame.fill")
-                    .font(.system(size: 90))
-                    .foregroundStyle(AppGradient.fire)
+                Image("burning_fire")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 90, height: 90)
                     .scaleEffect(flamePulse ? 1.08 : 1.0)
                     .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: flamePulse)
             }

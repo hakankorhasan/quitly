@@ -59,7 +59,7 @@ func writeHabitToWidget(_ habit: Habit, premiumManager: PremiumManager) {
     }
 
     // 2. Write lock flag
-    let locked = !premiumManager.isWidgetEnabled(streakDays: habit.streakDays)
+    let locked = !premiumManager.isWidgetEnabled
     defaults.set(locked, forKey: lockedKey)
     print("[Widget] locked: \(locked)")
 
