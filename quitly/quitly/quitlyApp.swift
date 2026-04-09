@@ -2,22 +2,19 @@
 //  quitlyApp.swift
 //  quitly
 //
-//  Created by Hakan on 8.04.2026.
-//
 
 import SwiftUI
 import SwiftData
 
 @main
 struct quitlyApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    @State private var appState = AppState()
 
+    var sharedModelContainer: ModelContainer = {
+        let schema = Schema([Habit.self])
+        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return try ModelContainer(for: schema, configurations: [config])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
@@ -26,6 +23,8 @@ struct quitlyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(appState)
+                .preferredColorScheme(.dark)
         }
         .modelContainer(sharedModelContainer)
     }
