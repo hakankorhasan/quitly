@@ -8,7 +8,6 @@ import SwiftUI
 struct HomeView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
-    @AppStorage("hasSeenWelcomeScreen") private var welcomeShown = false
     @State private var showingRewardsStore = false
 
     var body: some View {
@@ -134,16 +133,6 @@ struct HomeView: View {
                 .zIndex(10)
             }
 
-            // Welcome overlay — shown briefly on first open
-            if !welcomeShown {
-                WelcomeOverlay(habitName: habit.name, onDone: {
-                    withAnimation(.easeInOut(duration: 0.6)) {
-                        welcomeShown = true
-                    }
-                })
-                .transition(.opacity)
-                .zIndex(20)
-            }
         }
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: appState.showingRelapseSupport)
         .sheet(isPresented: $state.showingRelapse) {
@@ -163,82 +152,6 @@ struct HomeView: View {
     }
 }
 
-// MARK: - Welcome Overlay
-private struct WelcomeOverlay: View {
-    let habitName: String
-    let onDone: () -> Void
-    @State private var appeared = false
-    @State private var flamePulse = false
-
-    var body: some View {
-        ZStack {
-            Color(red: 0.051, green: 0.051, blue: 0.102)
-                .ignoresSafeArea()
-
-            // Glow
-            Circle()
-                .fill(Color.fireOrange.opacity(0.2))
-                .frame(width: 300, height: 300)
-                .blur(radius: 80)
-
-            VStack(spacing: 0) {
-                Spacer()
-
-                // Flame
-                ZStack {
-                    Circle()
-                        .fill(Color.fireOrange.opacity(0.15))
-                        .frame(width: 150, height: 150)
-                        .blur(radius: 40)
-                    Image("burning_fire")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 64, height: 64)
-                        .scaleEffect(flamePulse ? 1.07 : 1.0)
-                        .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: flamePulse)
-                }
-                .opacity(appeared ? 1 : 0)
-                .scaleEffect(appeared ? 1 : 0.7)
-
-                Spacer().frame(height: 32)
-
-                Text(NSLocalizedString("home_welcome_title", comment: ""))
-                    .font(.system(size: 32, weight: .black, design: .rounded))
-                    .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-                    .opacity(appeared ? 1 : 0)
-                    .offset(y: appeared ? 0 : 20)
-
-                Spacer().frame(height: 12)
-
-                Text(NSLocalizedString("home_welcome_subtitle", comment: ""))
-                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                    .foregroundStyle(Color.textSecondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-                    .opacity(appeared ? 1 : 0)
-                    .offset(y: appeared ? 0 : 16)
-
-                Spacer()
-
-                Button(NSLocalizedString("home_welcome_cta", comment: ""), action: onDone)
-                    .buttonStyle(FireButtonStyle())
-                    .padding(.horizontal, 28)
-                    .opacity(appeared ? 1 : 0)
-                    .offset(y: appeared ? 0 : 20)
-
-                Spacer().frame(height: 60)
-            }
-        }
-        .onAppear {
-            flamePulse = true
-            withAnimation(.spring(response: 0.7, dampingFraction: 0.75).delay(0.3)) {
-                appeared = true
-            }
-        }
-    }
-}
 
 // MARK: - Relapse Support Banner
 private struct RelapseSuportBanner: View {

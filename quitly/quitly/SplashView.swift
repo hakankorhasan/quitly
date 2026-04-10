@@ -143,6 +143,11 @@ struct SplashView: View {
                 smokeVisible = true
             }
             // HARDCODED LOCK — splash geçmez
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                withAnimation(.easeOut(duration: 0.4)) {
+                    isVisible = false
+                }
+            }
         }
     }
 }
