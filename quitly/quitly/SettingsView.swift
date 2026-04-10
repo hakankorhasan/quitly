@@ -20,6 +20,8 @@ struct SettingsView: View {
     @State private var showingResetAlert = false
     @State private var showingPaywall = false
     @State private var savedFeedback = false
+    @State private var showingPrivacy = false
+    @State private var showingTerms = false
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -197,6 +199,55 @@ struct SettingsView: View {
                         .buttonStyle(.plain)
                         .padding(.horizontal, 20)
 
+                        // Legal Section
+                        SettingsSection(title: NSLocalizedString("settings_legal", comment: "")) {
+                            // Privacy Policy
+                            Button {
+                                showingPrivacy = true
+                            } label: {
+                                HStack {
+                                    Image(systemName: "lock.shield.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(Color.purpleAccent)
+                                        .frame(width: 24)
+                                    Text(NSLocalizedString("settings_privacy", comment: ""))
+                                        .font(.system(size: 15, weight: .medium, design: .rounded))
+                                        .foregroundStyle(Color.textPrimary)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 12, weight: .semibold))
+                                        .foregroundStyle(Color.textMuted)
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 14)
+                            }
+                            .buttonStyle(.plain)
+
+                            Divider().background(Color.white.opacity(0.07))
+
+                            // Terms of Use
+                            Button {
+                                showingTerms = true
+                            } label: {
+                                HStack {
+                                    Image(systemName: "doc.text.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(Color.fireOrange)
+                                        .frame(width: 24)
+                                    Text(NSLocalizedString("settings_terms", comment: ""))
+                                        .font(.system(size: 15, weight: .medium, design: .rounded))
+                                        .foregroundStyle(Color.textPrimary)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 12, weight: .semibold))
+                                        .foregroundStyle(Color.textMuted)
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 14)
+                            }
+                            .buttonStyle(.plain)
+                        }
+
                         // Danger Zone
                         Button(NSLocalizedString("settings_reset_data", comment: "")) {
                             showingResetAlert = true
@@ -225,6 +276,18 @@ struct SettingsView: View {
 
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
+        }
+        .fullScreenCover(isPresented: $showingPrivacy) {
+            LegalWebView(
+                title: NSLocalizedString("settings_privacy", comment: ""),
+                urlString: LegalURL.privacyPolicy
+            )
+        }
+        .fullScreenCover(isPresented: $showingTerms) {
+            LegalWebView(
+                title: NSLocalizedString("settings_terms", comment: ""),
+                urlString: LegalURL.termsOfUse
+            )
         }
     }
 
