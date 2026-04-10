@@ -12,7 +12,6 @@ private let currencies = [("₺", "TRY"), ("$", "USD"), ("€", "EUR"), ("£", "
 struct SettingsView: View {
     @Bindable var habit: Habit
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
     @Environment(PremiumManager.self) private var premiumManager
     @AppStorage("setupComplete") private var setupComplete = false
 
@@ -22,11 +21,44 @@ struct SettingsView: View {
     @State private var showingPaywall = false
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color(red: 0.08, green: 0.08, blue: 0.13).ignoresSafeArea()
+        ZStack(alignment: .top) {
+            AppGradient.background.ignoresSafeArea()
 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        // ── Premium Header ─────────────────────────────
+                        HStack(spacing: 14) {
+                            ZStack {
+                                Circle()
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.textSecondary.opacity(0.25), Color.textSecondary.opacity(0.08)],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        )
+                                    )
+                                    .frame(width: 42, height: 42)
+
+                                Image(systemName: "gearshape.fill")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundStyle(Color.textSecondary)
+                            }
+
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(NSLocalizedString("settings_title", comment: ""))
+                                    .font(.system(size: 20, weight: .black, design: .rounded))
+                                    .foregroundStyle(.white)
+                                Text(NSLocalizedString("settings_subtitle", comment: ""))
+                                    .font(.system(size: 12, weight: .medium, design: .rounded))
+                                    .foregroundStyle(Color.textSecondary)
+                            }
+
+                            Spacer()
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.top, 12)
+                        .padding(.bottom, 20)
+
                     VStack(spacing: 20) {
                         // Habit Section
                         SettingsSection(title: NSLocalizedString("settings_habit_title", comment: "")) {
@@ -76,37 +108,67 @@ struct SettingsView: View {
                             .padding(.vertical, 10)
                         }
 
-                        // Go Premium
-                        Button {
-                            showingPaywall = true
-                        } label: {
+                        // Go Premium / Pro Badge
+                        if premiumManager.isPremium {
                             HStack(spacing: 14) {
                                 ZStack {
-                                    Circle().fill(AppGradient.fire).frame(width: 40, height: 40)
-                                    Image("burning_fire")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 16, height: 16)
-                                        .foregroundStyle(.white)
+                                    Circle().fill(Color.goldAccent.opacity(0.2)).frame(width: 40, height: 40)
+                                    Image(systemName: "crown.fill")
+                                        .font(.system(size: 16, weight: .bold))
+                                        .foregroundStyle(Color.goldAccent)
                                 }
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text(NSLocalizedString("settings_go_premium", comment: ""))
+                                    Text(NSLocalizedString("badge_pro", comment: ""))
                                         .font(.system(size: 15, weight: .semibold, design: .rounded))
-                                        .foregroundStyle(.white)
-                                    Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                                        .foregroundStyle(Color.goldAccent)
+                                    Text(NSLocalizedString("paywall_feature_streak_desc", comment: ""))
                                         .font(.system(size: 12, weight: .regular, design: .rounded))
                                         .foregroundStyle(Color.textSecondary)
                                 }
                                 Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.system(size: 14, weight: .semibold))
-                                    .foregroundStyle(Color.fireOrange)
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 20))
+                                    .foregroundStyle(Color.goldAccent)
                             }
                             .padding(16)
                             .glassCard(cornerRadius: 16)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .strokeBorder(Color.goldAccent.opacity(0.3), lineWidth: 1)
+                            )
+                            .padding(.horizontal, 20)
+                        } else {
+                            Button {
+                                showingPaywall = true
+                            } label: {
+                                HStack(spacing: 14) {
+                                    ZStack {
+                                        Circle().fill(AppGradient.fire).frame(width: 40, height: 40)
+                                        Image("burning_fire")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 16, height: 16)
+                                            .foregroundStyle(.white)
+                                    }
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(NSLocalizedString("settings_go_premium", comment: ""))
+                                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                                            .foregroundStyle(.white)
+                                        Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                                            .foregroundStyle(Color.textSecondary)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(Color.fireOrange)
+                                }
+                                .padding(16)
+                                .glassCard(cornerRadius: 16)
+                            }
+                            .buttonStyle(.plain)
+                            .padding(.horizontal, 20)
                         }
-                        .buttonStyle(.plain)
-                        .padding(.horizontal, 20)
 
                         // Danger Zone
                         Button(NSLocalizedString("settings_reset_data", comment: "")) {
@@ -116,25 +178,9 @@ struct SettingsView: View {
                         .foregroundStyle(.red.opacity(0.8))
                         .padding(.top, 8)
 
-                        Spacer().frame(height: 40)
+                        Spacer().frame(height: 110) // Tab bar clearance
                     }
-                    .padding(.top, 20)
-                }
-            }
-            .navigationTitle(NSLocalizedString("settings_title", comment: ""))
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button(NSLocalizedString("settings_save", comment: "")) {
-                        saveChanges()
-                        dismiss()
                     }
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundStyle(Color.fireOrange)
-                }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button(NSLocalizedString("settings_cancel", comment: "")) { dismiss() }
-                        .foregroundStyle(Color.textSecondary)
                 }
             }
             .alert(NSLocalizedString("settings_reset_alert_title", comment: ""), isPresented: $showingResetAlert) {
@@ -145,11 +191,12 @@ struct SettingsView: View {
             } message: {
                 Text(NSLocalizedString("settings_reset_alert_message", comment: ""))
             }
-        }
         .onAppear {
             habitName = habit.name
             dailyCost = "\(Int(habit.dailyCostAmount))"
         }
+        .onChange(of: habitName) { _, _ in saveChanges() }
+        .onChange(of: dailyCost) { _, _ in saveChanges() }
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
         }
@@ -169,7 +216,6 @@ struct SettingsView: View {
     private func resetAllData() {
         try? modelContext.delete(model: Habit.self)
         setupComplete = false
-        dismiss()
     }
 }
 

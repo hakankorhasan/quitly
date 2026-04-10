@@ -4,18 +4,30 @@
 //
 
 import SwiftUI
+import RevenueCat
 
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(PremiumManager.self) private var premiumManager
     @State private var appeared = false
     @State private var flamePulse = false
+    @State private var showRestoreSuccess = false
+    @State private var showRestoreFail = false
 
     private let features: [(icon: String, color: Color, title: String, subtitle: String)] = [
-        ("crown.fill",           .goldAccent,   "paywall_feature_habits",   "paywall_feature_habits_desc"),
-        ("shield.checkered",     .purpleAccent, "paywall_feature_streak",   "paywall_feature_streak_desc"),
-        ("chart.bar.fill",       .greenClean,   "paywall_feature_insights", "paywall_feature_insights_desc"),
-        ("rectangle.grid.2x2.fill", .purpleAccent, "paywall_feature_widgets", "paywall_feature_widgets_desc"),
+        ("crown.fill",              .goldAccent,   "paywall_feature_habits",   "paywall_feature_habits_desc"),
+        ("shield.checkered",        .purpleAccent, "paywall_feature_streak",   "paywall_feature_streak_desc"),
+        ("chart.bar.fill",          .greenClean,   "paywall_feature_insights", "paywall_feature_insights_desc"),
+        ("rectangle.grid.2x2.fill", .purpleAccent, "paywall_feature_widgets",  "paywall_feature_widgets_desc"),
     ]
+
+    // Dinamik fiyat RevenueCat'ten, yoksa fallback
+    private var localizedPrice: String {
+        if let pkg = premiumManager.currentOffering?.availablePackages.first {
+            return pkg.storeProduct.localizedPriceString
+        }
+        return NSLocalizedString("paywall_price", comment: "")
+    }
 
     var body: some View {
         ZStack {
@@ -54,7 +66,6 @@ struct PaywallView: View {
 
                     // Hero Flame
                     ZStack {
-                        // Outer glow
                         Circle()
                             .fill(Color.fireOrange.opacity(0.15))
                             .frame(width: 140, height: 140)
@@ -64,12 +75,6 @@ struct PaywallView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 80, height: 80)
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.fireOrange, Color(red: 1.0, green: 0.239, blue: 0.0), .purpleAccent],
-                                    startPoint: .top, endPoint: .bottom
-                                )
-                            )
                             .scaleEffect(flamePulse ? 1.06 : 1.0)
                             .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: flamePulse)
                     }
@@ -113,7 +118,7 @@ struct PaywallView: View {
                             .offset(y: appeared ? 0 : 20)
                             .animation(
                                 .spring(response: 0.5, dampingFraction: 0.8)
-                                .delay(Double(index) * 0.08 + 0.3),
+                                    .delay(Double(index) * 0.08 + 0.3),
                                 value: appeared
                             )
                         }
@@ -122,9 +127,9 @@ struct PaywallView: View {
 
                     Spacer().frame(height: 36)
 
-                    // Price info
+                    // Price info (RevenueCat'ten dinamik)
                     VStack(spacing: 4) {
-                        Text(NSLocalizedString("paywall_price", comment: ""))
+                        Text(localizedPrice)
                             .font(.system(size: 22, weight: .bold, design: .rounded))
                             .foregroundStyle(.white)
                         Text(NSLocalizedString("paywall_price_period", comment: ""))
@@ -137,25 +142,46 @@ struct PaywallView: View {
 
                     // CTA Button
                     Button {
-                        // TODO: RevenueCat purchase
+                        Task {
+                            let success = await premiumManager.purchase()
+                            if success { dismiss() }
+                        }
                     } label: {
-                        HStack(spacing: 8) {
-                            Image("burning_fire")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 18, height: 18)
-                            Text(NSLocalizedString("paywall_cta", comment: ""))
+                        if premiumManager.isLoading {
+                            ProgressView()
+                                .tint(.white)
+                                .frame(height: 24)
+                        } else {
+                            HStack(spacing: 8) {
+                                Image("burning_fire")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18, height: 18)
+                                Text(NSLocalizedString("paywall_cta", comment: ""))
+                            }
                         }
                     }
                     .buttonStyle(FireButtonStyle())
                     .padding(.horizontal, 24)
                     .opacity(appeared ? 1 : 0)
                     .offset(y: appeared ? 0 : 10)
+                    .disabled(premiumManager.isLoading)
+
+                    // Error message
+                    if let error = premiumManager.errorMessage {
+                        Text(error)
+                            .font(.system(size: 12, design: .rounded))
+                            .foregroundStyle(.red.opacity(0.8))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 8)
+                    }
 
                     Spacer().frame(height: 14)
 
                     // Skip
                     Button {
+                        premiumManager.onPaywallSkipped()
                         dismiss()
                     } label: {
                         Text(NSLocalizedString("paywall_skip", comment: ""))
@@ -167,7 +193,14 @@ struct PaywallView: View {
                     // Restore + Terms
                     HStack(spacing: 16) {
                         Button(NSLocalizedString("paywall_restore", comment: "")) {
-                            // TODO: RevenueCat restore
+                            Task {
+                                let success = await premiumManager.restorePurchases()
+                                if success {
+                                    showRestoreSuccess = true
+                                } else {
+                                    showRestoreFail = true
+                                }
+                            }
                         }
                         Text("•")
                         Button(NSLocalizedString("paywall_terms", comment: "")) {}
@@ -187,6 +220,19 @@ struct PaywallView: View {
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) {
                 appeared = true
             }
+            Task {
+                await premiumManager.fetchOffering()
+            }
+        }
+        .alert("✅ Restore Successful", isPresented: $showRestoreSuccess) {
+            Button("OK") { if premiumManager.isPremium { dismiss() } }
+        } message: {
+            Text("Your purchases have been restored.")
+        }
+        .alert("Nothing to Restore", isPresented: $showRestoreFail) {
+            Button("OK") {}
+        } message: {
+            Text("No previous purchases found for this account.")
         }
     }
 }
