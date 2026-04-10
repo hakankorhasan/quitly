@@ -10,7 +10,7 @@
 import Foundation
 import WidgetKit
 
-private let appGroupID      = "group.com.quitly.QuitlyWidget"
+private let appGroupID      = "group.com.hakankorhasan.quitsmoke.QuitlyWidget"
 private let userDefaultsKey = "quitly_widget_data"
 private let lockedKey       = "quitly_widget_locked"
 

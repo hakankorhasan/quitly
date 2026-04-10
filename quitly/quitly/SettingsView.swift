@@ -19,6 +19,7 @@ struct SettingsView: View {
     @State private var dailyCost: String = ""
     @State private var showingResetAlert = false
     @State private var showingPaywall = false
+    @State private var savedFeedback = false
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -170,6 +171,32 @@ struct SettingsView: View {
                             .padding(.horizontal, 20)
                         }
 
+                        // Save Button
+                        Button {
+                            saveChanges()
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: savedFeedback ? "checkmark.circle.fill" : "square.and.arrow.down.fill")
+                                    .font(.system(size: 15, weight: .bold))
+                                Text(savedFeedback
+                                     ? NSLocalizedString("settings_saved", comment: "")
+                                     : NSLocalizedString("settings_save", comment: ""))
+                                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                            }
+                            .foregroundStyle(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(savedFeedback
+                                          ? AnyShapeStyle(Color.greenClean.opacity(0.8))
+                                          : AnyShapeStyle(AppGradient.fire))
+                            )
+                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: savedFeedback)
+                        }
+                        .buttonStyle(.plain)
+                        .padding(.horizontal, 20)
+
                         // Danger Zone
                         Button(NSLocalizedString("settings_reset_data", comment: "")) {
                             showingResetAlert = true
@@ -195,8 +222,7 @@ struct SettingsView: View {
             habitName = habit.name
             dailyCost = "\(Int(habit.dailyCostAmount))"
         }
-        .onChange(of: habitName) { _, _ in saveChanges() }
-        .onChange(of: dailyCost) { _, _ in saveChanges() }
+
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
         }
@@ -209,8 +235,13 @@ struct SettingsView: View {
             habit.dailyCostAmount = cost
         }
         try? modelContext.save()
-        // Immediately push updated data (currency, cost, name) to the widget
+        // Push updated data to widget & sync
         writeHabitToWidget(habit, premiumManager: premiumManager)
+        // Show saved feedback
+        withAnimation { savedFeedback = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation { savedFeedback = false }
+        }
     }
 
     private func resetAllData() {
