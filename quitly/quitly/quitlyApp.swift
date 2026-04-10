@@ -6,11 +6,13 @@
 import SwiftUI
 import SwiftData
 import RevenueCat
+import FirebaseCore
 
 @main
 struct quitlyApp: App {
     @State private var appState      = AppState()
     @State private var premiumManager = PremiumManager()
+    @State private var remoteConfig   = RemoteConfigManager()
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([Habit.self])
@@ -23,6 +25,7 @@ struct quitlyApp: App {
     }()
 
     init() {
+        FirebaseApp.configure()
         Purchases.logLevel = .debug // Production'da .error yap
         Purchases.configure(withAPIKey: "appl_YryQlEiaGhnFelbkFestplYqJky")
     }
@@ -32,9 +35,11 @@ struct quitlyApp: App {
             ContentView()
                 .environment(appState)
                 .environment(premiumManager)
+                .environment(remoteConfig)
                 .preferredColorScheme(.dark)
                 .task {
                     await premiumManager.checkEntitlements()
+                    await remoteConfig.checkForUpdate()
                 }
         }
         .modelContainer(sharedModelContainer)

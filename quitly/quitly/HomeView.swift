@@ -9,6 +9,7 @@ struct HomeView: View {
     @Bindable var habit: Habit
     @Environment(AppState.self) private var appState
     @Environment(PremiumManager.self) private var premiumManager
+    @Environment(RemoteConfigManager.self) private var remoteConfig
     @State private var showingRewardsStore = false
     @State private var showingPaywall = false
 
@@ -161,6 +162,19 @@ struct HomeView: View {
         }
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
+        }
+        .overlay {
+            if remoteConfig.shouldShowUpdate {
+                UpdatePopupView(
+                    latestVersion: remoteConfig.latestVersion,
+                    appStoreURL: remoteConfig.appStoreURL,
+                    onDismiss: {
+                        remoteConfig.dismissUpdate()
+                    }
+                )
+                .transition(.opacity)
+                .zIndex(100)
+            }
         }
     }
 

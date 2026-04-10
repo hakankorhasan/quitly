@@ -10,6 +10,8 @@
 		7F9A57872F88E94A00370003 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A57862F88E94A00370003 /* RevenueCat */; };
 		7F9A578A2F88E98900370003 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A57892F88E98900370003 /* FirebaseAnalytics */; };
 		7F9A578C2F88E98900370003 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A578B2F88E98900370003 /* FirebaseAnalyticsCore */; };
+		7FA048352F89730700D0536E /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA048342F89730700D0536E /* FirebaseAppCheck */; };
+		7FA048372F89734300D0536E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 7FA048362F89734300D0536E /* FirebaseRemoteConfig */; };
 		FFD534372F87ACF600BC90C5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD534362F87ACF600BC90C5 /* WidgetKit.framework */; };
 		FFD534392F87ACF600BC90C5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD534382F87ACF600BC90C5 /* SwiftUI.framework */; };
 		FFD534462F87ACF900BC90C5 /* QuitlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FFD534342F87ACF600BC90C5 /* QuitlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -89,9 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA048352F89730700D0536E /* FirebaseAppCheck in Frameworks */,
 				7F9A578A2F88E98900370003 /* FirebaseAnalytics in Frameworks */,
 				7F9A578C2F88E98900370003 /* FirebaseAnalyticsCore in Frameworks */,
 				7F9A57872F88E94A00370003 /* RevenueCat in Frameworks */,
+				7FA048372F89734300D0536E /* FirebaseRemoteConfig in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,8 @@
 				7F9A57862F88E94A00370003 /* RevenueCat */,
 				7F9A57892F88E98900370003 /* FirebaseAnalytics */,
 				7F9A578B2F88E98900370003 /* FirebaseAnalyticsCore */,
+				7FA048342F89730700D0536E /* FirebaseAppCheck */,
+				7FA048362F89734300D0536E /* FirebaseRemoteConfig */,
 			);
 			productName = quitly;
 			productReference = FFD533AC2F86F0CB00BC90C5 /* quitly.app */;
@@ -414,8 +420,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -461,8 +467,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -510,11 +516,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -543,11 +553,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -618,6 +632,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsCore;
+		};
+		7FA048342F89730700D0536E /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		7FA048362F89734300D0536E /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
