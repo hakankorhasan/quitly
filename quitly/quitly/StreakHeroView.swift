@@ -20,17 +20,26 @@ struct StreakHeroView: View {
 
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
-    // Main ring
-    private let ringSize:  CGFloat = 170
     private let lineWidth: CGFloat = 9
 
-    // Mini circle size
-    private let miniSize: CGFloat = 100
-
     var body: some View {
+        GeometryReader { geo in
+            let w = geo.size.width
+            let safeW = w - 40 // Leave 20pt padding on both sides internally
+            let ringSize: CGFloat = min(156, safeW * 0.42)
+            let miniSize: CGFloat = min(90, safeW * 0.25)
+            let hSpacing: CGFloat = max(8, safeW * 0.04)
+
+            bodyContent(ringSize: ringSize, miniSize: miniSize, hSpacing: hSpacing)
+                .frame(width: w)
+        }
+        .frame(height: 220)
+    }
+
+    private func bodyContent(ringSize: CGFloat, miniSize: CGFloat, hSpacing: CGFloat) -> some View {
         VStack(spacing: 8) {
             // ── Hero Row ─────────────────────────────────────────
-            HStack(alignment: .bottom, spacing: 16) {
+            HStack(alignment: .bottom, spacing: hSpacing) {
 
                 // ── Left mini: Time counter ───────────────────────
                 miniCircle(
@@ -38,7 +47,8 @@ struct StreakHeroView: View {
                     bigValue: timeBigValue,
                     bottomLabel: timeBottomLabel,
                     color: Color.purpleAccent,
-                    systemImage: "timer"
+                    systemImage: "timer",
+                    miniSize: miniSize
                 )
 
                 // ── Center: Main streak ring ──────────────────────
@@ -132,10 +142,11 @@ struct StreakHeroView: View {
                     bigValue: habit.formattedMoneySaved,
                     bottomLabel: "\(Int(habit.dailyCostAmount))\(habit.currencySymbol)/\(NSLocalizedString("home_day_unit", comment: ""))",
                     color: Color.goldAccent,
-                    imageName: "wallet"
+                    imageName: "wallet",
+                    miniSize: miniSize
                 )
             }
-            .padding(.horizontal, 12)
+            .padding(.horizontal, 10)
 
             // Hours sub-label (Day 0 durumu)
             if habit.streakDays == 0 {
@@ -172,12 +183,14 @@ struct StreakHeroView: View {
         bottomLabel: String,
         color: Color,
         systemImage: String? = nil,
-        imageName: String? = nil
+        imageName: String? = nil,
+        miniSize: CGFloat = 100
     ) -> some View {
         VStack(spacing: 6) {
             ZStack {
                 Circle()
                     .fill(color.opacity(0.10))
+
                     .frame(width: miniSize, height: miniSize)
                     .overlay(
                         Circle()

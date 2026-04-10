@@ -3,25 +3,26 @@
 //  quitly
 //
 //  Central source of truth for premium state, paywall trigger, and streak protection.
+//  Wired to RevenueCat for real purchase/restore flow.
 //
 
 import Foundation
 import SwiftUI
+import RevenueCat
+
+// MARK: - Constants
+private let kEntitlement = "Quit Smoking Pro"
+private let kOffering    = "Premium"
+private let kPackage     = "Monthly Subscription"
 
 @Observable
 final class PremiumManager {
 
-    // MARK: - Persisted State
-    var isPremium: Bool {
-        get { UserDefaults.standard.bool(forKey: "premium_unlocked") }
-        set { UserDefaults.standard.set(newValue, forKey: "premium_unlocked") }
-    }
-
-    /// Whether the paywall was already shown once (so we don't show it again)
-    var paywallShownOnce: Bool {
-        get { UserDefaults.standard.bool(forKey: "paywall_shown_once") }
-        set { UserDefaults.standard.set(newValue, forKey: "paywall_shown_once") }
-    }
+    // MARK: - State
+    var isPremium: Bool = false
+    var isLoading: Bool = false
+    var currentOffering: Offering? = nil
+    var errorMessage: String? = nil
 
     /// Grace period start date — set when user sees paywall but doesn't buy
     var gracePeriodStart: Date? {
@@ -41,72 +42,116 @@ final class PremiumManager {
     }
 
     // MARK: - Constants
-    private let streakTriggerDays = 3        // Show paywall after this many streak days
-    private let gracePeriodDays   = 4        // Free extension after skipping paywall
+    private let streakTriggerDays = 3
+    private let gracePeriodDays   = 4
 
     // MARK: - Computed
 
-    /// Is widget accessible? Free for first 3 days after app install, then premium-only.
     var isWidgetEnabled: Bool {
         if isPremium { return true }
-        let daysPassed = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: installDate), to: Calendar.current.startOfDay(for: Date())).day ?? 0
-        return daysPassed < 3   // 0, 1, 2 days since install = free trial; 3+ = locked
+        let daysPassed = Calendar.current.dateComponents([.day],
+            from: Calendar.current.startOfDay(for: installDate),
+            to:   Calendar.current.startOfDay(for: Date())).day ?? 0
+        return daysPassed < 3
     }
 
-    /// Should we show the paywall RIGHT NOW?
     func shouldTriggerPaywall(streakDays: Int) -> Bool {
-        guard !isPremium else { return false }          // Already premium
-        guard !paywallShownOnce else { return false }   // Already shown once
+        guard !isPremium else { return false }
         return streakDays >= streakTriggerDays
     }
 
-    /// Is user in grace period (skipped paywall, still getting free streak)?
     var isInGracePeriod: Bool {
         guard !isPremium, let start = gracePeriodStart else { return false }
         let daysSinceSkip = Calendar.current.dateComponents([.day], from: start, to: Date()).day ?? 0
         return daysSinceSkip < gracePeriodDays
     }
 
-    /// Days remaining in grace period
     var graceDaysRemaining: Int {
         guard let start = gracePeriodStart else { return 0 }
         let elapsed = Calendar.current.dateComponents([.day], from: start, to: Date()).day ?? 0
         return max(0, gracePeriodDays - elapsed)
     }
 
-    /// Should we show the subtle reminder banner?
     var shouldShowReminderBanner: Bool {
         guard !isPremium else { return false }
         return isInGracePeriod
     }
 
-    // MARK: - Actions
+    // MARK: - RevenueCat Actions
 
-    /// Called when user sees the paywall and dismisses without buying
-    func onPaywallSkipped() {
-        paywallShownOnce = true
-        if gracePeriodStart == nil {
-            gracePeriodStart = Date()
+    /// Uygulama açıldığında ve paywallden önce çağır
+    @MainActor
+    func checkEntitlements() async {
+        do {
+            let info = try await Purchases.shared.customerInfo()
+            isPremium = info.entitlements[kEntitlement]?.isActive == true
+        } catch {
+            print("[PremiumManager] checkEntitlements error: \(error)")
         }
     }
 
-    /// Called when user successfully purchases premium
-    func onPremiumPurchased() {
-        isPremium = true
-        paywallShownOnce = true
-        gracePeriodStart = nil
+    /// Paywall için güncel offering'i yükle
+    @MainActor
+    func fetchOffering() async {
+        do {
+            let offerings = try await Purchases.shared.offerings()
+            currentOffering = offerings.offering(identifier: kOffering) ?? offerings.current
+        } catch {
+            print("[PremiumManager] fetchOffering error: \(error)")
+            errorMessage = error.localizedDescription
+        }
     }
 
-    /// Called when user taps "Restore Purchases"
-    func onRestorePurchases() {
-        // TODO: Wire RevenueCat restore here
-        // For now, simulate success
-        onPremiumPurchased()
+    /// Satın alma — paketi bul ve purchase et
+    @MainActor
+    func purchase() async -> Bool {
+        guard let offering = currentOffering,
+              let package = offering.package(identifier: kPackage) ?? offering.availablePackages.first
+        else {
+            errorMessage = "Product not found"
+            return false
+        }
+
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+
+        do {
+            let result = try await Purchases.shared.purchase(package: package)
+            if result.userCancelled { return false }
+            let active = result.customerInfo.entitlements[kEntitlement]?.isActive == true
+            if active {
+                isPremium = true
+                gracePeriodStart = nil
+            }
+            return active
+        } catch {
+            errorMessage = error.localizedDescription
+            return false
+        }
     }
 
-    /// Mark paywall as shown (so we record the trigger happened)
-    func markPaywallShown() {
-        paywallShownOnce = true
+    /// Restore purchases
+    @MainActor
+    func restorePurchases() async -> Bool {
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+
+        do {
+            let info = try await Purchases.shared.restorePurchases()
+            let active = info.entitlements[kEntitlement]?.isActive == true
+            isPremium = active
+            return active
+        } catch {
+            errorMessage = error.localizedDescription
+            return false
+        }
+    }
+
+    // MARK: - Paywall lifecycle
+
+    func onPaywallSkipped() {
         if gracePeriodStart == nil {
             gracePeriodStart = Date()
         }
@@ -115,8 +160,8 @@ final class PremiumManager {
     // MARK: - Debug
 
     func resetForDebug() {
-        UserDefaults.standard.removeObject(forKey: "premium_unlocked")
-        UserDefaults.standard.removeObject(forKey: "paywall_shown_once")
+        isPremium = false
+        gracePeriodStart = nil
         UserDefaults.standard.removeObject(forKey: "grace_period_start")
     }
 }

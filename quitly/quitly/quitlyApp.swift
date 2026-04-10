@@ -5,6 +5,7 @@
 
 import SwiftUI
 import SwiftData
+import RevenueCat
 
 @main
 struct quitlyApp: App {
@@ -21,12 +22,20 @@ struct quitlyApp: App {
         }
     }()
 
+    init() {
+        Purchases.logLevel = .debug // Production'da .error yap
+        Purchases.configure(withAPIKey: "test_yOlZywEesPVaPRafobMHvwzxpvX")
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(appState)
                 .environment(premiumManager)
                 .preferredColorScheme(.dark)
+                .task {
+                    await premiumManager.checkEntitlements()
+                }
         }
         .modelContainer(sharedModelContainer)
     }

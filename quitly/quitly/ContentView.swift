@@ -29,7 +29,7 @@ struct ContentView: View {
                                 .tag(habit.id)
                         }
                     }
-                    .tabViewStyle(.page(indexDisplayMode: .always))
+                    .tabViewStyle(.page(indexDisplayMode: .never))
                     .ignoresSafeArea()
                 }
             } else {

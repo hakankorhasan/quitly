@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F9A57872F88E94A00370003 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A57862F88E94A00370003 /* RevenueCat */; };
+		7F9A578A2F88E98900370003 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A57892F88E98900370003 /* FirebaseAnalytics */; };
+		7F9A578C2F88E98900370003 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7F9A578B2F88E98900370003 /* FirebaseAnalyticsCore */; };
 		FFD534372F87ACF600BC90C5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD534362F87ACF600BC90C5 /* WidgetKit.framework */; };
 		FFD534392F87ACF600BC90C5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD534382F87ACF600BC90C5 /* SwiftUI.framework */; };
 		FFD534462F87ACF900BC90C5 /* QuitlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FFD534342F87ACF600BC90C5 /* QuitlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -55,6 +58,7 @@
 		FFD534632F87BF9000BC90C5 /* Exceptions for "quitly" folder in "QuitlyWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				"GoogleService-Info.plist",
 				Localizable.xcstrings,
 			);
 			target = FFD534332F87ACF600BC90C5 /* QuitlyWidgetExtension */;
@@ -85,6 +89,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F9A578A2F88E98900370003 /* FirebaseAnalytics in Frameworks */,
+				7F9A578C2F88E98900370003 /* FirebaseAnalyticsCore in Frameworks */,
+				7F9A57872F88E94A00370003 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +158,9 @@
 			);
 			name = quitly;
 			packageProductDependencies = (
+				7F9A57862F88E94A00370003 /* RevenueCat */,
+				7F9A57892F88E98900370003 /* FirebaseAnalytics */,
+				7F9A578B2F88E98900370003 /* FirebaseAnalyticsCore */,
 			);
 			productName = quitly;
 			productReference = FFD533AC2F86F0CB00BC90C5 /* quitly.app */;
@@ -207,6 +217,10 @@
 			);
 			mainGroup = FFD533A32F86F0CB00BC90C5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7F9A57852F88E94A00370003 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+				7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FFD533AD2F86F0CB00BC90C5 /* Products */;
 			projectDirPath = "";
@@ -391,6 +405,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Quit Smoking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -407,8 +422,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakankorhasan.quitsmoke;
-				INFOPLIST_KEY_CFBundleDisplayName = "Quit Smoking";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -439,6 +452,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Quit Smoking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -455,8 +469,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hakankorhasan.quitsmoke;
-				INFOPLIST_KEY_CFBundleDisplayName = "Quit Smoking";
-
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -571,6 +583,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7F9A57852F88E94A00370003 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.67.2;
+			};
+		};
+		7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7F9A57862F88E94A00370003 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F9A57852F88E94A00370003 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		7F9A57892F88E98900370003 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		7F9A578B2F88E98900370003 /* FirebaseAnalyticsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7F9A57882F88E98900370003 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFD533A42F86F0CB00BC90C5 /* Project object */;
 }
