@@ -28841,6 +28841,7 @@
       }
     },
     "settings_save" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -28969,6 +28970,7 @@
       }
     },
     "settings_subtitle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

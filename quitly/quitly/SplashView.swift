@@ -33,8 +33,8 @@ struct SplashView: View {
             VStack {
                 Spacer()
                 Text("Quit Alcohol")
-                    .font(.system(size: 15, weight: .semibold, design: .rounded))
-                    .foregroundStyle(Color(white: 1).opacity(0.35))
+                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                    .foregroundStyle(Color.white)
                     .padding(.bottom, 52)
                     .opacity(iconOpacity)
             }

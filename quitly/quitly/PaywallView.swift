@@ -68,21 +68,16 @@ struct PaywallView: View {
                     // Hero Icon
                     ZStack {
                         Circle()
-                            .fill(Color.soberBlue.opacity(0.15))
+                            .fill(Color.soberBlue.opacity(0.12))
                             .frame(width: 140, height: 140)
                             .blur(radius: 30)
 
-                        Image(systemName: "shield.checkered")
-                            .font(.system(size: 60, weight: .bold))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.soberBlue, .aquaTeal],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .scaleEffect(iconPulse ? 1.06 : 1.0)
-                            .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: iconPulse)
+                        Image("splash-icon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .scaleEffect(iconPulse ? 1.04 : 1.0)
+                            .animation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true), value: iconPulse)
                     }
                     .opacity(appeared ? 1 : 0)
                     .offset(y: appeared ? 0 : 20)
@@ -159,8 +154,10 @@ struct PaywallView: View {
                                 .frame(height: 24)
                         } else {
                             HStack(spacing: 8) {
-                                Image(systemName: "shield.checkered")
-                                    .font(.system(size: 16, weight: .bold))
+                                Image("splash-icon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 18, height: 18)
                                 Text(NSLocalizedString("paywall_cta", comment: ""))
                             }
                         }

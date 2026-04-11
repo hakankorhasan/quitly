@@ -106,10 +106,10 @@ struct StreakHeroView: View {
 
                     // Center content
                     VStack(spacing: 4) {
-                        Image("cocktail")
+                        Image("burning_fire")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 32, height: 32)
                             .scaleEffect(flamePulse ? 1.08 : 1.0)
                             .shadow(color: Color.soberBlue.opacity(0.4), radius: 6)
                             .animation(

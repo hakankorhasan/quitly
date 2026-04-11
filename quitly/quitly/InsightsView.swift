@@ -34,22 +34,6 @@ struct InsightsView: View {
                     VStack(spacing: 0) {
                         // Header
                         HStack(spacing: isSmall ? 10 : 14) {
-                            ZStack {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [Color.purpleAccent.opacity(0.25), Color.purpleAccent.opacity(0.08)],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(width: 42, height: 42)
-
-                                Image(systemName: "chart.bar.fill")
-                                    .font(.system(size: 18, weight: .bold))
-                                    .foregroundStyle(Color.purpleAccent)
-                            }
-
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(NSLocalizedString("insights_title", comment: ""))
                                     .font(.system(size: isSmall ? 18 : 20, weight: .black, design: .rounded))

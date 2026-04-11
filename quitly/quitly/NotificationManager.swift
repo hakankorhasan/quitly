@@ -2,7 +2,9 @@
 //  NotificationManager.swift
 //  quitly
 //
-//  Smart time-based notifications for alcohol recovery.
+//  Local notification scheduling — no backend needed.
+//  Uses UNUserNotificationCenter calendar triggers.
+//  Reschedule on every app open so streak count stays fresh.
 //
 
 import Foundation
@@ -10,88 +12,117 @@ import UserNotifications
 
 final class NotificationManager {
     static let shared = NotificationManager()
+    private init() {}
 
     // MARK: - Permission
+
     func requestPermission(completion: @escaping (Bool) -> Void = { _ in }) {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
-            DispatchQueue.main.async { completion(granted) }
-        }
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
+                DispatchQueue.main.async { completion(granted) }
+            }
     }
 
-    func checkPermission(completion: @escaping (Bool) -> Void) {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                completion(settings.authorizationStatus == .authorized)
+    // MARK: - Schedule All
+    // Call this every time the app becomes active so streak count is fresh.
+
+    func scheduleAll(streakDays: Int, dailyEnabled: Bool, weekendEnabled: Bool) {
+        let center = UNUserNotificationCenter.current()
+
+        // Cancel old ones first, then re-add fresh
+        center.removeAllPendingNotificationRequests()
+
+        guard dailyEnabled || weekendEnabled else { return }
+
+        // Check permission before scheduling
+        center.getNotificationSettings { [weak self] settings in
+            guard settings.authorizationStatus == .authorized else { return }
+
+            if dailyEnabled {
+                self?.scheduleDailyMorning(streakDays: streakDays)
+            }
+            if weekendEnabled {
+                self?.scheduleFridayEvening()
+                self?.scheduleSaturdayNight(streakDays: streakDays)
             }
         }
     }
 
-    // MARK: - Schedule All
-    func scheduleAll(streakDays: Int, dailyEnabled: Bool, weekendEnabled: Bool) {
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
+    // MARK: - Cancel All
 
-        if dailyEnabled {
-            scheduleDailyMorning(streakDays: streakDays)
-        }
-        if weekendEnabled {
-            scheduleFridayEvening(streakDays: streakDays)
-            scheduleSaturdayNight(streakDays: streakDays)
-        }
+    func cancelAll() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 
-    // MARK: - Daily Morning (09:00)
+    // MARK: - Private Triggers
+
+    /// Her gün sabah 09:00 — "X days clean, keep going!"
     private func scheduleDailyMorning(streakDays: Int) {
         let content = UNMutableNotificationContent()
         content.title = NSLocalizedString("notif_morning_title", comment: "")
-        content.body = String(format: NSLocalizedString("notif_morning_body", comment: ""), streakDays)
+        content.body  = String(format: NSLocalizedString("notif_morning_body", comment: ""), streakDays)
         content.sound = .default
 
-        var dateComponents = DateComponents()
-        dateComponents.hour = 9
-        dateComponents.minute = 0
+        var dc = DateComponents()
+        dc.hour   = 9
+        dc.minute = 0
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "daily_morning", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        add(content: content, trigger: UNCalendarNotificationTrigger(dateMatching: dc, repeats: true),
+            id: "notif_daily_morning")
     }
 
-    // MARK: - Friday Evening (18:00)
-    private func scheduleFridayEvening(streakDays: Int) {
+    /// Her Cuma 18:00 — hafta sonu uyarısı
+    private func scheduleFridayEvening() {
         let content = UNMutableNotificationContent()
         content.title = NSLocalizedString("notif_friday_title", comment: "")
-        content.body = NSLocalizedString("notif_friday_body", comment: "")
+        content.body  = NSLocalizedString("notif_friday_body", comment: "")
         content.sound = .default
 
-        var dateComponents = DateComponents()
-        dateComponents.weekday = 6  // Friday
-        dateComponents.hour = 18
-        dateComponents.minute = 0
+        var dc = DateComponents()
+        dc.weekday = 6   // 1=Sun, 6=Fri
+        dc.hour    = 18
+        dc.minute  = 0
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "friday_evening", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        add(content: content, trigger: UNCalendarNotificationTrigger(dateMatching: dc, repeats: true),
+            id: "notif_friday_evening")
     }
 
-    // MARK: - Saturday Night (20:00)
+    /// Her Cumartesi 20:00 — "don't break the chain tonight"
     private func scheduleSaturdayNight(streakDays: Int) {
         let content = UNMutableNotificationContent()
         content.title = NSLocalizedString("notif_saturday_title", comment: "")
-        content.body = String(format: NSLocalizedString("notif_saturday_body", comment: ""), streakDays)
+        content.body  = String(format: NSLocalizedString("notif_saturday_body", comment: ""), streakDays)
         content.sound = .default
 
-        var dateComponents = DateComponents()
-        dateComponents.weekday = 7  // Saturday
-        dateComponents.hour = 20
-        dateComponents.minute = 0
+        var dc = DateComponents()
+        dc.weekday = 7   // 1=Sun, 7=Sat
+        dc.hour    = 20
+        dc.minute  = 0
 
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: "saturday_night", content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        add(content: content, trigger: UNCalendarNotificationTrigger(dateMatching: dc, repeats: true),
+            id: "notif_saturday_night")
     }
 
-    // MARK: - Cancel All
-    func cancelAll() {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    // MARK: - Helper
+
+    private func add(content: UNMutableNotificationContent,
+                     trigger: UNNotificationTrigger,
+                     id: String) {
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error { print("⚠️ Notification error [\(id)]: \(error)") }
+        }
+    // MARK: - DEV TEST — Remove before release
+    func sendTestNotification(streakDays: Int = 7) {
+        let content = UNMutableNotificationContent()
+        content.title = "🧪 Test Notification"
+        content.body  = "Good Morning ☀️ — You're \(streakDays) days clean. Keep going!"
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "dev_test", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error { print("⚠️ Test notif error: \(error)") }
+            else { print("✅ Scheduled — go to background now!") }
+        }
     }
 }

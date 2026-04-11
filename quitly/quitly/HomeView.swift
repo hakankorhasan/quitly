@@ -43,26 +43,8 @@ struct HomeView: View {
 
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 0) {
-                        // ── Premium Top Bar ───────────────────────────────
+                        // ── Top Bar ───────────────────────────────────────
                         HStack(spacing: isSmall ? 10 : 14) {
-                            // Habit icon badge
-                            ZStack {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [Color.fireOrange.opacity(0.25), Color.fireOrange.opacity(0.08)],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(width: 42, height: 42)
-
-                                Image("cocktail")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 22, height: 22)
-                            }
-
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(habit.name)
                                     .font(.system(size: isSmall ? 18 : 20, weight: .black, design: .rounded))
@@ -186,6 +168,18 @@ struct HomeView: View {
                 )
                 .transition(.opacity)
                 .zIndex(100)
+            }
+        }
+        .onAppear {
+            // Reschedule with fresh streak count every time home appears
+            let dailyEnabled   = UserDefaults.standard.bool(forKey: "notif_daily_enabled")
+            let weekendEnabled = UserDefaults.standard.bool(forKey: "notif_weekend_enabled")
+            if dailyEnabled || weekendEnabled {
+                NotificationManager.shared.scheduleAll(
+                    streakDays: habit.streakDays,
+                    dailyEnabled: dailyEnabled,
+                    weekendEnabled: weekendEnabled
+                )
             }
         }
     }

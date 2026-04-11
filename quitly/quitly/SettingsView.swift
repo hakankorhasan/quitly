@@ -21,7 +21,7 @@ struct SettingsView: View {
     @State private var dailyCost: String = ""
     @State private var showingResetAlert = false
     @State private var showingPaywall = false
-    @State private var savedFeedback = false
+    @State private var savedToast = false
     @State private var showingPrivacy = false
     @State private var showingTerms = false
 
@@ -29,326 +29,444 @@ struct SettingsView: View {
         ZStack(alignment: .top) {
             AppGradient.background.ignoresSafeArea()
 
-                ScrollView(showsIndicators: false) {
-                    VStack(spacing: 0) {
-                        // ── Premium Header ─────────────────────────────
-                        HStack(spacing: 14) {
-                            ZStack {
-                                Circle()
-                                    .fill(
-                                        LinearGradient(
-                                            colors: [Color.textSecondary.opacity(0.25), Color.textSecondary.opacity(0.08)],
-                                            startPoint: .topLeading,
-                                            endPoint: .bottomTrailing
-                                        )
-                                    )
-                                    .frame(width: 42, height: 42)
+            // ── Fixed Top Title ─────────────────────────────────────────
+            VStack(spacing: 0) {
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("settings_title", comment: ""))
+                        .font(.system(size: 22, weight: .black, design: .rounded))
+                        .foregroundStyle(.white)
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 16)
+                .padding(.bottom, 12)
+            }
+            .zIndex(10)
 
-                                Image(systemName: "gearshape.fill")
-                                    .font(.system(size: 18, weight: .bold))
-                                    .foregroundStyle(Color.textSecondary)
-                            }
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 24) {
+                    Spacer().frame(height: 52) // Title bar clearance
 
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(NSLocalizedString("settings_title", comment: ""))
-                                    .font(.system(size: 20, weight: .black, design: .rounded))
-                                    .foregroundStyle(.white)
-                                Text(NSLocalizedString("settings_subtitle", comment: ""))
-                                    .font(.system(size: 12, weight: .medium, design: .rounded))
-                                    .foregroundStyle(Color.textSecondary)
-                            }
+                    // ── Header ─────────────────────────────────────────
+                    profileHeader
+                        .padding(.top, 4)
 
+                    // ── Habit Name ─────────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("settings_habit_title", comment: "")
+                    ) {
+                        inlineTextField(
+                            label: NSLocalizedString("settings_habit_name", comment: ""),
+                            placeholder: habit.name,
+                            text: $habitName,
+                            onCommit: autoSave
+                        )
+                    }
+
+                    // ── Cost ───────────────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("settings_cost_title", comment: "")
+                    ) {
+                        inlineTextField(
+                            label: NSLocalizedString("settings_daily_cost", comment: ""),
+                            placeholder: "\(Int(habit.dailyCostAmount))",
+                            text: $dailyCost,
+                            keyboardType: .decimalPad,
+                            onCommit: autoSave
+                        )
+                        settingsDivider
+                        HStack {
+                            Text(NSLocalizedString("settings_currency", comment: ""))
+                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.textPrimary)
                             Spacer()
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.top, 12)
-                        .padding(.bottom, 20)
-
-                    VStack(spacing: 20) {
-                        // Habit Section
-                        SettingsSection(title: NSLocalizedString("settings_habit_title", comment: "")) {
-                            LabeledTextField(
-                                label: NSLocalizedString("settings_habit_name", comment: ""),
-                                placeholder: habit.name,
-                                text: $habitName
-                            )
-                        }
-
-                        // Cost Section
-                        SettingsSection(title: NSLocalizedString("settings_cost_title", comment: "")) {
-                            LabeledTextField(
-                                label: NSLocalizedString("settings_daily_cost", comment: ""),
-                                placeholder: "\(Int(habit.dailyCostAmount))",
-                                text: $dailyCost,
-                                keyboardType: .decimalPad
-                            )
-                            Divider().background(Color.white.opacity(0.07))
-                            HStack {
-                                Text(NSLocalizedString("settings_currency", comment: ""))
-                                    .font(.system(size: 15, weight: .medium, design: .rounded))
-                                    .foregroundStyle(Color.textPrimary)
-                                Spacer()
-                                Picker("", selection: $habit.currencySymbol) {
-                                    ForEach(currencies, id: \.0) { c in
-                                        Text("\(c.0) \(c.1)").tag(c.0)
-                                    }
+                            Picker("", selection: Binding(
+                                get: { habit.currencySymbol },
+                                set: { habit.currencySymbol = $0; autoSave() }
+                            )) {
+                                ForEach(currencies, id: \.0) { c in
+                                    Text("\(c.0) \(c.1)").tag(c.0)
                                 }
-                                .tint(.fireOrange)
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 14)
+                            .tint(.soberBlue)
                         }
-
-                        // Quit Date
-                        SettingsSection(title: NSLocalizedString("settings_dates_title", comment: "")) {
-                            HStack {
-                                Text(NSLocalizedString("settings_quit_date", comment: ""))
-                                    .font(.system(size: 15, weight: .medium, design: .rounded))
-                                    .foregroundStyle(Color.textPrimary)
-                                Spacer()
-                                DatePicker("", selection: $habit.streakStart, in: ...Date(), displayedComponents: .date)
-                                    .tint(.fireOrange)
-                            }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 10)
-                        }
-
-                        // Goal Mode
-                        SettingsSection(title: NSLocalizedString("goal_mode_label", comment: "")) {
-                            GoalModeSelectorView(selectedGoal: $habit.goalMode)
-                                .padding(16)
-                        }
-
-                        // Smart Notifications
-                        SettingsSection(title: NSLocalizedString("settings_notifications_title", comment: "")) {
-                            VStack(spacing: 0) {
-                                HStack {
-                                    Image(systemName: "sun.max.fill")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(Color.amberGold)
-                                        .frame(width: 24)
-                                    Text(NSLocalizedString("settings_notif_daily", comment: ""))
-                                        .font(.system(size: 15, weight: .medium, design: .rounded))
-                                        .foregroundStyle(Color.textPrimary)
-                                    Spacer()
-                                    Toggle("", isOn: $dailyNotifEnabled)
-                                        .tint(.soberBlue)
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 12)
-
-                                Divider().background(Color.white.opacity(0.07))
-
-                                HStack {
-                                    Image(systemName: "moon.stars.fill")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(Color.purpleAccent)
-                                        .frame(width: 24)
-                                    Text(NSLocalizedString("settings_notif_weekend", comment: ""))
-                                        .font(.system(size: 15, weight: .medium, design: .rounded))
-                                        .foregroundStyle(Color.textPrimary)
-                                    Spacer()
-                                    Toggle("", isOn: $weekendNotifEnabled)
-                                        .tint(.soberBlue)
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 12)
-                            }
-                        }
-
-                        // Go Premium / Pro Badge
-                        if premiumManager.isPremium {
-                            HStack(spacing: 14) {
-                                ZStack {
-                                    Circle().fill(Color.goldAccent.opacity(0.2)).frame(width: 40, height: 40)
-                                    Image(systemName: "crown.fill")
-                                        .font(.system(size: 16, weight: .bold))
-                                        .foregroundStyle(Color.goldAccent)
-                                }
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(NSLocalizedString("badge_pro", comment: ""))
-                                        .font(.system(size: 15, weight: .semibold, design: .rounded))
-                                        .foregroundStyle(Color.goldAccent)
-                                    Text(NSLocalizedString("paywall_feature_streak_desc", comment: ""))
-                                        .font(.system(size: 12, weight: .regular, design: .rounded))
-                                        .foregroundStyle(Color.textSecondary)
-                                }
-                                Spacer()
-                                Image(systemName: "checkmark.circle.fill")
-                                    .font(.system(size: 20))
-                                    .foregroundStyle(Color.goldAccent)
-                            }
-                            .padding(16)
-                            .glassCard(cornerRadius: 16)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(Color.goldAccent.opacity(0.3), lineWidth: 1)
-                            )
-                            .padding(.horizontal, 20)
-                        } else {
-                            Button {
-                                showingPaywall = true
-                            } label: {
-                                HStack(spacing: 14) {
-                                    ZStack {
-                                        Circle().fill(AppGradient.fire).frame(width: 40, height: 40)
-                                        Image(systemName: "shield.checkered")
-                                            .font(.system(size: 16, weight: .bold))
-                                            .foregroundStyle(.white)
-                                    }
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(NSLocalizedString("settings_go_premium", comment: ""))
-                                            .font(.system(size: 15, weight: .semibold, design: .rounded))
-                                            .foregroundStyle(.white)
-                                        Text(NSLocalizedString("paywall_subtitle", comment: ""))
-                                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                                            .foregroundStyle(Color.textSecondary)
-                                    }
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(Color.fireOrange)
-                                }
-                                .padding(16)
-                                .glassCard(cornerRadius: 16)
-                            }
-                            .buttonStyle(.plain)
-                            .padding(.horizontal, 20)
-                        }
-
-                        // Save Button
-                        Button {
-                            saveChanges()
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: savedFeedback ? "checkmark.circle.fill" : "square.and.arrow.down.fill")
-                                    .font(.system(size: 15, weight: .bold))
-                                Text(savedFeedback
-                                     ? NSLocalizedString("settings_saved", comment: "")
-                                     : NSLocalizedString("settings_save", comment: ""))
-                                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                            }
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 16)
-                            .background(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(savedFeedback
-                                          ? AnyShapeStyle(Color.greenClean.opacity(0.8))
-                                          : AnyShapeStyle(AppGradient.fire))
-                            )
-                            .animation(.spring(response: 0.3, dampingFraction: 0.7), value: savedFeedback)
-                        }
-                        .buttonStyle(.plain)
-                        .padding(.horizontal, 20)
-
-                        // Legal Section
-                        SettingsSection(title: NSLocalizedString("settings_legal", comment: "")) {
-                            // Privacy Policy
-                            Button {
-                                showingPrivacy = true
-                            } label: {
-                                HStack {
-                                    Image(systemName: "lock.shield.fill")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(Color.purpleAccent)
-                                        .frame(width: 24)
-                                    Text(NSLocalizedString("settings_privacy", comment: ""))
-                                        .font(.system(size: 15, weight: .medium, design: .rounded))
-                                        .foregroundStyle(Color.textPrimary)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 12, weight: .semibold))
-                                        .foregroundStyle(Color.textMuted)
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 14)
-                            }
-                            .buttonStyle(.plain)
-
-                            Divider().background(Color.white.opacity(0.07))
-
-                            // Terms of Use
-                            Button {
-                                showingTerms = true
-                            } label: {
-                                HStack {
-                                    Image(systemName: "doc.text.fill")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(Color.fireOrange)
-                                        .frame(width: 24)
-                                    Text(NSLocalizedString("settings_terms", comment: ""))
-                                        .font(.system(size: 15, weight: .medium, design: .rounded))
-                                        .foregroundStyle(Color.textPrimary)
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 12, weight: .semibold))
-                                        .foregroundStyle(Color.textMuted)
-                                }
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 14)
-                            }
-                            .buttonStyle(.plain)
-                        }
-
-                        // Danger Zone
-                        Button(NSLocalizedString("settings_reset_data", comment: "")) {
-                            showingResetAlert = true
-                        }
-                        .font(.system(size: 15, weight: .semibold, design: .rounded))
-                        .foregroundStyle(.red.opacity(0.8))
-                        .padding(.top, 8)
-
-                        Spacer().frame(height: 110) // Tab bar clearance
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 14)
                     }
+
+                    // ── Quit Date ──────────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("settings_dates_title", comment: "")
+                    ) {
+                        HStack {
+                            Text(NSLocalizedString("settings_quit_date", comment: ""))
+                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.textPrimary)
+                            Spacer()
+                            DatePicker("", selection: Binding(
+                                get: { habit.streakStart },
+                                set: { habit.streakStart = $0; autoSave() }
+                            ), in: ...Date(), displayedComponents: .date)
+                            .tint(.soberBlue)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
                     }
+
+                    // ── Goal Mode ──────────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("goal_mode_label", comment: "")
+                    ) {
+                        GoalModeSelectorView(selectedGoal: Binding(
+                            get: { habit.goalMode },
+                            set: { habit.goalMode = $0; autoSave() }
+                        ))
+                        .padding(16)
+                    }
+
+                    // ── Notifications ──────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("settings_notifications_title", comment: "")
+                    ) {
+                        notifRow(
+                            icon: "sun.max.fill", iconColor: .amberGold,
+                            label: NSLocalizedString("settings_notif_daily", comment: ""),
+                            isOn: $dailyNotifEnabled
+                        )
+                        settingsDivider
+                        notifRow(
+                            icon: "moon.stars.fill", iconColor: .purpleAccent,
+                            label: NSLocalizedString("settings_notif_weekend", comment: ""),
+                            isOn: $weekendNotifEnabled
+                        )
+                    }
+
+                    // ── Legal ──────────────────────────────────────────
+                    SettingsSection(
+                        title: NSLocalizedString("settings_legal", comment: "")
+                    ) {
+                        legalRow(icon: "lock.shield.fill", color: .purpleAccent,
+                                 label: NSLocalizedString("settings_privacy", comment: "")) {
+                            showingPrivacy = true
+                        }
+                        settingsDivider
+                        legalRow(icon: "doc.text.fill", color: .soberBlue,
+                                 label: NSLocalizedString("settings_terms", comment: "")) {
+                            showingTerms = true
+                        }
+                    }
+
+                    // ── Danger ─────────────────────────────────────────
+                    Button {
+                        showingResetAlert = true
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "trash.fill")
+                                .font(.system(size: 13, weight: .semibold))
+                            Text(NSLocalizedString("settings_reset_data", comment: ""))
+                                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                        }
+                        .foregroundStyle(.red.opacity(0.75))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(
+                            RoundedRectangle(cornerRadius: 14)
+                                .fill(Color.red.opacity(0.07))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .strokeBorder(Color.red.opacity(0.15), lineWidth: 1)
+                                )
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal, 20)
+
+                    Spacer().frame(height: 100)
                 }
             }
-            .alert(NSLocalizedString("settings_reset_alert_title", comment: ""), isPresented: $showingResetAlert) {
-                Button(NSLocalizedString("settings_reset_confirm", comment: ""), role: .destructive) {
-                    resetAllData()
-                }
-                Button(NSLocalizedString("relapse_cancel", comment: ""), role: .cancel) {}
-            } message: {
-                Text(NSLocalizedString("settings_reset_alert_message", comment: ""))
+
+            // ── Saved Toast ────────────────────────────────────────────
+            if savedToast {
+                savedToastView
+                    .transition(.move(edge: .top).combined(with: .opacity))
+                    .zIndex(100)
             }
+        }
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: savedToast)
+        .alert(NSLocalizedString("settings_reset_alert_title", comment: ""), isPresented: $showingResetAlert) {
+            Button(NSLocalizedString("settings_reset_confirm", comment: ""), role: .destructive) {
+                resetAllData()
+            }
+            Button(NSLocalizedString("relapse_cancel", comment: ""), role: .cancel) {}
+        } message: {
+            Text(NSLocalizedString("settings_reset_alert_message", comment: ""))
+        }
+        .onChange(of: dailyNotifEnabled)  { scheduleNotifications() }
+        .onChange(of: weekendNotifEnabled) { scheduleNotifications() }
         .onAppear {
             habitName = habit.name
             dailyCost = "\(Int(habit.dailyCostAmount))"
         }
-
-        .fullScreenCover(isPresented: $showingPaywall) {
-            PaywallView()
-        }
-        .fullScreenCover(isPresented: $showingPrivacy) {
-            LegalWebView(
-                title: NSLocalizedString("settings_privacy", comment: ""),
-                urlString: LegalURL.privacyPolicy
-            )
+        .fullScreenCover(isPresented: $showingPaywall)  { PaywallView() }
+        .fullScreenCover(isPresented: $showingPrivacy)  {
+            LegalWebView(title: NSLocalizedString("settings_privacy", comment: ""), urlString: LegalURL.privacyPolicy)
         }
         .fullScreenCover(isPresented: $showingTerms) {
-            LegalWebView(
-                title: NSLocalizedString("settings_terms", comment: ""),
-                urlString: LegalURL.termsOfUse
-            )
+            LegalWebView(title: NSLocalizedString("settings_terms", comment: ""), urlString: LegalURL.termsOfUse)
         }
     }
 
-    private func saveChanges() {
+    // MARK: - Profile Header
+    private var profileHeader: some View {
+        VStack(spacing: 0) {
+            // Habit info row
+            HStack(spacing: 14) {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(habit.name)
+                        .font(.system(size: 18, weight: .black, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text(goalLabel)
+                        .font(.system(size: 12, weight: .medium, design: .rounded))
+                        .foregroundStyle(Color.textSecondary)
+                }
+                Spacer()
+                if premiumManager.isPremium {
+                    HStack(spacing: 6) {
+                        Image(systemName: "crown.fill")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(Color.goldAccent)
+                        Text(NSLocalizedString("badge_pro", comment: ""))
+                            .font(.system(size: 11, weight: .bold, design: .rounded))
+                            .foregroundStyle(Color.goldAccent)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(Color.goldAccent.opacity(0.12))
+                    .clipShape(Capsule())
+                    .overlay(Capsule().strokeBorder(Color.goldAccent.opacity(0.25), lineWidth: 1))
+                } else {
+                    Text(NSLocalizedString("settings_title", comment: ""))
+                        .font(.system(size: 11, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.textMuted)
+                        .textCase(.uppercase)
+                        .tracking(0.5)
+                }
+            }
+
+            // Pro upgrade banner — only for free users
+            if !premiumManager.isPremium {
+                Button { showingPaywall = true } label: {
+                    HStack(spacing: 12) {
+                        Image("splash-icon")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 34, height: 34)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(NSLocalizedString("settings_go_premium", comment: ""))
+                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white)
+                            Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                                .font(.system(size: 11, weight: .regular, design: .rounded))
+                                .foregroundStyle(Color.textSecondary)
+                                .lineLimit(1)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundStyle(Color.fireOrange)
+                    }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.white.opacity(0.04))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .strokeBorder(Color.fireOrange.opacity(0.25), lineWidth: 1)
+                            )
+                    )
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 12)
+            }
+        }
+        .padding(18)
+        .glassCard(cornerRadius: 20)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(Color.soberBlue.opacity(0.15), lineWidth: 1)
+        )
+        .padding(.horizontal, 20)
+    }
+
+    // MARK: - Saved Toast
+    private var savedToastView: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "checkmark.circle.fill")
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(Color.greenClean)
+            Text(NSLocalizedString("settings_saved", comment: ""))
+                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                .foregroundStyle(.white)
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 10)
+        .background(
+            Capsule()
+                .fill(Color(white: 0.12))
+                .overlay(Capsule().strokeBorder(Color.greenClean.opacity(0.3), lineWidth: 1))
+        )
+        .shadow(color: .black.opacity(0.3), radius: 12, x: 0, y: 4)
+        .padding(.top, 60)
+    }
+
+    // MARK: - Premium Row
+    @ViewBuilder
+    private var premiumRow: some View {
+        if premiumManager.isPremium {
+            HStack(spacing: 14) {
+                ZStack {
+                    Circle().fill(Color.goldAccent.opacity(0.2)).frame(width: 40, height: 40)
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(Color.goldAccent)
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(NSLocalizedString("badge_pro", comment: ""))
+                        .font(.system(size: 15, weight: .semibold, design: .rounded))
+                        .foregroundStyle(Color.goldAccent)
+                    Text(NSLocalizedString("paywall_feature_streak_desc", comment: ""))
+                        .font(.system(size: 12, weight: .regular, design: .rounded))
+                        .foregroundStyle(Color.textSecondary)
+                }
+                Spacer()
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 20))
+                    .foregroundStyle(Color.goldAccent)
+            }
+            .padding(16)
+            .glassCard(cornerRadius: 16)
+            .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.goldAccent.opacity(0.3), lineWidth: 1))
+            .padding(.horizontal, 20)
+        } else {
+            Button { showingPaywall = true } label: {
+                HStack(spacing: 14) {
+                    Image("splash-icon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40, height: 40)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(NSLocalizedString("settings_go_premium", comment: ""))
+                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .foregroundStyle(.white)
+                        Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                            .font(.system(size: 12, weight: .regular, design: .rounded))
+                            .foregroundStyle(Color.textSecondary)
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(Color.fireOrange)
+                }
+                .padding(16)
+                .glassCard(cornerRadius: 16)
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 20)
+        }
+    }
+
+    // MARK: - Helpers
+    private var settingsDivider: some View {
+        Divider().background(Color.white.opacity(0.07)).padding(.horizontal, 4)
+    }
+
+    private var goalLabel: String {
+        switch habit.goalMode {
+        case "less":     return NSLocalizedString("goal_subtitle_less", comment: "")
+        case "weekends": return NSLocalizedString("goal_subtitle_weekends", comment: "")
+        default:         return NSLocalizedString("goal_subtitle_quit", comment: "")
+        }
+    }
+
+    @ViewBuilder
+    private func inlineTextField(
+        label: String,
+        placeholder: String,
+        text: Binding<String>,
+        keyboardType: UIKeyboardType = .default,
+        onCommit: @escaping () -> Void
+    ) -> some View {
+        HStack {
+            Text(label)
+                .font(.system(size: 15, weight: .medium, design: .rounded))
+                .foregroundStyle(Color.textPrimary)
+            Spacer()
+            TextField(placeholder, text: text)
+                .keyboardType(keyboardType)
+                .multilineTextAlignment(.trailing)
+                .font(.system(size: 15, design: .rounded))
+                .foregroundStyle(Color.textSecondary)
+                .frame(maxWidth: 160)
+                .onSubmit(onCommit)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
+    }
+
+    @ViewBuilder
+    private func notifRow(icon: String, iconColor: Color, label: String, isOn: Binding<Bool>) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundStyle(iconColor)
+                .frame(width: 24)
+            Text(label)
+                .font(.system(size: 15, weight: .medium, design: .rounded))
+                .foregroundStyle(Color.textPrimary)
+            Spacer()
+            Toggle("", isOn: isOn)
+                .tint(.soberBlue)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+    }
+
+    @ViewBuilder
+    private func legalRow(icon: String, color: Color, label: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack {
+                Image(systemName: icon)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(color)
+                    .frame(width: 24)
+                Text(label)
+                    .font(.system(size: 15, weight: .medium, design: .rounded))
+                    .foregroundStyle(Color.textPrimary)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(Color.textMuted)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - Auto Save
+    private func autoSave() {
         let name = habitName.trimmingCharacters(in: .whitespaces)
         if !name.isEmpty { habit.name = name }
         if let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) {
             habit.dailyCostAmount = cost
         }
         try? modelContext.save()
-        // Push updated data to widget & sync
         writeHabitToWidget(habit, premiumManager: premiumManager)
-        // Schedule/update notifications
-        scheduleNotifications()
-        // Show saved feedback
-        withAnimation { savedFeedback = true }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation { savedFeedback = false }
+
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) { savedToast = true }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+            withAnimation(.easeOut(duration: 0.3)) { savedToast = false }
         }
     }
 
@@ -374,20 +492,21 @@ struct SettingsView: View {
     }
 }
 
+// MARK: - Section Component
 private struct SettingsSection<Content: View>: View {
     let title: String
     @ViewBuilder let content: Content
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 8) {
             Text(title)
-                .font(.system(size: 12, weight: .semibold, design: .rounded))
+                .font(.system(size: 11, weight: .semibold, design: .rounded))
                 .foregroundStyle(Color.textSecondary)
                 .textCase(.uppercase)
                 .tracking(0.6)
                 .padding(.horizontal, 24)
-                .padding(.bottom, 8)
 
+            // Content card
             VStack(spacing: 0) { content }
                 .glassCard(cornerRadius: 16)
                 .padding(.horizontal, 20)
@@ -395,6 +514,7 @@ private struct SettingsSection<Content: View>: View {
     }
 }
 
+// MARK: - Text Field Component
 private struct LabeledTextField: View {
     let label: String
     let placeholder: String
