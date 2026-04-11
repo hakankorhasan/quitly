@@ -41,6 +41,28 @@ final class PremiumManager {
         }
     }
 
+    /// Days since install
+    var daysSinceInstall: Int {
+        Calendar.current.dateComponents([.day],
+            from: Calendar.current.startOfDay(for: installDate),
+            to:   Calendar.current.startOfDay(for: Date())).day ?? 0
+    }
+
+    /// First 3 days = free trial, full access to everything
+    var isTrialActive: Bool {
+        daysSinceInstall < 3
+    }
+
+    /// Trial days remaining (3, 2, 1, 0)
+    var trialDaysRemaining: Int {
+        max(0, 3 - daysSinceInstall)
+    }
+
+    /// Central gate: premium OR in trial = full access
+    var hasFullAccess: Bool {
+        isPremium || isTrialActive
+    }
+
     // MARK: - Constants
     private let streakTriggerDays = 3
     private let gracePeriodDays   = 4
@@ -48,11 +70,7 @@ final class PremiumManager {
     // MARK: - Computed
 
     var isWidgetEnabled: Bool {
-        if isPremium { return true }
-        let daysPassed = Calendar.current.dateComponents([.day],
-            from: Calendar.current.startOfDay(for: installDate),
-            to:   Calendar.current.startOfDay(for: Date())).day ?? 0
-        return daysPassed < 3
+        hasFullAccess
     }
 
     func shouldTriggerPaywall(streakDays: Int) -> Bool {

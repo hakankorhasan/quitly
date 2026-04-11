@@ -218,7 +218,7 @@ struct SettingsView: View {
 
     // MARK: - Profile Header
     private var profileHeader: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 14) {
             // Habit info row
             HStack(spacing: 14) {
                 VStack(alignment: .leading, spacing: 3) {
@@ -233,70 +233,112 @@ struct SettingsView: View {
                 if premiumManager.isPremium {
                     HStack(spacing: 6) {
                         Image(systemName: "crown.fill")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.system(size: 12, weight: .bold))
                             .foregroundStyle(Color.goldAccent)
                         Text(NSLocalizedString("badge_pro", comment: ""))
-                            .font(.system(size: 11, weight: .bold, design: .rounded))
+                            .font(.system(size: 12, weight: .bold, design: .rounded))
                             .foregroundStyle(Color.goldAccent)
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
                     .background(Color.goldAccent.opacity(0.12))
                     .clipShape(Capsule())
-                    .overlay(Capsule().strokeBorder(Color.goldAccent.opacity(0.25), lineWidth: 1))
-                } else {
-                    Text(NSLocalizedString("settings_title", comment: ""))
-                        .font(.system(size: 11, weight: .semibold, design: .rounded))
-                        .foregroundStyle(Color.textMuted)
-                        .textCase(.uppercase)
-                        .tracking(0.5)
+                    .overlay(Capsule().strokeBorder(Color.goldAccent.opacity(0.3), lineWidth: 1))
                 }
             }
 
-            // Pro upgrade banner — only for free users
+            // Premium upgrade card — free users only
             if !premiumManager.isPremium {
                 Button { showingPaywall = true } label: {
-                    HStack(spacing: 12) {
-                        Image("splash-icon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 34, height: 34)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(NSLocalizedString("settings_go_premium", comment: ""))
-                                .font(.system(size: 13, weight: .bold, design: .rounded))
-                                .foregroundStyle(.white)
-                            Text(NSLocalizedString("paywall_subtitle", comment: ""))
-                                .font(.system(size: 11, weight: .regular, design: .rounded))
-                                .foregroundStyle(Color.textSecondary)
-                                .lineLimit(1)
+                    VStack(spacing: 14) {
+                        HStack(spacing: 12) {
+                            Image("splash-icon")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(NSLocalizedString("settings_go_premium", comment: ""))
+                                    .font(.system(size: 16, weight: .black, design: .rounded))
+                                    .foregroundStyle(.white)
+                                Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                                    .font(.system(size: 11, weight: .medium, design: .rounded))
+                                    .foregroundStyle(.white.opacity(0.6))
+                                    .lineLimit(1)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(.white.opacity(0.7))
                         }
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundStyle(Color.fireOrange)
+
+                        // Feature pills
+                        HStack(spacing: 8) {
+                            premiumPill(icon: "shield.checkered", text: "Streak Shield")
+                            premiumPill(icon: "brain.head.profile", text: "Insights")
+                            premiumPill(icon: "bell.badge.fill", text: "Reminders")
+                        }
                     }
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 12)
+                    .padding(16)
                     .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.white.opacity(0.04))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 12)
-                                    .strokeBorder(Color.fireOrange.opacity(0.25), lineWidth: 1)
-                            )
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 0.15, green: 0.08, blue: 0.35),
+                                            Color(red: 0.08, green: 0.12, blue: 0.30)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(
+                                    LinearGradient(
+                                        colors: [
+                                            Color.purpleAccent.opacity(0.5),
+                                            Color.soberBlue.opacity(0.3),
+                                            Color.purpleAccent.opacity(0.2)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 1
+                                )
+                        }
                     )
                 }
                 .buttonStyle(.plain)
-                .padding(.top, 12)
             }
         }
         .padding(18)
         .glassCard(cornerRadius: 20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .strokeBorder(Color.soberBlue.opacity(0.15), lineWidth: 1)
+                .strokeBorder(
+                    premiumManager.isPremium
+                        ? Color.goldAccent.opacity(0.2)
+                        : Color.soberBlue.opacity(0.15),
+                    lineWidth: 1
+                )
         )
         .padding(.horizontal, 20)
+    }
+
+    @ViewBuilder
+    private func premiumPill(icon: String, text: String) -> some View {
+        HStack(spacing: 4) {
+            Image(systemName: icon)
+                .font(.system(size: 8, weight: .bold))
+            Text(text)
+                .font(.system(size: 9, weight: .semibold, design: .rounded))
+        }
+        .foregroundStyle(.white.opacity(0.7))
+        .padding(.horizontal, 8)
+        .padding(.vertical, 5)
+        .background(Color.white.opacity(0.08))
+        .clipShape(Capsule())
     }
 
     // MARK: - Saved Toast
@@ -320,61 +362,8 @@ struct SettingsView: View {
         .padding(.top, 60)
     }
 
-    // MARK: - Premium Row
-    @ViewBuilder
-    private var premiumRow: some View {
-        if premiumManager.isPremium {
-            HStack(spacing: 14) {
-                ZStack {
-                    Circle().fill(Color.goldAccent.opacity(0.2)).frame(width: 40, height: 40)
-                    Image(systemName: "crown.fill")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundStyle(Color.goldAccent)
-                }
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(NSLocalizedString("badge_pro", comment: ""))
-                        .font(.system(size: 15, weight: .semibold, design: .rounded))
-                        .foregroundStyle(Color.goldAccent)
-                    Text(NSLocalizedString("paywall_feature_streak_desc", comment: ""))
-                        .font(.system(size: 12, weight: .regular, design: .rounded))
-                        .foregroundStyle(Color.textSecondary)
-                }
-                Spacer()
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 20))
-                    .foregroundStyle(Color.goldAccent)
-            }
-            .padding(16)
-            .glassCard(cornerRadius: 16)
-            .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.goldAccent.opacity(0.3), lineWidth: 1))
-            .padding(.horizontal, 20)
-        } else {
-            Button { showingPaywall = true } label: {
-                HStack(spacing: 14) {
-                    Image("splash-icon")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(NSLocalizedString("settings_go_premium", comment: ""))
-                            .font(.system(size: 15, weight: .semibold, design: .rounded))
-                            .foregroundStyle(.white)
-                        Text(NSLocalizedString("paywall_subtitle", comment: ""))
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundStyle(Color.textSecondary)
-                    }
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(Color.fireOrange)
-                }
-                .padding(16)
-                .glassCard(cornerRadius: 16)
-            }
-            .buttonStyle(.plain)
-            .padding(.horizontal, 20)
-        }
-    }
+
+
 
     // MARK: - Helpers
     private var settingsDivider: some View {

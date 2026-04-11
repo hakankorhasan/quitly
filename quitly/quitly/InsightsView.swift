@@ -7,7 +7,9 @@ import SwiftUI
 
 struct InsightsView: View {
     @Bindable var habit: Habit
+    @Environment(PremiumManager.self) private var premiumManager
     @State private var showingRewardsStore = false
+    @State private var showingPaywall = false
     
     var body: some View {
         GeometryReader { geo in
@@ -50,37 +52,30 @@ struct InsightsView: View {
                         .padding(.bottom, 20)
                         
                         VStack(spacing: 16) {
-                            // Para tasarrufu özet kartı
+                            // FREE — Money saved + chart
                             MoneySavedView(habit: habit)
-
-                            // Savings Chart
                             SavingsChartView(habit: habit)
 
-                            // Mini Calendar
-                            MiniCalendarView(habit: habit)
-
-                            // Trigger Insights
-                            TriggerInsightCardView(habit: habit)
-
-                            // Sağlık Dönüm Noktaları
-                            HealthMilestonesView(habit: habit)
-
-                            // Ödül İlerleme Kartı
-                            NextRewardProgressView(habit: habit, onTap: {
-                                showingRewardsStore = true
-                            })
-
-                            // Ödül Mağazası Butonu
-                            if !habit.rewards.isEmpty {
-                                rewardsStoreButton
+                            if premiumManager.hasFullAccess {
+                                // PREMIUM — all features
+                                MiniCalendarView(habit: habit)
+                                TriggerInsightCardView(habit: habit)
+                                HealthMilestonesView(habit: habit)
+                                NextRewardProgressView(habit: habit, onTap: {
+                                    showingRewardsStore = true
+                                })
+                                if !habit.rewards.isEmpty {
+                                    rewardsStoreButton
+                                }
+                                PreviousAttemptsView(habit: habit)
+                            } else {
+                                // LOCKED — unlock CTA
+                                premiumUnlockCard
                             }
-
-                            // Önceki Denemeler (Relapse geçmişi)
-                            PreviousAttemptsView(habit: habit)
                         }
                         .padding(.horizontal, hPad)
 
-                        Spacer().frame(height: 110) // Tab bar clearance
+                        Spacer().frame(height: 110)
                     }
                 }
             }
@@ -89,6 +84,83 @@ struct InsightsView: View {
             RewardsStoreView(habit: habit)
                 .presentationBackground(AppGradient.background)
         }
+        .fullScreenCover(isPresented: $showingPaywall) {
+            PaywallView()
+        }
+    }
+
+    // MARK: - Premium Unlock Card
+    private var premiumUnlockCard: some View {
+        Button { showingPaywall = true } label: {
+            VStack(spacing: 16) {
+                // Lock icon
+                ZStack {
+                    Circle()
+                        .fill(Color.purpleAccent.opacity(0.12))
+                        .frame(width: 56, height: 56)
+                    Image(systemName: "lock.fill")
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundStyle(Color.purpleAccent)
+                }
+
+                VStack(spacing: 6) {
+                    Text(NSLocalizedString("settings_go_premium", comment: ""))
+                        .font(.system(size: 17, weight: .black, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text(NSLocalizedString("insights_unlock_desc", comment: ""))
+                        .font(.system(size: 13, weight: .medium, design: .rounded))
+                        .foregroundStyle(Color.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(3)
+                }
+
+                // Feature list
+                VStack(spacing: 8) {
+                    lockedFeature(icon: "calendar", text: NSLocalizedString("insights_locked_calendar", comment: ""))
+                    lockedFeature(icon: "brain.head.profile", text: NSLocalizedString("insights_locked_triggers", comment: ""))
+                    lockedFeature(icon: "heart.text.square", text: NSLocalizedString("insights_locked_health", comment: ""))
+                }
+
+                // CTA button
+                Text(NSLocalizedString("paywall_cta", comment: ""))
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(AppGradient.fire)
+                    )
+            }
+            .padding(20)
+            .glassCard(cornerRadius: 22)
+            .overlay(
+                RoundedRectangle(cornerRadius: 22)
+                    .strokeBorder(Color.purpleAccent.opacity(0.25), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func lockedFeature(icon: String, text: String) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: icon)
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundStyle(Color.purpleAccent)
+                .frame(width: 20)
+            Text(text)
+                .font(.system(size: 13, weight: .medium, design: .rounded))
+                .foregroundStyle(Color.textSecondary)
+            Spacer()
+            Image(systemName: "lock.fill")
+                .font(.system(size: 9, weight: .bold))
+                .foregroundStyle(Color.textMuted)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
+        .background(Color.white.opacity(0.03))
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 
     // MARK: - Rewards Store Button

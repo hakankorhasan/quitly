@@ -13,6 +13,7 @@ struct ContentView: View {
     @Query private var habits: [Habit]
     @AppStorage("setupComplete") private var setupComplete = false
     @State private var showSplash = true
+    @State private var showPaywallOnLaunch = false
 
     var body: some View {
         ZStack {
@@ -36,7 +37,7 @@ struct ContentView: View {
                 OnboardingView()
             }
 
-            // Splash screen overlay — uygulama ilk açılışında gösterilir
+            // Splash screen overlay
             if showSplash {
                 SplashView(isVisible: $showSplash)
                     .transition(.opacity)
@@ -54,6 +55,16 @@ struct ContentView: View {
                 writeHabitToWidget(first, premiumManager: premiumManager)
             }
         }
+        // Show paywall after splash — only after 3-day trial expires
+        .onChange(of: showSplash) {
+            if !showSplash && !premiumManager.hasFullAccess && setupComplete {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    showPaywallOnLaunch = true
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $showPaywallOnLaunch) {
+            PaywallView()
+        }
     }
 }
-
