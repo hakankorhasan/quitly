@@ -106,17 +106,12 @@ struct StreakHeroView: View {
 
                     // Center content
                     VStack(spacing: 4) {
-                        Image(systemName: "shield.checkered")
-                            .font(.system(size: 26, weight: .bold))
-                            .foregroundStyle(
-                                LinearGradient(
-                                    colors: [.soberBlue, .aquaTeal],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .scaleEffect(flamePulse ? 1.12 : 1.0)
-                            .shadow(color: Color.soberBlue.opacity(0.5), radius: 6)
+                        Image("cocktail")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .scaleEffect(flamePulse ? 1.08 : 1.0)
+                            .shadow(color: Color.soberBlue.opacity(0.4), radius: 6)
                             .animation(
                                 .easeInOut(duration: 1.5).repeatForever(autoreverses: true),
                                 value: flamePulse
@@ -161,6 +156,22 @@ struct StreakHeroView: View {
                     .foregroundStyle(Color.textMuted)
                     .opacity(appeared ? 1 : 0)
             }
+
+            // Identity Line
+            Text(identityLine)
+                .font(.system(size: 13, weight: .medium, design: .rounded))
+                .italic()
+                .foregroundStyle(
+                    LinearGradient(
+                        colors: [Color.textSecondary.opacity(0.9), Color.textMuted],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+                .opacity(appeared ? 1 : 0)
+                .animation(.easeInOut(duration: 1.0).delay(0.8), value: appeared)
         }
         .onAppear {
             flamePulse = true
@@ -299,6 +310,19 @@ struct StreakHeroView: View {
             } else {
                 countedDays = current
             }
+        }
+    }
+
+    // MARK: - Identity Line
+    private var identityLine: String {
+        let days = habit.streakDays
+        switch days {
+        case 0:      return NSLocalizedString("identity_day0", comment: "")
+        case 1...3:  return NSLocalizedString("identity_day1_3", comment: "")
+        case 4...7:  return NSLocalizedString("identity_day4_7", comment: "")
+        case 8...14: return NSLocalizedString("identity_day8_14", comment: "")
+        case 15...30: return NSLocalizedString("identity_day15_30", comment: "")
+        default:     return NSLocalizedString("identity_day30plus", comment: "")
         }
     }
 }

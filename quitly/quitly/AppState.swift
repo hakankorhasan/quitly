@@ -17,17 +17,22 @@ final class AppState {
     var motivationalQuote = ""
     var showingRelapseSupport = false
     var showingPaywall = false
+    var showingUrgeMode = false
+    var showingTriggerPicker = false
+    var triggerContext = "stayStrong" // "stayStrong" or "relapse"
+    var streakProtectedFeedback = false
 
     private var lastQuoteIndex = -1
 
     func stayStrong() {
-        motivationalQuote = MotivationEngine.shared.getRandomQuote()
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
-            showingMotivation = true
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) { [weak self] in
-            withAnimation(.easeOut(duration: 0.3)) { self?.showingMotivation = false }
-        }
+        // Open Urge Mode instead of just showing a banner
+        showingUrgeMode = true
+    }
+
+    /// Called after Urge Mode completes — shows the trigger picker
+    func onUrgeModeComplete() {
+        triggerContext = "stayStrong"
+        showingTriggerPicker = true
     }
 
     func confirmRelapse(habit: Habit, premiumManager: PremiumManager) {
@@ -44,18 +49,46 @@ final class AppState {
         // Journey tab'ını haberdar et
         NotificationCenter.default.post(name: .relapseConfirmed, object: nil)
 
-        // Streak'i sıfırla
-        habit.streakStart = Date()
+        // Streak Protection: Premium → -1 gün ceza, Free → tam sıfırlama
+        if premiumManager.isPremium && habit.streakDays > 1 {
+            // Streak -1 gün ceza: streakStart'ı 1 gün ileri al
+            if let newStart = Calendar.current.date(byAdding: .day, value: 1, to: habit.streakStart) {
+                habit.streakStart = newStart
+            }
+            streakProtectedFeedback = true
+        } else {
+            habit.streakStart = Date()
+        }
         
-        // Widget'ı DA güncelle ki anında eski streak'i yerine 0 göstersin
+        // Widget'ı DA güncelle ki anında eski streak'i yerine günceli göstersin
         writeHabitToWidget(habit, premiumManager: premiumManager)
         
         showingRelapse = false
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
-            showingRelapseSupport = true
+
+        // Trigger picker for relapse
+        triggerContext = "relapse"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { [weak self] in
+            self?.showingTriggerPicker = true
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
-            withAnimation(.easeOut) { self?.showingRelapseSupport = false }
+
+        // Support banners
+        if streakProtectedFeedback {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
+                showingRelapseSupport = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                withAnimation(.easeOut) {
+                    self?.showingRelapseSupport = false
+                    self?.streakProtectedFeedback = false
+                }
+            }
+        } else {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
+                showingRelapseSupport = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) { [weak self] in
+                withAnimation(.easeOut) { self?.showingRelapseSupport = false }
+            }
         }
     }
 }

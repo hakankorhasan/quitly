@@ -120,6 +120,29 @@ struct RelapseSheetView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 36)
 
+                    // Streak Protection note for premium users
+                    if premiumManager.isPremium && habit.streakDays > 1 {
+                        HStack(spacing: 10) {
+                            Image(systemName: "shield.checkered")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(Color.goldAccent)
+                            Text(NSLocalizedString("streak_protection_note", comment: ""))
+                                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                .foregroundStyle(Color.goldAccent)
+                        }
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.goldAccent.opacity(0.08))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(Color.goldAccent.opacity(0.2), lineWidth: 1)
+                        )
+                        .padding(.horizontal, 24)
+                        .padding(.top, 8)
+                    }
+
                     Spacer().frame(height: 40)
 
                     VStack(spacing: 14) {

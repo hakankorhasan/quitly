@@ -57,16 +57,17 @@ struct HomeView: View {
                                     )
                                     .frame(width: 42, height: 42)
 
-                                Image(systemName: habit.emoji)
-                                    .font(.system(size: 18, weight: .bold))
-                                    .foregroundStyle(Color.fireOrange)
+                                Image("cocktail")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 22, height: 22)
                             }
 
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(habit.name)
                                     .font(.system(size: isSmall ? 18 : 20, weight: .black, design: .rounded))
                                     .foregroundStyle(.white)
-                                Text(NSLocalizedString("home_your_journey", comment: ""))
+                                Text(goalSubtitle)
                                     .font(.system(size: 12, weight: .medium, design: .rounded))
                                     .foregroundStyle(Color.textSecondary)
                             }
@@ -140,7 +141,7 @@ struct HomeView: View {
                 if appState.showingRelapseSupport {
                     VStack {
                         Spacer()
-                        RelapseSuportBanner()
+                        RelapseSuportBanner(isProtected: appState.streakProtectedFeedback)
                             .padding(.horizontal, hPad)
                             .padding(.bottom, 120)
                             .transition(.move(edge: .bottom).combined(with: .opacity))
@@ -163,6 +164,17 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
         }
+        .fullScreenCover(isPresented: $state.showingUrgeMode) {
+            UrgeModeView {
+                appState.onUrgeModeComplete()
+            }
+        }
+        .sheet(isPresented: $state.showingTriggerPicker) {
+            TriggerInsightView(habitId: habit.id, context: appState.triggerContext)
+                .presentationDetents([.medium, .large])
+                .presentationDragIndicator(.visible)
+                .presentationBackground(Color.cardBG)
+        }
         .overlay {
             if remoteConfig.shouldShowUpdate {
                 UpdatePopupView(
@@ -175,6 +187,15 @@ struct HomeView: View {
                 .transition(.opacity)
                 .zIndex(100)
             }
+        }
+    }
+
+    // MARK: - Goal Subtitle
+    private var goalSubtitle: String {
+        switch habit.goalMode {
+        case "less":     return NSLocalizedString("goal_subtitle_less", comment: "")
+        case "weekends": return NSLocalizedString("goal_subtitle_weekends", comment: "")
+        default:         return NSLocalizedString("goal_subtitle_quit", comment: "")
         }
     }
 
@@ -223,12 +244,16 @@ struct HomeView: View {
 
 // MARK: - Relapse Support Banner
 private struct RelapseSuportBanner: View {
+    var isProtected: Bool = false
+
     var body: some View {
         HStack(spacing: 14) {
-            Image(systemName: "heart.fill")
+            Image(systemName: isProtected ? "shield.checkered" : "heart.fill")
                 .font(.system(size: 24))
-                .foregroundStyle(Color.purpleAccent)
-            Text(NSLocalizedString("relapse_support_message", comment: ""))
+                .foregroundStyle(isProtected ? Color.goldAccent : Color.purpleAccent)
+            Text(isProtected
+                 ? NSLocalizedString("streak_protected_message", comment: "")
+                 : NSLocalizedString("relapse_support_message", comment: ""))
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundStyle(Color.textPrimary)
                 .lineSpacing(4)
@@ -236,5 +261,9 @@ private struct RelapseSuportBanner: View {
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
         .glassCard()
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .strokeBorder(isProtected ? Color.goldAccent.opacity(0.3) : Color.clear, lineWidth: 1)
+        )
     }
 }

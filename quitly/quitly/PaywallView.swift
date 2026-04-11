@@ -19,6 +19,7 @@ struct PaywallView: View {
         ("shield.checkered",        .purpleAccent, "paywall_feature_streak",   "paywall_feature_streak_desc"),
         ("chart.bar.fill",          .greenClean,   "paywall_feature_insights", "paywall_feature_insights_desc"),
         ("rectangle.grid.2x2.fill", .purpleAccent, "paywall_feature_widgets",  "paywall_feature_widgets_desc"),
+        ("shield.lefthalf.filled",  .amberGold,    "paywall_feature_protection", "paywall_feature_protection_desc"),
     ]
 
     // Dinamik fiyat RevenueCat'ten, yoksa fallback

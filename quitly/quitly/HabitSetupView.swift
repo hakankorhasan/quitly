@@ -17,7 +17,7 @@ private let currencies = [
 
 struct HabitSetupView: View {
     // Alcohol recovery app: hardcoded
-    private let habitEmoji = "drop.fill"
+    private let habitEmoji = "cocktail"
     private let habitName_  = "Drinking"
 
     @Environment(\.modelContext) private var modelContext
@@ -28,6 +28,7 @@ struct HabitSetupView: View {
     @State private var dailyCost: String = ""
     @State private var selectedCurrency = "₺"
     @State private var quitDate = Date()
+    @State private var goalMode = "quit"
     @State private var appeared = false
 
     var body: some View {
@@ -50,6 +51,12 @@ struct HabitSetupView: View {
 
                 // Fields
                 VStack(spacing: 16) {
+                    // Goal Mode
+                    VStack(alignment: .leading, spacing: 8) {
+                        label(NSLocalizedString("goal_mode_label", comment: ""))
+                        GoalModeSelectorView(selectedGoal: $goalMode)
+                    }
+
                     // Habit Name
                     VStack(alignment: .leading, spacing: 8) {
                         label(NSLocalizedString("onboarding_habit_name_label", comment: ""))
@@ -132,7 +139,8 @@ struct HabitSetupView: View {
     private func saveAndLaunch() {
         let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) ?? 0
         let new = Habit(name: resolvedName, emoji: habitEmoji, streakStart: quitDate,
-                        dailyCostAmount: cost, currencySymbol: selectedCurrency)
+                        dailyCostAmount: cost, currencySymbol: selectedCurrency,
+                        goalMode: goalMode)
         modelContext.insert(new)
         try? modelContext.save()
         withAnimation { setupComplete = true }

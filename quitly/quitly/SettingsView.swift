@@ -14,6 +14,8 @@ struct SettingsView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(PremiumManager.self) private var premiumManager
     @AppStorage("setupComplete") private var setupComplete = false
+    @AppStorage("notif_daily_enabled") private var dailyNotifEnabled = false
+    @AppStorage("notif_weekend_enabled") private var weekendNotifEnabled = false
 
     @State private var habitName: String = ""
     @State private var dailyCost: String = ""
@@ -109,6 +111,49 @@ struct SettingsView: View {
                             }
                             .padding(.horizontal, 16)
                             .padding(.vertical, 10)
+                        }
+
+                        // Goal Mode
+                        SettingsSection(title: NSLocalizedString("goal_mode_label", comment: "")) {
+                            GoalModeSelectorView(selectedGoal: $habit.goalMode)
+                                .padding(16)
+                        }
+
+                        // Smart Notifications
+                        SettingsSection(title: NSLocalizedString("settings_notifications_title", comment: "")) {
+                            VStack(spacing: 0) {
+                                HStack {
+                                    Image(systemName: "sun.max.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(Color.amberGold)
+                                        .frame(width: 24)
+                                    Text(NSLocalizedString("settings_notif_daily", comment: ""))
+                                        .font(.system(size: 15, weight: .medium, design: .rounded))
+                                        .foregroundStyle(Color.textPrimary)
+                                    Spacer()
+                                    Toggle("", isOn: $dailyNotifEnabled)
+                                        .tint(.soberBlue)
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 12)
+
+                                Divider().background(Color.white.opacity(0.07))
+
+                                HStack {
+                                    Image(systemName: "moon.stars.fill")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundStyle(Color.purpleAccent)
+                                        .frame(width: 24)
+                                    Text(NSLocalizedString("settings_notif_weekend", comment: ""))
+                                        .font(.system(size: 15, weight: .medium, design: .rounded))
+                                        .foregroundStyle(Color.textPrimary)
+                                    Spacer()
+                                    Toggle("", isOn: $weekendNotifEnabled)
+                                        .tint(.soberBlue)
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 12)
+                            }
                         }
 
                         // Go Premium / Pro Badge
@@ -298,6 +343,8 @@ struct SettingsView: View {
         try? modelContext.save()
         // Push updated data to widget & sync
         writeHabitToWidget(habit, premiumManager: premiumManager)
+        // Schedule/update notifications
+        scheduleNotifications()
         // Show saved feedback
         withAnimation { savedFeedback = true }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -308,6 +355,22 @@ struct SettingsView: View {
     private func resetAllData() {
         try? modelContext.delete(model: Habit.self)
         setupComplete = false
+    }
+
+    private func scheduleNotifications() {
+        if dailyNotifEnabled || weekendNotifEnabled {
+            NotificationManager.shared.requestPermission { granted in
+                if granted {
+                    NotificationManager.shared.scheduleAll(
+                        streakDays: habit.streakDays,
+                        dailyEnabled: dailyNotifEnabled,
+                        weekendEnabled: weekendNotifEnabled
+                    )
+                }
+            }
+        } else {
+            NotificationManager.shared.cancelAll()
+        }
     }
 }
 

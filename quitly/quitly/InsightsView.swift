@@ -72,6 +72,12 @@ struct InsightsView: View {
                             // Savings Chart
                             SavingsChartView(habit: habit)
 
+                            // Mini Calendar
+                            MiniCalendarView(habit: habit)
+
+                            // Trigger Insights
+                            TriggerInsightCardView(habit: habit)
+
                             // Sağlık Dönüm Noktaları
                             HealthMilestonesView(habit: habit)
 

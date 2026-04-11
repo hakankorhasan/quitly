@@ -40,6 +40,16 @@ struct quitlyApp: App {
                 .task {
                     await premiumManager.checkEntitlements()
                     await remoteConfig.checkForUpdate()
+                    // Schedule notifications if enabled
+                    let dailyEnabled = UserDefaults.standard.bool(forKey: "notif_daily_enabled")
+                    let weekendEnabled = UserDefaults.standard.bool(forKey: "notif_weekend_enabled")
+                    if dailyEnabled || weekendEnabled {
+                        NotificationManager.shared.scheduleAll(
+                            streakDays: 0, // Will be updated when habit loads
+                            dailyEnabled: dailyEnabled,
+                            weekendEnabled: weekendEnabled
+                        )
+                    }
                 }
         }
         .modelContainer(sharedModelContainer)

@@ -16,6 +16,7 @@ final class Habit {
     var currencySymbol: String
     var isActive: Bool
     var createdAt: Date
+    var goalMode: String = "quit"  // "quit", "less", "weekends"
     
     @Relationship(deleteRule: .cascade, inverse: \Reward.habit)
     var rewards: [Reward] = []
@@ -25,7 +26,8 @@ final class Habit {
         emoji: String = "flame.fill",
         streakStart: Date = Date(),
         dailyCostAmount: Double = 0.0,
-        currencySymbol: String = "₺"
+        currencySymbol: String = "₺",
+        goalMode: String = "quit"
     ) {
         self.id = UUID()
         self.name = name
@@ -35,6 +37,7 @@ final class Habit {
         self.currencySymbol = currencySymbol
         self.isActive = true
         self.createdAt = Date()
+        self.goalMode = goalMode
     }
 
     // MARK: - Computed
