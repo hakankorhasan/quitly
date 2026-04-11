@@ -16,9 +16,9 @@ private let currencies = [
 ]
 
 struct HabitSetupView: View {
-    // Smoking-only app: hardcoded
-    private let smokingEmoji = "wind"
-    private let smokingName  = "Smoking"
+    // Alcohol recovery app: hardcoded
+    private let habitEmoji = "drop.fill"
+    private let habitName_  = "Drinking"
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -37,7 +37,7 @@ struct HabitSetupView: View {
 
                 // Header
                 VStack(alignment: .leading, spacing: 6) {
-                    Image(systemName: smokingEmoji)
+                    Image(systemName: habitEmoji)
                         .font(.system(size: 42))
                         .foregroundStyle(AppGradient.fire)
                     Text(NSLocalizedString("onboarding_setup_title", comment: ""))
@@ -105,10 +105,8 @@ struct HabitSetupView: View {
                 Button(action: saveAndLaunch) {
                     HStack(spacing: 8) {
                         Text(NSLocalizedString("onboarding_finish", comment: ""))
-                        Image("burning_fire")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 22, height: 22)
+                        Image(systemName: "shield.checkered")
+                            .font(.system(size: 18, weight: .bold))
                     }
                 }
                 .buttonStyle(FireButtonStyle())
@@ -122,18 +120,18 @@ struct HabitSetupView: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .onAppear {
-            habitName = smokingName
+            habitName = habitName_
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) { appeared = true }
         }
     }
 
     private var resolvedName: String {
-        habitName.trimmingCharacters(in: .whitespaces).isEmpty ? smokingName : habitName
+        habitName.trimmingCharacters(in: .whitespaces).isEmpty ? habitName_ : habitName
     }
 
     private func saveAndLaunch() {
         let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) ?? 0
-        let new = Habit(name: resolvedName, emoji: smokingEmoji, streakStart: quitDate,
+        let new = Habit(name: resolvedName, emoji: habitEmoji, streakStart: quitDate,
                         dailyCostAmount: cost, currencySymbol: selectedCurrency)
         modelContext.insert(new)
         try? modelContext.save()

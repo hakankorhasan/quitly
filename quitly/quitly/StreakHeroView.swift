@@ -106,12 +106,17 @@ struct StreakHeroView: View {
 
                     // Center content
                     VStack(spacing: 4) {
-                        Image("burning_fire")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 32, height: 32)
+                        Image(systemName: "shield.checkered")
+                            .font(.system(size: 26, weight: .bold))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: [.soberBlue, .aquaTeal],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
                             .scaleEffect(flamePulse ? 1.12 : 1.0)
-                            .shadow(color: Color.fireOrange.opacity(0.5), radius: 6)
+                            .shadow(color: Color.soberBlue.opacity(0.5), radius: 6)
                             .animation(
                                 .easeInOut(duration: 1.5).repeatForever(autoreverses: true),
                                 value: flamePulse

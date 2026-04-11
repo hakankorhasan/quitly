@@ -167,10 +167,9 @@ private struct AttemptRow: View {
             // Duration info
             VStack(alignment: .leading, spacing: 3) {
                 HStack(spacing: 6) {
-                    Image("burning_fire")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 14, height: 14)
+                    Image(systemName: "shield.checkered")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(Color.soberBlue)
                     Text(String(format: NSLocalizedString("attempts_row_days", comment: ""), record.streakDays))
                         .font(.system(size: 14, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)

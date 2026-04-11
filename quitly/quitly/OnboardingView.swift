@@ -2,7 +2,7 @@
 //  OnboardingView.swift
 //  quitly
 //
-//  Simplified: Smoking-only app. Welcome → Setup (2 pages).
+//  Simplified: Alcohol recovery app. Welcome → Setup (2 pages).
 //
 
 import SwiftUI
@@ -55,29 +55,34 @@ struct OnboardingView: View {
 // MARK: - Page 1: Welcome
 private struct WelcomePageView: View {
     let onNext: () -> Void
-    @State private var flamePulse = false
+    @State private var iconPulse = false
     @State private var appeared = false
 
     var body: some View {
         VStack(spacing: 0) {
             Spacer()
 
-            // Flame
+            // Icon
             ZStack {
                 Circle()
-                    .fill(Color.fireOrange.opacity(0.18))
+                    .fill(Color.soberBlue.opacity(0.18))
                     .frame(width: 160, height: 160)
                     .blur(radius: 40)
-                Image("burning_fire")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 90, height: 90)
-                    .scaleEffect(flamePulse ? 1.08 : 1.0)
-                    .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: flamePulse)
+                Image(systemName: "shield.checkered")
+                    .font(.system(size: 70, weight: .bold))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.soberBlue, .aquaTeal],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .scaleEffect(iconPulse ? 1.08 : 1.0)
+                    .animation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true), value: iconPulse)
             }
             .opacity(appeared ? 1 : 0)
             .offset(y: appeared ? 0 : 30)
-            .onAppear { flamePulse = true }
+            .onAppear { iconPulse = true }
 
             Spacer().frame(height: 32)
 

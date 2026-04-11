@@ -10,7 +10,7 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(PremiumManager.self) private var premiumManager
     @State private var appeared = false
-    @State private var flamePulse = false
+    @State private var iconPulse = false
     @State private var showRestoreSuccess = false
     @State private var showRestoreFail = false
 
@@ -64,19 +64,24 @@ struct PaywallView: View {
 
                     Spacer().frame(height: 20)
 
-                    // Hero Flame
+                    // Hero Icon
                     ZStack {
                         Circle()
-                            .fill(Color.fireOrange.opacity(0.15))
+                            .fill(Color.soberBlue.opacity(0.15))
                             .frame(width: 140, height: 140)
                             .blur(radius: 30)
 
-                        Image("burning_fire")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 80, height: 80)
-                            .scaleEffect(flamePulse ? 1.06 : 1.0)
-                            .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: flamePulse)
+                        Image(systemName: "shield.checkered")
+                            .font(.system(size: 60, weight: .bold))
+                            .foregroundStyle(
+                                LinearGradient(
+                                    colors: [.soberBlue, .aquaTeal],
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                            .scaleEffect(iconPulse ? 1.06 : 1.0)
+                            .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: iconPulse)
                     }
                     .opacity(appeared ? 1 : 0)
                     .offset(y: appeared ? 0 : 20)
@@ -153,10 +158,8 @@ struct PaywallView: View {
                                 .frame(height: 24)
                         } else {
                             HStack(spacing: 8) {
-                                Image("burning_fire")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 18, height: 18)
+                                Image(systemName: "shield.checkered")
+                                    .font(.system(size: 16, weight: .bold))
                                 Text(NSLocalizedString("paywall_cta", comment: ""))
                             }
                         }
@@ -216,7 +219,7 @@ struct PaywallView: View {
             }
         }
         .onAppear {
-            flamePulse = true
+            iconPulse = true
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) {
                 appeared = true
             }

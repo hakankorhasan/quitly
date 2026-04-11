@@ -74,13 +74,18 @@ struct StreakCounterView: View {
 
                 // Center content
                 VStack(spacing: 6) {
-                    // Flame
-                    Image("burning_fire")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 80, height: 80)
+                    // Icon
+                    Image(systemName: "shield.checkered")
+                        .font(.system(size: 54, weight: .bold))
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [.soberBlue, .aquaTeal],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
                         .scaleEffect(flamePulse ? 1.12 : 1.0)
-                        .shadow(color: Color.fireOrange.opacity(0.5), radius: 8)
+                        .shadow(color: Color.soberBlue.opacity(0.5), radius: 8)
                         .animation(
                             .easeInOut(duration: 1.5).repeatForever(autoreverses: true),
                             value: flamePulse

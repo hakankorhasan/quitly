@@ -2,6 +2,8 @@
 //  DesignSystem.swift
 //  quitly
 //
+//  Soberli – Alcohol Recovery Design System
+//
 
 import SwiftUI
 
@@ -10,10 +12,23 @@ extension Color {
     static let appBG        = Color(red: 0.051, green: 0.051, blue: 0.102) // #0D0D1A
     static let cardBG       = Color(red: 0.102, green: 0.102, blue: 0.180) // #1A1A2E
     static let cardSurface  = Color(red: 0.086, green: 0.129, blue: 0.243) // #16213E
-    static let fireOrange   = Color(red: 1.000, green: 0.420, blue: 0.208) // #FF6B35
-    static let purpleAccent = Color(red: 0.659, green: 0.333, blue: 0.969) // #A855F7
+
+    // Primary accent — calm blue (replaces fireOrange)
+    static let soberBlue    = Color(red: 0.231, green: 0.510, blue: 0.965) // #3B82F6
+    // Secondary accent — teal/aqua (replaces purpleAccent)
+    static let aquaTeal     = Color(red: 0.024, green: 0.714, blue: 0.831) // #06B6D4
+    // Success green — stays the same
     static let greenClean   = Color(red: 0.063, green: 0.725, blue: 0.506) // #10B981
+    // Warm amber for achievements
+    static let amberGold    = Color(red: 0.961, green: 0.620, blue: 0.043) // #F59E0B
+    // Gold for premium
     static let goldAccent   = Color(red: 0.961, green: 0.620, blue: 0.043) // #F59E0B
+
+    // Legacy aliases (so existing code doesn't break)
+    static let fireOrange   = soberBlue
+    static let purpleAccent = aquaTeal
+
+    // Text
     static let textPrimary  = Color(red: 0.976, green: 0.980, blue: 0.984) // #F9FAFB
     static let textSecondary = Color(red: 0.612, green: 0.639, blue: 0.686) // #9CA3AF
     static let textMuted    = Color(red: 0.294, green: 0.337, blue: 0.396) // #4B5563
@@ -23,15 +38,15 @@ extension Color {
 enum AppGradient {
     static let background = LinearGradient(
         colors: [Color(red: 0.051, green: 0.051, blue: 0.102),
-                 Color(red: 0.102, green: 0.063, blue: 0.208)],
+                 Color(red: 0.039, green: 0.090, blue: 0.208)],
         startPoint: .top, endPoint: .bottom
     )
     static let fire = LinearGradient(
-        colors: [.fireOrange, Color(red: 1.0, green: 0.239, blue: 0.0)],
+        colors: [.soberBlue, Color(red: 0.118, green: 0.392, blue: 0.878)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let purple = LinearGradient(
-        colors: [.purpleAccent, Color(red: 0.486, green: 0.227, blue: 0.929)],
+        colors: [.aquaTeal, Color(red: 0.016, green: 0.569, blue: 0.686)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let green = LinearGradient(
@@ -39,7 +54,7 @@ enum AppGradient {
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let gold = LinearGradient(
-        colors: [.goldAccent, Color(red: 0.851, green: 0.451, blue: 0.008)],
+        colors: [.amberGold, Color(red: 0.851, green: 0.451, blue: 0.008)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
 }
@@ -78,7 +93,7 @@ struct FireButtonStyle: ButtonStyle {
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(AppGradient.fire)
-                    .shadow(color: Color.fireOrange.opacity(configuration.isPressed ? 0.2 : 0.5),
+                    .shadow(color: Color.soberBlue.opacity(configuration.isPressed ? 0.2 : 0.5),
                             radius: 16, x: 0, y: 6)
             )
             .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
@@ -98,7 +113,7 @@ struct GhostButtonStyle: ButtonStyle {
 }
 
 struct OutlineButtonStyle: ButtonStyle {
-    var color: Color = .purpleAccent
+    var color: Color = .aquaTeal
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 16, weight: .semibold, design: .rounded))

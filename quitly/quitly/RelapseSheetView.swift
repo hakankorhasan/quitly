@@ -41,10 +41,9 @@ struct RelapseSheetView: View {
 
                 // Mevcut streak hatırlatıcısı
                 HStack(spacing: 12) {
-                    Image("burning_fire")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 22, height: 22)
+                    Image(systemName: "shield.checkered")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundStyle(Color.soberBlue)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("\(habit.streakDays) \(NSLocalizedString("home_days_clean", comment: ""))")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
