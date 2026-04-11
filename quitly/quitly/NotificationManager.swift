@@ -112,6 +112,7 @@ final class NotificationManager {
         UNUserNotificationCenter.current().add(request) { error in
             if let error { print("⚠️ Notification error [\(id)]: \(error)") }
         }
+    }
     // MARK: - DEV TEST — Remove before release
     func sendTestNotification(streakDays: Int = 7) {
         let content = UNMutableNotificationContent()
