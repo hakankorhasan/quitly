@@ -10,8 +10,8 @@ import WebKit
 
 // MARK: - Firebase Hosting URLs
 enum LegalURL {
-    static let privacyPolicy = "https://quitsmoking-2f3c7.web.app/privacy-policy.html"
-    static let termsOfUse   = "https://quitsmoking-2f3c7.web.app/terms-of-use.html"
+    static let privacyPolicy = "https://quitalcohol-c13cd.web.app/privacy-policy.html"
+    static let termsOfUse   = "https://quitalcohol-c13cd.web.app/terms-of-use.html"
 }
 
 // MARK: - WKWebView Wrapper

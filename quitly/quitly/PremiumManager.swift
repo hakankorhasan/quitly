@@ -11,7 +11,7 @@ import SwiftUI
 import RevenueCat
 
 // MARK: - Constants
-private let kEntitlement = "Soberli Pro"
+private let kEntitlement = "premium_monthly"
 private let kOffering    = "Premium"
 private let kPackage     = "$rc_monthly"
 

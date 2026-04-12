@@ -171,6 +171,9 @@ struct HomeView: View {
             }
         }
         .onAppear {
+            // Sync widget data every time home appears
+            writeHabitToWidget(habit, premiumManager: premiumManager)
+
             // Reschedule with fresh streak count every time home appears
             let dailyEnabled   = UserDefaults.standard.bool(forKey: "notif_daily_enabled")
             let weekendEnabled = UserDefaults.standard.bool(forKey: "notif_weekend_enabled")

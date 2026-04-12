@@ -27,7 +27,7 @@ struct quitlyApp: App {
     init() {
         FirebaseApp.configure()
         Purchases.logLevel = .debug // Production'da .error yap
-        Purchases.configure(withAPIKey: "appl_YryQlEiaGhnFelbkFestplYqJky")
+        Purchases.configure(withAPIKey: "appl_SCbmMSADtVjhGHvMKkEGblVEtFu")
     }
 
     var body: some Scene {

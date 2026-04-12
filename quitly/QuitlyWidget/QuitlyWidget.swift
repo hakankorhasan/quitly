@@ -7,23 +7,23 @@ import WidgetKit
 import SwiftUI
 
 // MARK: - Shared keys
-private let appGroupID      = "group.com.hakankorhasan.quitsmoke.QuitlyWidget"
+private let appGroupID      = "group.com.hakankorhasan.quitalcohol.QuitlyWidget"
 private let userDefaultsKey = "quitly_widget_data"
 private let lockedKey       = "quitly_widget_locked"
 
-// MARK: - Colors (can't import DesignSystem in widget target)
-private let bgTop    = Color(red: 0.051, green: 0.051, blue: 0.102)
-private let bgBottom = Color(red: 0.102, green: 0.063, blue: 0.208)
-private let orange   = Color(red: 1.0,   green: 0.42,  blue: 0.208)
-private let purple   = Color(red: 0.659, green: 0.333, blue: 0.969)
-private let green    = Color(red: 0.063, green: 0.725, blue: 0.506)
+// MARK: - Colors (alcohol/water theme — can't import DesignSystem in widget target)
+private let bgTop     = Color(red: 0.051, green: 0.051, blue: 0.102)
+private let bgBottom  = Color(red: 0.063, green: 0.102, blue: 0.208)
+private let blue      = Color(red: 0.231, green: 0.510, blue: 0.965)   // soberBlue
+private let cyan      = Color(red: 0.024, green: 0.714, blue: 0.831)   // teal/cyan
+private let green     = Color(red: 0.063, green: 0.725, blue: 0.506)
 private let secondary = Color(red: 0.612, green: 0.639, blue: 0.686)
 
-private let fireBG = LinearGradient(colors: [bgTop, bgBottom],
-                                    startPoint: .topLeading, endPoint: .bottomTrailing)
-private let fireGrad = LinearGradient(colors: [orange, purple],
-                                      startPoint: .topLeading, endPoint: .bottomTrailing)
-private let moneyGrad = LinearGradient(colors: [orange, Color(red: 1.0, green: 0.239, blue: 0.0)],
+private let waterBG   = LinearGradient(colors: [bgTop, bgBottom],
+                                       startPoint: .topLeading, endPoint: .bottomTrailing)
+private let waterGrad = LinearGradient(colors: [blue, cyan],
+                                       startPoint: .topLeading, endPoint: .bottomTrailing)
+private let moneyGrad = LinearGradient(colors: [green, cyan],
                                        startPoint: .leading, endPoint: .trailing)
 
 // MARK: - Widget Data Model
@@ -44,10 +44,10 @@ struct QuitlyWidgetData: Codable {
     // Placeholder shown before main app writes real data — shows 0 days.
     static var placeholder: QuitlyWidgetData {
         QuitlyWidgetData(
-            habitName: NSLocalizedString("onboarding_smoking", bundle: .main, comment: ""),
-            habitEmoji: "wind",
-            streakStart: Date(),   // today = 0 days clean
-            dailyCostAmount: 0.0,  // 0 cost until app runs
+            habitName: "Quit Alcohol",
+            habitEmoji: "drop.fill",
+            streakStart: Date(),
+            dailyCostAmount: 0.0,
             currencySymbol: "₺",
             textDaysClean: NSLocalizedString("widget_days_clean", bundle: .main, comment: ""),
             textSaved: NSLocalizedString("widget_saved", bundle: .main, comment: ""),
@@ -96,8 +96,6 @@ struct QuitlyProvider: TimelineProvider {
               let raw = ud.data(forKey: userDefaultsKey)
         else { return nil }
 
-        // If decode fails (e.g. stale format from old build), clear the stale data
-        // and return nil so placeholder is shown instead of garbage values.
         guard let data = try? JSONDecoder().decode(QuitlyWidgetData.self, from: raw) else {
             ud.removeObject(forKey: userDefaultsKey)
             return nil
@@ -136,7 +134,7 @@ struct QuitlySmallView: View {
             HStack(spacing: 5) {
                 Image(systemName: data.habitEmoji)
                     .font(.system(size: 12, weight: .bold))
-                    .foregroundStyle(fireGrad)
+                    .foregroundStyle(waterGrad)
                 Text(data.habitName)
                     .font(.system(size: 11, weight: .semibold, design: .rounded))
                     .foregroundStyle(secondary)
@@ -155,7 +153,7 @@ struct QuitlySmallView: View {
 
             Text(data.textDaysClean)
                 .font(.system(size: 13, weight: .bold, design: .rounded))
-                .foregroundStyle(moneyGrad)
+                .foregroundStyle(waterGrad)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .padding(14)
@@ -174,7 +172,7 @@ struct QuitlyMediumView: View {
                 HStack(spacing: 5) {
                     Image(systemName: data.habitEmoji)
                         .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(fireGrad)
+                        .foregroundStyle(waterGrad)
                     Text(data.habitName)
                         .font(.system(size: 11, weight: .semibold, design: .rounded))
                         .foregroundStyle(secondary)
@@ -190,7 +188,7 @@ struct QuitlyMediumView: View {
                     .lineLimit(1)
                 Text(data.textDaysClean)
                     .font(.system(size: 12, weight: .bold, design: .rounded))
-                    .foregroundStyle(moneyGrad)
+                    .foregroundStyle(waterGrad)
             }
             .padding(14)
             .frame(maxHeight: .infinity, alignment: .leading)
@@ -201,7 +199,7 @@ struct QuitlyMediumView: View {
                 .frame(width: 1)
                 .padding(.vertical, 14)
 
-            // RIGHT – money
+            // RIGHT – money saved
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 5) {
                     Image(systemName: "banknote.fill")
@@ -219,10 +217,10 @@ struct QuitlyMediumView: View {
                     .lineLimit(1)
                 HStack(spacing: 3) {
                     Text(data.textKeepGoing)
-                    Image(systemName: "figure.strengthtraining.traditional")
+                    Image(systemName: "drop.fill")
                 }
                 .font(.system(size: 11, weight: .bold, design: .rounded))
-                .foregroundStyle(green)
+                .foregroundStyle(moneyGrad)
             }
             .padding(14)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -245,7 +243,7 @@ struct QuitlyLockedView: View {
         VStack(spacing: 8) {
             Image(systemName: "lock.fill")
                 .font(.system(size: 26, weight: .bold))
-                .foregroundStyle(orange)
+                .foregroundStyle(waterGrad)
             Text(data.textGoPremium)
                 .font(.system(size: 13, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
@@ -283,10 +281,9 @@ struct QuitlyWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: QuitlyProvider()) { entry in
             QuitlyWidgetEntryView(entry: entry)
-                // ✅ Gradient goes here — system applies proper corner-radius & no white border
-                .containerBackground(fireBG, for: .widget)
+                .containerBackground(waterBG, for: .widget)
         }
-        .configurationDisplayName("Quitly")
+        .configurationDisplayName("Quit Alcohol")
         .description(String(localized: "widget_description"))
         .supportedFamilies([.systemSmall, .systemMedium])
     }
