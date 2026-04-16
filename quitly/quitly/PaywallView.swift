@@ -10,7 +10,6 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(PremiumManager.self) private var premiumManager
     @State private var appeared = false
-    @State private var flamePulse = false
     @State private var showRestoreSuccess = false
     @State private var showRestoreFail = false
 
@@ -19,6 +18,7 @@ struct PaywallView: View {
         ("shield.checkered",        .purpleAccent, "paywall_feature_streak",   "paywall_feature_streak_desc"),
         ("chart.bar.fill",          .greenClean,   "paywall_feature_insights", "paywall_feature_insights_desc"),
         ("rectangle.grid.2x2.fill", .purpleAccent, "paywall_feature_widgets",  "paywall_feature_widgets_desc"),
+        ("shield.lefthalf.filled",  .goldAccent,   "paywall_feature_protection", "paywall_feature_protection_desc"),
     ]
 
     // Dinamik fiyat RevenueCat'ten, yoksa fallback
@@ -28,6 +28,22 @@ struct PaywallView: View {
         }
         return NSLocalizedString("paywall_price", comment: "")
     }
+
+    // Subscription duration derived from RevenueCat package type
+    private var subscriptionDuration: String {
+        guard let pkg = premiumManager.currentOffering?.availablePackages.first else {
+            return NSLocalizedString("paywall_subscription_duration", comment: "")
+        }
+        switch pkg.packageType {
+        case .monthly:  return NSLocalizedString("paywall_subscription_monthly", comment: "")
+        case .annual:   return NSLocalizedString("paywall_subscription_annual", comment: "")
+        case .weekly:   return NSLocalizedString("paywall_subscription_weekly", comment: "")
+        default:        return NSLocalizedString("paywall_subscription_duration", comment: "")
+        }
+    }
+
+    private let privacyURL = URL(string: "https://quitsmoking-2f3c7.web.app/privacy")!
+    private let termsURL   = URL(string: "https://quitsmoking-2f3c7.web.app/terms")!
 
     var body: some View {
         ZStack {
@@ -50,9 +66,24 @@ struct PaywallView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 0) {
 
-                    // Close button
-                    HStack {
+                    // Header: title left, close button right
+                    HStack(alignment: .top, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(NSLocalizedString("paywall_headline", comment: ""))
+                                .font(.system(size: 26, weight: .black, design: .rounded))
+                                .foregroundStyle(.white)
+                                .opacity(appeared ? 1 : 0)
+                                .offset(y: appeared ? 0 : 15)
+
+                            Text(NSLocalizedString("paywall_subtitle", comment: ""))
+                                .font(.system(size: 14, weight: .medium, design: .rounded))
+                                .foregroundStyle(Color.textSecondary)
+                                .opacity(appeared ? 1 : 0)
+                                .offset(y: appeared ? 0 : 10)
+                        }
+
                         Spacer()
+
                         Button { dismiss() } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .font(.system(size: 28))
@@ -62,50 +93,11 @@ struct PaywallView: View {
                     .padding(.horizontal, 20)
                     .padding(.top, 16)
 
-                    Spacer().frame(height: 20)
-
-                    // Hero Flame
-                    ZStack {
-                        Circle()
-                            .fill(Color.fireOrange.opacity(0.15))
-                            .frame(width: 140, height: 140)
-                            .blur(radius: 30)
-
-                        Image("burning_fire")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 80, height: 80)
-                            .scaleEffect(flamePulse ? 1.06 : 1.0)
-                            .animation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: flamePulse)
-                    }
-                    .opacity(appeared ? 1 : 0)
-                    .offset(y: appeared ? 0 : 20)
-
-                    Spacer().frame(height: 24)
-
-                    // Headline
-                    Text(NSLocalizedString("paywall_headline", comment: ""))
-                        .font(.system(size: 28, weight: .black, design: .rounded))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                        .opacity(appeared ? 1 : 0)
-                        .offset(y: appeared ? 0 : 15)
-
-                    Spacer().frame(height: 8)
-
-                    // Subtitle
-                    Text(NSLocalizedString("paywall_subtitle", comment: ""))
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundStyle(Color.textSecondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 40)
-                        .opacity(appeared ? 1 : 0)
-                        .offset(y: appeared ? 0 : 10)
-
                     Spacer().frame(height: 32)
 
+
                     // Feature List
-                    VStack(spacing: 12) {
+                    VStack(spacing: 16) {
                         ForEach(features.indices, id: \.self) { index in
                             let feature = features[index]
                             FeatureRow(
@@ -125,12 +117,20 @@ struct PaywallView: View {
                     }
                     .padding(.horizontal, 20)
 
-                    Spacer().frame(height: 36)
+                    Spacer().frame(height: 44)
 
                     // Price info (RevenueCat'ten dinamik)
-                    VStack(spacing: 4) {
+                    VStack(spacing: 6) {
+                        // Subscription name + duration — required by App Store Guideline 3.1.2(c)
+                        Text(subscriptionDuration)
+                            .font(.system(size: 13, weight: .semibold, design: .rounded))
+                            .foregroundStyle(Color.textSecondary)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 4)
+                            .background(Color.white.opacity(0.07))
+                            .clipShape(Capsule())
                         Text(localizedPrice)
-                            .font(.system(size: 22, weight: .bold, design: .rounded))
+                            .font(.system(size: 26, weight: .bold, design: .rounded))
                             .foregroundStyle(.white)
                         Text(NSLocalizedString("paywall_price_period", comment: ""))
                             .font(.system(size: 13, weight: .medium, design: .rounded))
@@ -138,7 +138,7 @@ struct PaywallView: View {
                     }
                     .opacity(appeared ? 1 : 0)
 
-                    Spacer().frame(height: 20)
+                    Spacer().frame(height: 28)
 
                     // CTA Button
                     Button {
@@ -153,7 +153,7 @@ struct PaywallView: View {
                                 .frame(height: 24)
                         } else {
                             HStack(spacing: 8) {
-                                Image("burning_fire")
+                                Image("splash-icon")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 18, height: 18)
@@ -203,9 +203,13 @@ struct PaywallView: View {
                             }
                         }
                         Text("•")
-                        Button(NSLocalizedString("paywall_terms", comment: "")) {}
+                        Button(NSLocalizedString("paywall_terms", comment: "")) {
+                            UIApplication.shared.open(termsURL)
+                        }
                         Text("•")
-                        Button(NSLocalizedString("paywall_privacy", comment: "")) {}
+                        Button(NSLocalizedString("paywall_privacy", comment: "")) {
+                            UIApplication.shared.open(privacyURL)
+                        }
                     }
                     .font(.system(size: 11, weight: .regular, design: .rounded))
                     .foregroundStyle(Color.textMuted)
@@ -216,7 +220,6 @@ struct PaywallView: View {
             }
         }
         .onAppear {
-            flamePulse = true
             withAnimation(.spring(response: 0.6, dampingFraction: 0.8).delay(0.1)) {
                 appeared = true
             }
