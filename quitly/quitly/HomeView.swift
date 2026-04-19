@@ -10,8 +10,8 @@ struct HomeView: View {
     @Environment(AppState.self) private var appState
     @Environment(PremiumManager.self) private var premiumManager
     @Environment(RemoteConfigManager.self) private var remoteConfig
-    @State private var showingRewardsStore = false
     @State private var showingPaywall = false
+    @State private var showingManageReplacements = false
 
     var body: some View {
         @Bindable var state = appState
@@ -76,12 +76,8 @@ struct HomeView: View {
                             // Daily motivation quote
                             DailyMotivationCardView()
 
-                            // Next reward progress (only if rewards exist)
-                            if !habit.rewards.isEmpty {
-                                NextRewardProgressView(habit: habit, onTap: {
-                                    showingRewardsStore = true
-                                })
-                            }
+                            // My Alternatives card shortcut
+                            replacementCard
                         }
                         .padding(.horizontal, hPad)
 
@@ -139,9 +135,8 @@ struct HomeView: View {
                 .presentationDragIndicator(.visible)
                 .presentationBackground(Color.cardBG)
         }
-        .sheet(isPresented: $showingRewardsStore) {
-            RewardsStoreView(habit: habit)
-                .presentationBackground(AppGradient.background)
+        .fullScreenCover(isPresented: $showingManageReplacements) {
+            ManageReplacementsView()
         }
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
@@ -190,9 +185,9 @@ struct HomeView: View {
     // MARK: - Goal Subtitle
     private var goalSubtitle: String {
         switch habit.goalMode {
-        case "less":     return NSLocalizedString("goal_subtitle_less", comment: "")
-        case "weekends": return NSLocalizedString("goal_subtitle_weekends", comment: "")
-        default:         return NSLocalizedString("goal_subtitle_quit", comment: "")
+        case "less":   return NSLocalizedString("goal_subtitle_less", comment: "")
+        case "90days": return NSLocalizedString("goal_subtitle_90days", comment: "")
+        default:       return NSLocalizedString("goal_subtitle_quit", comment: "")
         }
     }
 
@@ -231,6 +226,46 @@ struct HomeView: View {
                                     : Color.white.opacity(0.12),
                                 lineWidth: 1
                             )
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - My Alternatives Card
+    private var replacementCard: some View {
+        Button {
+            showingManageReplacements = true
+        } label: {
+            HStack(spacing: 14) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 14)
+                        .fill(Color.greenClean.opacity(0.12))
+                        .frame(width: 48, height: 48)
+                    Image(systemName: "arrow.triangle.swap")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundStyle(Color.greenClean)
+                }
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("My Alternatives")
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white)
+                    Text("\(ReplacementActivityStore.shared.enabled.count) activities ready when urge hits")
+                        .font(.system(size: 12, weight: .regular, design: .rounded))
+                        .foregroundStyle(Color.textSecondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundStyle(Color.textMuted)
+            }
+            .padding(16)
+            .background(
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color.white.opacity(0.04))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .strokeBorder(Color.greenClean.opacity(0.2), lineWidth: 1)
                     )
             )
         }

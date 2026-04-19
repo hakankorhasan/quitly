@@ -9,20 +9,20 @@ import SwiftUI
 
 // MARK: - Color Palette
 extension Color {
-    static let appBG        = Color(red: 0.051, green: 0.051, blue: 0.102) // #0D0D1A
-    static let cardBG       = Color(red: 0.102, green: 0.102, blue: 0.180) // #1A1A2E
-    static let cardSurface  = Color(red: 0.086, green: 0.129, blue: 0.243) // #16213E
+    static let appBG        = Color(red: 0.035, green: 0.035, blue: 0.043) // #09090B
+    static let cardBG       = Color(red: 0.094, green: 0.094, blue: 0.106) // #18181B
+    static let cardSurface  = Color(red: 0.153, green: 0.153, blue: 0.165) // #27272A
 
-    // Primary accent — calm blue (replaces fireOrange)
-    static let soberBlue    = Color(red: 0.231, green: 0.510, blue: 0.965) // #3B82F6
-    // Secondary accent — teal/aqua (replaces purpleAccent)
-    static let aquaTeal     = Color(red: 0.024, green: 0.714, blue: 0.831) // #06B6D4
-    // Success green — stays the same
-    static let greenClean   = Color(red: 0.063, green: 0.725, blue: 0.506) // #10B981
+    // Primary accent — electric violet (replaces soberBlue/fireOrange)
+    static let soberBlue    = Color(red: 0.486, green: 0.227, blue: 0.929) // #7C3AED
+    // Secondary accent — neon pink (replaces aquaTeal/purpleAccent)
+    static let aquaTeal     = Color(red: 0.925, green: 0.282, blue: 0.596) // #EC4899
+    // Success green - bright spring green
+    static let greenClean   = Color(red: 0.204, green: 0.827, blue: 0.600) // #34D399
     // Warm amber for achievements
-    static let amberGold    = Color(red: 0.961, green: 0.620, blue: 0.043) // #F59E0B
+    static let amberGold    = Color(red: 0.984, green: 0.827, blue: 0.302) // #FCD34D
     // Gold for premium
-    static let goldAccent   = Color(red: 0.961, green: 0.620, blue: 0.043) // #F59E0B
+    static let goldAccent   = Color(red: 0.984, green: 0.827, blue: 0.302) // #FCD34D
 
     // Legacy aliases (so existing code doesn't break)
     static let fireOrange   = soberBlue
@@ -37,24 +37,23 @@ extension Color {
 // MARK: - Gradients
 enum AppGradient {
     static let background = LinearGradient(
-        colors: [Color(red: 0.051, green: 0.051, blue: 0.102),
-                 Color(red: 0.039, green: 0.090, blue: 0.208)],
+        colors: [Color.appBG, Color.cardBG],
         startPoint: .top, endPoint: .bottom
     )
     static let fire = LinearGradient(
-        colors: [.soberBlue, Color(red: 0.118, green: 0.392, blue: 0.878)],
+        colors: [.soberBlue, Color(red: 0.349, green: 0.149, blue: 0.800)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let purple = LinearGradient(
-        colors: [.aquaTeal, Color(red: 0.016, green: 0.569, blue: 0.686)],
+        colors: [.aquaTeal, Color(red: 0.749, green: 0.094, blue: 0.404)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let green = LinearGradient(
-        colors: [.greenClean, Color(red: 0.024, green: 0.588, blue: 0.412)],
+        colors: [.greenClean, Color(red: 0.020, green: 0.588, blue: 0.412)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
     static let gold = LinearGradient(
-        colors: [.amberGold, Color(red: 0.851, green: 0.451, blue: 0.008)],
+        colors: [.amberGold, Color(red: 0.871, green: 0.569, blue: 0.020)],
         startPoint: .topLeading, endPoint: .bottomTrailing
     )
 }

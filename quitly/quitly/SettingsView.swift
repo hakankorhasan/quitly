@@ -18,12 +18,12 @@ struct SettingsView: View {
     @AppStorage("notif_weekend_enabled") private var weekendNotifEnabled = false
 
     @State private var habitName: String = ""
-    @State private var dailyCost: String = ""
     @State private var showingResetAlert = false
     @State private var showingPaywall = false
     @State private var savedToast = false
     @State private var showingPrivacy = false
     @State private var showingTerms = false
+    @State private var showingManageReplacements = false
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -61,37 +61,6 @@ struct SettingsView: View {
                             text: $habitName,
                             onCommit: autoSave
                         )
-                    }
-
-                    // ── Cost ───────────────────────────────────────────
-                    SettingsSection(
-                        title: NSLocalizedString("settings_cost_title", comment: "")
-                    ) {
-                        inlineTextField(
-                            label: NSLocalizedString("settings_daily_cost", comment: ""),
-                            placeholder: "\(Int(habit.dailyCostAmount))",
-                            text: $dailyCost,
-                            keyboardType: .decimalPad,
-                            onCommit: autoSave
-                        )
-                        settingsDivider
-                        HStack {
-                            Text(NSLocalizedString("settings_currency", comment: ""))
-                                .font(.system(size: 15, weight: .medium, design: .rounded))
-                                .foregroundStyle(Color.textPrimary)
-                            Spacer()
-                            Picker("", selection: Binding(
-                                get: { habit.currencySymbol },
-                                set: { habit.currencySymbol = $0; autoSave() }
-                            )) {
-                                ForEach(currencies, id: \.0) { c in
-                                    Text("\(c.0) \(c.1)").tag(c.0)
-                                }
-                            }
-                            .tint(.soberBlue)
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 14)
                     }
 
                     // ── Quit Date ──────────────────────────────────────
@@ -156,7 +125,34 @@ struct SettingsView: View {
                         }
                     }
 
-                    // ── Danger ─────────────────────────────────────────
+                    // ── My Alternatives ──────────────────────────────────
+                    SettingsSection(title: "MY ALTERNATIVES") {
+                        Button {
+                            showingManageReplacements = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "arrow.triangle.swap")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(Color.greenClean)
+                                    .frame(width: 24)
+                                Text("Manage Activities")
+                                    .font(.system(size: 15, weight: .medium, design: .rounded))
+                                    .foregroundStyle(Color.textPrimary)
+                                Spacer()
+                                Text("\(ReplacementActivityStore.shared.enabled.count) active")
+                                    .font(.system(size: 13, weight: .regular, design: .rounded))
+                                    .foregroundStyle(Color.textMuted)
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 12, weight: .semibold))
+                                    .foregroundStyle(Color.textMuted)
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 14)
+                        }
+                        .buttonStyle(.plain)
+                    }
+
+                    // ── Danger ───────────────────────────────────────
                     Button {
                         showingResetAlert = true
                     } label: {
@@ -205,7 +201,9 @@ struct SettingsView: View {
         .onChange(of: weekendNotifEnabled) { scheduleNotifications() }
         .onAppear {
             habitName = habit.name
-            dailyCost = "\(Int(habit.dailyCostAmount))"
+        }
+        .fullScreenCover(isPresented: $showingManageReplacements) {
+            ManageReplacementsView()
         }
         .fullScreenCover(isPresented: $showingPaywall)  { PaywallView() }
         .fullScreenCover(isPresented: $showingPrivacy)  {
@@ -372,9 +370,9 @@ struct SettingsView: View {
 
     private var goalLabel: String {
         switch habit.goalMode {
-        case "less":     return NSLocalizedString("goal_subtitle_less", comment: "")
-        case "weekends": return NSLocalizedString("goal_subtitle_weekends", comment: "")
-        default:         return NSLocalizedString("goal_subtitle_quit", comment: "")
+        case "less":   return NSLocalizedString("goal_subtitle_less", comment: "")
+        case "90days": return NSLocalizedString("goal_subtitle_90days", comment: "")
+        default:       return NSLocalizedString("goal_subtitle_quit", comment: "")
         }
     }
 
@@ -447,9 +445,6 @@ struct SettingsView: View {
     private func autoSave() {
         let name = habitName.trimmingCharacters(in: .whitespaces)
         if !name.isEmpty { habit.name = name }
-        if let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) {
-            habit.dailyCostAmount = cost
-        }
         try? modelContext.save()
         writeHabitToWidget(habit, premiumManager: premiumManager)
 

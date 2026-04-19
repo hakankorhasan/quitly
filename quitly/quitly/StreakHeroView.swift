@@ -136,13 +136,13 @@ struct StreakHeroView: View {
                 .scaleEffect(appeared ? 1 : 0.80)
                 .animation(.spring(response: 0.8, dampingFraction: 0.72), value: appeared)
 
-                // ── Right mini: Money saved ───────────────────────
+                // ── Right mini: Hours Free ────────────────────────
                 miniCircle(
-                    topLabel: NSLocalizedString("mini_money_label", comment: ""),
-                    bigValue: habit.formattedMoneySaved,
-                    bottomLabel: "\(Int(habit.dailyCostAmount))\(habit.currencySymbol)/\(NSLocalizedString("home_day_unit", comment: ""))",
+                    topLabel: NSLocalizedString("mini_hours_label", comment: ""),
+                    bigValue: habit.formattedHoursReclaimed,
+                    bottomLabel: NSLocalizedString("mini_hours_sub", comment: ""),
                     color: Color.goldAccent,
-                    imageName: "wallet",
+                    systemImage: "clock.badge.checkmark.fill",
                     miniSize: miniSize
                 )
             }

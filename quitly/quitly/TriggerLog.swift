@@ -2,7 +2,8 @@
 //  TriggerLog.swift
 //  quitly
 //
-//  Tracks why the user felt like drinking — used by Trigger Insight system.
+//  Tracks why the user felt the urge — used by Trigger Insight system.
+//  PMO-specific trigger categories based on clinical research.
 //
 
 import Foundation
@@ -11,38 +12,46 @@ import SwiftUI
 // MARK: - Trigger Reason
 enum TriggerReason: String, Codable, CaseIterable {
     case stress
-    case social
-    case bored
-    case habit
-    case celebration
+    case loneliness
+    case boredom
+    case socialMedia
+    case lateNight
+    case fantasy
+    case rejection
 
     var label: String {
         switch self {
         case .stress:       return NSLocalizedString("trigger_stress", comment: "")
-        case .social:       return NSLocalizedString("trigger_social", comment: "")
-        case .bored:        return NSLocalizedString("trigger_bored", comment: "")
-        case .habit:        return NSLocalizedString("trigger_habit", comment: "")
-        case .celebration:  return NSLocalizedString("trigger_celebration", comment: "")
+        case .loneliness:   return NSLocalizedString("trigger_loneliness", comment: "")
+        case .boredom:      return NSLocalizedString("trigger_bored", comment: "")
+        case .socialMedia:  return NSLocalizedString("trigger_social_media", comment: "")
+        case .lateNight:    return NSLocalizedString("trigger_late_night", comment: "")
+        case .fantasy:      return NSLocalizedString("trigger_fantasy", comment: "")
+        case .rejection:    return NSLocalizedString("trigger_rejection", comment: "")
         }
     }
 
     var icon: String {
         switch self {
         case .stress:       return "stress"
-        case .social:       return "social-cheers"
-        case .bored:        return "bored"
-        case .habit:        return "routine"
-        case .celebration:  return "party"
+        case .loneliness:   return "bored"
+        case .boredom:      return "routine"
+        case .socialMedia:  return "social-cheers"
+        case .lateNight:    return "routine"
+        case .fantasy:      return "party"
+        case .rejection:    return "stress"
         }
     }
 
     var color: Color {
         switch self {
         case .stress:       return .red.opacity(0.8)
-        case .social:       return .soberBlue
-        case .bored:        return .textSecondary
-        case .habit:        return .amberGold
-        case .celebration:  return .greenClean
+        case .loneliness:   return .soberBlue
+        case .boredom:      return .textSecondary
+        case .socialMedia:  return .aquaTeal
+        case .lateNight:    return Color(red: 0.5, green: 0.3, blue: 0.9)
+        case .fantasy:      return .amberGold
+        case .rejection:    return .fireOrange
         }
     }
 }

@@ -2,7 +2,7 @@
 //  MiniCalendarView.swift
 //  quitly
 //
-//  35-day calendar grid showing sober (green) vs relapse (red) days.
+//  35-day calendar grid showing clean (green) vs relapse (red) days.
 //
 
 import SwiftUI
@@ -47,7 +47,7 @@ struct MiniCalendarView: View {
             } else if isRelapse {
                 status = .relapse
             } else if date >= streakStartDay {
-                status = .sober
+                status = .clean
             } else {
                 // Before current streak — check if it was a sober day or unknown
                 status = .pastUnknown
@@ -144,7 +144,7 @@ struct MiniCalendarView: View {
 
     private func cellColor(for item: DayItem) -> Color {
         switch item.status {
-        case .sober:       return Color.greenClean.opacity(0.18)
+        case .clean:       return Color.greenClean.opacity(0.18)
         case .relapse:     return Color.red.opacity(0.18)
         case .pastUnknown: return Color.white.opacity(0.03)
         case .inactive:    return Color.clear
@@ -153,7 +153,7 @@ struct MiniCalendarView: View {
 
     private func textColor(for item: DayItem) -> Color {
         switch item.status {
-        case .sober:       return Color.greenClean
+        case .clean:       return Color.greenClean
         case .relapse:     return Color.red
         case .pastUnknown: return Color.textMuted
         case .inactive:    return Color.textMuted.opacity(0.3)
@@ -189,7 +189,7 @@ struct MiniCalendarView: View {
 
 // MARK: - Models
 private enum DayStatus {
-    case sober, relapse, pastUnknown, inactive
+    case clean, relapse, pastUnknown, inactive
 }
 
 private struct DayItem: Identifiable {

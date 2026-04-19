@@ -8,7 +8,6 @@ import SwiftUI
 struct InsightsView: View {
     @Bindable var habit: Habit
     @Environment(PremiumManager.self) private var premiumManager
-    @State private var showingRewardsStore = false
     @State private var showingPaywall = false
     
     var body: some View {
@@ -52,21 +51,14 @@ struct InsightsView: View {
                         .padding(.bottom, 20)
                         
                         VStack(spacing: 16) {
-                            // FREE — Money saved + chart
+                            // FREE — Hours of freedom
                             MoneySavedView(habit: habit)
-                            SavingsChartView(habit: habit)
 
                             if premiumManager.hasFullAccess {
                                 // PREMIUM — all features
-                                MiniCalendarView(habit: habit)
+                            MiniCalendarView(habit: habit)
                                 TriggerInsightCardView(habit: habit)
                                 HealthMilestonesView(habit: habit)
-                                NextRewardProgressView(habit: habit, onTap: {
-                                    showingRewardsStore = true
-                                })
-                                if !habit.rewards.isEmpty {
-                                    rewardsStoreButton
-                                }
                                 PreviousAttemptsView(habit: habit)
                             } else {
                                 // LOCKED — unlock CTA
@@ -79,10 +71,6 @@ struct InsightsView: View {
                     }
                 }
             }
-        }
-        .sheet(isPresented: $showingRewardsStore) {
-            RewardsStoreView(habit: habit)
-                .presentationBackground(AppGradient.background)
         }
         .fullScreenCover(isPresented: $showingPaywall) {
             PaywallView()
@@ -163,50 +151,5 @@ struct InsightsView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 
-    // MARK: - Rewards Store Button
-    private var rewardsStoreButton: some View {
-        Button {
-            showingRewardsStore = true
-        } label: {
-            HStack(spacing: 12) {
-                ZStack {
-                    Circle().fill(Color.greenClean.opacity(0.15)).frame(width: 40, height: 40)
-                    Image("gift-box")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                }
-
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(NSLocalizedString("rewards_store_title", comment: ""))
-                        .font(.system(size: 15, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
-
-                    let affordable = habit.rewards.filter { !$0.isPurchased && habit.moneySaved >= $0.price }.count
-                    if affordable > 0 {
-                        Text(String(format: NSLocalizedString("rewards_affordable_count", comment: ""), affordable))
-                            .font(.system(size: 12, weight: .medium, design: .rounded))
-                            .foregroundStyle(Color.greenClean)
-                    } else {
-                        Text(NSLocalizedString("rewards_store_subtitle", comment: ""))
-                            .font(.system(size: 12, weight: .regular, design: .rounded))
-                            .foregroundStyle(Color.textSecondary)
-                    }
-                }
-
-                Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(Color.textMuted)
-            }
-            .padding(16)
-            .glassCard(cornerRadius: 22)
-            .overlay(
-                RoundedRectangle(cornerRadius: 22)
-                    .strokeBorder(Color.greenClean.opacity(0.25), lineWidth: 1)
-            )
-        }
-        .buttonStyle(.plain)
-    }
 }
+

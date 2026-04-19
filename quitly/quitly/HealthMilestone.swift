@@ -2,7 +2,7 @@
 //  HealthMilestone.swift
 //  quitly
 //
-//  Alcohol recovery health milestones
+//  PMO Recovery health milestones — science-backed dopamine & testosterone data
 //
 
 import SwiftUI
@@ -14,7 +14,7 @@ struct HealthMilestone: Identifiable {
     let titleKey: String
     let descKey: String
     let color: Color
-    
+
     var isCustomIcon: Bool {
         icon == "liver_icon" || icon == "brain_icon" || icon == "heart_heal"
     }
@@ -22,45 +22,57 @@ struct HealthMilestone: Identifiable {
 
 extension HealthMilestone {
     static let all: [HealthMilestone] = [
-        // ── Early Recovery (Hours) ─────────────────────────────
-        .init(hours: 6,     icon: "drop.fill",          titleKey: "milestone_6hr_title",    descKey: "milestone_6hr_desc",    color: .soberBlue),
-        .init(hours: 12,    icon: "arrow.triangle.2.circlepath", titleKey: "milestone_12hr_title", descKey: "milestone_12hr_desc", color: .soberBlue),
-        .init(hours: 24,    icon: "brain.head.profile",  titleKey: "milestone_24hr_title",   descKey: "milestone_24hr_desc",   color: .aquaTeal),
-        .init(hours: 48,    icon: "bed.double.fill",     titleKey: "milestone_48hr_title",   descKey: "milestone_48hr_desc",   color: .aquaTeal),
-        .init(hours: 72,    icon: "liver.fill",          titleKey: "milestone_72hr_title",   descKey: "milestone_72hr_desc",   color: .greenClean),
+        // ── First 72 Hours — Withdrawal & Dopamine ────────────
+        .init(hours: 24,  icon: "brain.head.profile",                    titleKey: "milestone_24hr_title",  descKey: "milestone_24hr_desc",  color: .soberBlue),
+        .init(hours: 48,  icon: "bolt.fill",                             titleKey: "milestone_48hr_title",  descKey: "milestone_48hr_desc",  color: .soberBlue),
+        .init(hours: 72,  icon: "arrow.up.heart.fill",                   titleKey: "milestone_72hr_title",  descKey: "milestone_72hr_desc",  color: .aquaTeal),
 
-        // ── Weekly Milestones ──────────────────────────────────
-        .init(hours: 168,   icon: "sparkles",            titleKey: "milestone_1w_title",     descKey: "milestone_1w_desc",     color: .greenClean),
-        .init(hours: 336,   icon: "stomach",             titleKey: "milestone_2w_title",     descKey: "milestone_2w_desc",     color: .greenClean),
-        .init(hours: 504,   icon: "heart.fill",          titleKey: "milestone_3w_title",     descKey: "milestone_3w_desc",     color: .greenClean),
-        .init(hours: 672,   icon: "liver.fill",          titleKey: "milestone_4w_title",     descKey: "milestone_4w_desc",     color: .amberGold),
+        // ── First Week — Dopamine Receptors ───────────────────
+        .init(hours: 168,  icon: "sparkles",                             titleKey: "milestone_1w_title",    descKey: "milestone_1w_desc",    color: .aquaTeal),
 
-        // ── Monthly Milestones ─────────────────────────────────
-        .init(hours: 1008,  icon: "shield.fill",         titleKey: "milestone_6w_title",     descKey: "milestone_6w_desc",     color: .amberGold),
-        .init(hours: 1344,  icon: "figure.strengthtraining.traditional", titleKey: "milestone_8w_title", descKey: "milestone_8w_desc", color: .amberGold),
-        .init(hours: 2016,  icon: "crown.fill",          titleKey: "milestone_12w_title",    descKey: "milestone_12w_desc",    color: .amberGold),
+        // ── Two Weeks — Confidence & Clarity ──────────────────
+        .init(hours: 336,  icon: "eye.fill",                             titleKey: "milestone_2w_title",    descKey: "milestone_2w_desc",    color: .greenClean),
 
-        // ── Long-term Recovery ─────────────────────────────────
-        .init(hours: 4320,  icon: "face.smiling.inverse",titleKey: "milestone_6mo_title",    descKey: "milestone_6mo_desc",    color: .goldAccent),
-        .init(hours: 6480,  icon: "brain.fill",          titleKey: "milestone_9mo_title",    descKey: "milestone_9mo_desc",    color: .goldAccent),
-        .init(hours: 8760,  icon: "trophy.fill",         titleKey: "milestone_1yr_title",    descKey: "milestone_1yr_desc",    color: .goldAccent),
-        .init(hours: 17520, icon: "medal.fill",          titleKey: "milestone_2yr_title",    descKey: "milestone_2yr_desc",    color: .goldAccent),
+        // ── 3 Weeks — Neuroplasticity Begins ──────────────────
+        .init(hours: 504,  icon: "brain.fill",                           titleKey: "milestone_3w_title",    descKey: "milestone_3w_desc",    color: .greenClean),
+
+        // ── 30 Days — First Month ─────────────────────────────
+        .init(hours: 720,  icon: "shield.fill",                          titleKey: "milestone_1mo_title",   descKey: "milestone_1mo_desc",   color: .greenClean),
+
+        // ── 45 Days — Social Anxiety Drops ────────────────────
+        .init(hours: 1080, icon: "person.2.fill",                        titleKey: "milestone_45d_title",   descKey: "milestone_45d_desc",   color: .amberGold),
+
+        // ── 60 Days — Energy & Motivation ─────────────────────
+        .init(hours: 1440, icon: "figure.strengthtraining.traditional",  titleKey: "milestone_60d_title",   descKey: "milestone_60d_desc",   color: .amberGold),
+
+        // ── 90 Days — THE REBOOT (Classic NoFap Goal) ─────────
+        .init(hours: 2160, icon: "crown.fill",                           titleKey: "milestone_90d_title",   descKey: "milestone_90d_desc",   color: .goldAccent),
+
+        // ── 6 Months — Long-term Rewire ───────────────────────
+        .init(hours: 4320, icon: "face.smiling.inverse",                 titleKey: "milestone_6mo_title",   descKey: "milestone_6mo_desc",   color: .goldAccent),
+
+        // ── 9 Months — Deep Neurological Change ───────────────
+        .init(hours: 6480, icon: "brain.fill",                           titleKey: "milestone_9mo_title",   descKey: "milestone_9mo_desc",   color: .goldAccent),
+
+        // ── 1 Year — New Identity ─────────────────────────────
+        .init(hours: 8760, icon: "trophy.fill",                          titleKey: "milestone_1yr_title",   descKey: "milestone_1yr_desc",   color: .goldAccent),
+
+        // ── 2 Years — Permanent Change ────────────────────────
+        .init(hours: 17520, icon: "medal.fill",                          titleKey: "milestone_2yr_title",   descKey: "milestone_2yr_desc",   color: .goldAccent),
     ]
 
     var timeLabel: String {
         switch hours {
-        case 6:     return "6h"
-        case 12:    return "12h"
         case 24:    return "1d"
         case 48:    return "2d"
         case 72:    return "3d"
         case 168:   return "1w"
         case 336:   return "2w"
         case 504:   return "3w"
-        case 672:   return "1mo"
-        case 1008:  return "6w"
-        case 1344:  return "2mo"
-        case 2016:  return "3mo"
+        case 720:   return "30d"
+        case 1080:  return "45d"
+        case 1440:  return "60d"
+        case 2160:  return "90d"
         case 4320:  return "6mo"
         case 6480:  return "9mo"
         case 8760:  return "1yr"
@@ -69,3 +81,4 @@ extension HealthMilestone {
         }
     }
 }
+

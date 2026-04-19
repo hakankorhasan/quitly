@@ -2,6 +2,9 @@
 //  Reward.swift
 //  quitly
 //
+//  Legacy model — kept for SwiftData schema compatibility.
+//  Rewards Store feature has been removed.
+//
 
 import Foundation
 import SwiftData
@@ -14,8 +17,6 @@ final class Reward {
     var iconName: String
     var isPurchased: Bool
     var createdAt: Date
-    
-    var habit: Habit?
 
     init(
         title: String,

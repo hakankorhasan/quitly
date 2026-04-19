@@ -6,27 +6,17 @@
 import SwiftUI
 import SwiftData
 
-private let currencies = [
-    ("₺", "TRY – Turkish Lira"),
-    ("$", "USD – US Dollar"),
-    ("€", "EUR – Euro"),
-    ("£", "GBP – British Pound"),
-    ("¥", "JPY – Japanese Yen"),
-    ("₽", "RUB – Russian Ruble"),
-]
 
 struct HabitSetupView: View {
-    // Alcohol recovery app: hardcoded
-    private let habitEmoji = "cocktail"
-    private let habitName_  = "Drinking"
+    // PMO recovery app: fixed emoji & default name
+    private let habitEmoji = "brain.fill"
+    private let habitName_  = "NoFap Journey"
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
     @AppStorage("setupComplete") private var setupComplete = false
 
     @State private var habitName: String = ""
-    @State private var dailyCost: String = ""
-    @State private var selectedCurrency = "₺"
     @State private var quitDate = Date()
     @State private var goalMode = "quit"
     @State private var appeared = false
@@ -62,30 +52,6 @@ struct HabitSetupView: View {
                         label(NSLocalizedString("onboarding_habit_name_label", comment: ""))
                         TextField(NSLocalizedString("onboarding_habit_name_placeholder", comment: ""), text: $habitName)
                             .fieldStyle()
-                    }
-
-                    // Daily Cost
-                    VStack(alignment: .leading, spacing: 8) {
-                        label(NSLocalizedString("onboarding_daily_cost_label", comment: ""))
-                        HStack(spacing: 8) {
-                            TextField("0", text: $dailyCost)
-                                .keyboardType(.decimalPad)
-                                .fieldStyle()
-                            Picker("", selection: $selectedCurrency) {
-                                ForEach(currencies, id: \.0) { c in
-                                    Text(c.0).tag(c.0)
-                                }
-                            }
-                            .pickerStyle(.menu)
-                            .tint(.fireOrange)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 14)
-                            .background(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .fill(Color.cardBG)
-                                    .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.white.opacity(0.08)))
-                            )
-                        }
                     }
 
                     // Quit Date
@@ -137,9 +103,8 @@ struct HabitSetupView: View {
     }
 
     private func saveAndLaunch() {
-        let cost = Double(dailyCost.replacingOccurrences(of: ",", with: ".")) ?? 0
         let new = Habit(name: resolvedName, emoji: habitEmoji, streakStart: quitDate,
-                        dailyCostAmount: cost, currencySymbol: selectedCurrency,
+                        dailyCostAmount: 0, currencySymbol: "",
                         goalMode: goalMode)
         modelContext.insert(new)
         try? modelContext.save()

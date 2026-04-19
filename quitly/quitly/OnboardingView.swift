@@ -2,7 +2,7 @@
 //  OnboardingView.swift
 //  quitly
 //
-//  Simplified: Alcohol recovery app. Welcome → Setup (2 pages).
+//  PMO recovery app. Welcome → Setup (2 pages).
 //
 
 import SwiftUI
@@ -68,7 +68,7 @@ private struct WelcomePageView: View {
                     .fill(Color.soberBlue.opacity(0.18))
                     .frame(width: 160, height: 160)
                     .blur(radius: 40)
-                Image(systemName: "shield.checkered")
+                Image(systemName: "brain.fill")
                     .font(.system(size: 70, weight: .bold))
                     .foregroundStyle(
                         LinearGradient(

@@ -2,7 +2,7 @@
 //  SplashView.swift
 //  quitly
 //
-//  Soberli – Alcohol Recovery Splash Screen
+//  PMO Recovery — Launch splash screen
 //
 
 import SwiftUI
@@ -18,7 +18,7 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             // Solid background
-            Color(red: 0.051, green: 0.051, blue: 0.102) // #0D0D1A
+            Color.appBG
                 .ignoresSafeArea()
 
             // Center icon
@@ -32,9 +32,13 @@ struct SplashView: View {
             // Bottom label
             VStack {
                 Spacer()
-                Text("Quit Alcohol")
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                Text(NSLocalizedString("app_name", comment: ""))
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
                     .foregroundStyle(Color.white)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                    .padding(.horizontal, 32)
                     .padding(.bottom, 52)
                     .opacity(iconOpacity)
             }

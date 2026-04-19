@@ -2,7 +2,7 @@
 //  GoalModeSelectorView.swift
 //  quitly
 //
-//  3-option goal picker: Quit completely / Drink less / Only weekends
+//  3-option goal picker: Full quit / Reduce / 90-Day Reboot Challenge
 //
 
 import SwiftUI
@@ -11,9 +11,9 @@ struct GoalModeSelectorView: View {
     @Binding var selectedGoal: String
 
     private let goals: [(id: String, icon: String, titleKey: String, descKey: String, color: Color)] = [
-        ("quit",     "nosign",          "goal_quit_title",     "goal_quit_desc",     .soberBlue),
-        ("less",     "arrow.down.right", "goal_less_title",     "goal_less_desc",     .aquaTeal),
-        ("weekends", "calendar",         "goal_weekends_title", "goal_weekends_desc", .amberGold),
+        ("quit",   "nosign",          "goal_quit_title",   "goal_quit_desc",   .soberBlue),
+        ("less",   "arrow.down.right", "goal_less_title",   "goal_less_desc",   .aquaTeal),
+        ("90days", "crown.fill",       "goal_90d_title",    "goal_90d_desc",    .goldAccent),
     ]
 
     var body: some View {

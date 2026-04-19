@@ -18,8 +18,6 @@ final class Habit {
     var createdAt: Date
     var goalMode: String = "quit"  // "quit", "less", "weekends"
     
-    @Relationship(deleteRule: .cascade, inverse: \Reward.habit)
-    var rewards: [Reward] = []
 
     init(
         name: String,
@@ -51,17 +49,23 @@ final class Habit {
         max(0, Date().timeIntervalSince(streakStart) / 3600)
     }
 
-    var moneySaved: Double {
-        return Double(streakDays) * dailyCostAmount
+    // MARK: - Hours Reclaimed (replaces money concept)
+    /// Total hours of freedom since streak started
+    var hoursReclaimed: Double {
+        return streakHoursTotal
     }
 
-    var formattedMoneySaved: String {
-        let amount = moneySaved
-        if amount >= 1000 {
-            return String(format: "%.1fK%@", amount / 1000, currencySymbol)
+    var formattedHoursReclaimed: String {
+        let h = Int(hoursReclaimed)
+        if h >= 1000 {
+            return String(format: "%.1fK", Double(h) / 1000)
         }
-        return "\(Int(amount))\(currencySymbol)"
+        return "\(h)h"
     }
+
+    // Legacy — kept for SwiftData schema compatibility, not shown in UI
+    var moneySaved: Double { 0 }
+    var formattedMoneySaved: String { formattedHoursReclaimed }
 
     var nextMilestoneHours: Double {
         let elapsed = streakHoursTotal

@@ -33,7 +33,7 @@ struct PaywallView: View {
     var body: some View {
         ZStack {
             // Background
-            Color(red: 0.051, green: 0.051, blue: 0.102).ignoresSafeArea()
+            Color.appBG.ignoresSafeArea()
 
             // Glow blobs
             Circle()
