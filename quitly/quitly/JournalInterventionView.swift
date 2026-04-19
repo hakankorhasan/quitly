@@ -70,7 +70,7 @@ struct JournalInterventionView: View {
                     
                     Spacer()
                     
-                    Text("Duygusal Boşaltım")
+                    Text(NSLocalizedString("journal_title", comment: ""))
                         .font(.system(size: 15, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                     
@@ -96,10 +96,10 @@ struct JournalInterventionView: View {
                         
                         // Prompt
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("Şu an ne hissediyorsun?")
+                            Text(NSLocalizedString("journal_prompt_feel", comment: ""))
                                 .font(.system(size: 24, weight: .bold, design: .rounded))
                                 .foregroundStyle(.white)
-                            Text("Bu dürtüyü ne tetikledi? İçindekileri yaz.")
+                            Text(NSLocalizedString("journal_prompt_desc", comment: ""))
                                 .font(.system(size: 14, weight: .regular, design: .rounded))
                                 .foregroundStyle(Color.textSecondary)
                         }
@@ -107,7 +107,7 @@ struct JournalInterventionView: View {
                         // Text Area
                         ZStack(alignment: .topLeading) {
                             if text.isEmpty {
-                                Text("Buraya yaz...\nFiltrelemeden, dürüstçe.")
+                                Text(NSLocalizedString("journal_placeholder", comment: ""))
                                     .font(.system(size: 16, design: .rounded))
                                     .foregroundStyle(Color.textMuted)
                                     .padding(.horizontal, 16)
@@ -134,7 +134,7 @@ struct JournalInterventionView: View {
                         
                         // Urge Level
                         VStack(alignment: .leading, spacing: 12) {
-                            Text("Dürtü Şiddeti: \(Int(urgeLevel))/10")
+                            Text(String(format: NSLocalizedString("journal_urge_intensity", comment: ""), Int(urgeLevel)))
                                 .font(.system(size: 14, weight: .semibold, design: .rounded))
                                 .foregroundStyle(Color.textSecondary)
                             

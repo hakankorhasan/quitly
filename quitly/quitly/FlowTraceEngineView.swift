@@ -110,11 +110,11 @@ struct FlowTraceEngineView: View {
                 if phase == .intro {
                     introMessage
                 } else if phase == .stabilization && totalTimeElapsed < 5 {
-                    engineMessage("Sadece izle ve nefes al...")
+                    engineMessage(NSLocalizedString("engine_flow_stabilization", comment: ""))
                 } else if phase == .alignment && totalTimeElapsed > 15 && totalTimeElapsed < 22 {
-                    engineMessage("Dokun ve akışı takip et...")
+                    engineMessage(NSLocalizedString("engine_flow_alignment", comment: ""))
                 } else if phase == .deepFlow && totalTimeElapsed > 60 && totalTimeElapsed < 65 {
-                    engineMessage("Pürüzsüz ritmi koru...")
+                    engineMessage(NSLocalizedString("engine_flow_deep", comment: ""))
                 } else if phase == .exit {
                     exitMessage
                 }
@@ -137,11 +137,11 @@ struct FlowTraceEngineView: View {
                 .font(.system(size: 40))
                 .foregroundStyle(Color.soberBlue)
             
-            Text("Flow Trace")
+            Text(NSLocalizedString("engine_flow_title", comment: ""))
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
             
-            Text("Tıklama yok. Hedef yok. \nSadece merkezi akışla hizalan.")
+            Text(NSLocalizedString("engine_flow_desc", comment: ""))
                 .font(.system(size: 15, weight: .regular, design: .rounded))
                 .foregroundStyle(Color.textSecondary)
                 .multilineTextAlignment(.center)
@@ -149,7 +149,7 @@ struct FlowTraceEngineView: View {
             Button {
                 startEngine()
             } label: {
-                Text("Hizalan")
+                Text(NSLocalizedString("engine_flow_start", comment: ""))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 40)
@@ -175,11 +175,11 @@ struct FlowTraceEngineView: View {
                 .font(.system(size: 48))
                 .foregroundStyle(Color.aquaTeal)
             
-            Text("Kontrol Sende")
+            Text(NSLocalizedString("engine_flow_end_title", comment: ""))
                 .font(.system(size: 28, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
             
-            Text("Dürtü dalgası kırıldı.")
+            Text(NSLocalizedString("engine_flow_end_desc", comment: ""))
                 .font(.system(size: 15, weight: .regular, design: .rounded))
                 .foregroundStyle(Color.textSecondary)
             
@@ -187,7 +187,7 @@ struct FlowTraceEngineView: View {
                 cleanUp()
                 onComplete(100)
             } label: {
-                Text("Devreye Dön")
+                Text(NSLocalizedString("engine_return", comment: ""))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 40)

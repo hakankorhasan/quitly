@@ -115,11 +115,11 @@ struct UrgeModeView: View {
             
             // Title
             VStack(spacing: 12) {
-                Text("Bu an geçici.")
+                Text(NSLocalizedString("urge_title", comment: ""))
                     .font(.system(size: 32, weight: .black, design: .rounded))
                     .foregroundStyle(.white)
                 
-                Text("Şimdi ne yapmak istersin?")
+                Text(NSLocalizedString("urge_subtitle", comment: ""))
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundStyle(Color.textSecondary)
             }
@@ -131,8 +131,8 @@ struct UrgeModeView: View {
             // 3 Intervention Options
             VStack(spacing: 16) {
                 interventionCard(
-                    title: "Nefes",
-                    subtitle: "Sistemi sakinleştir (2dk)",
+                    title: NSLocalizedString("urge_breathe_title", comment: ""),
+                    subtitle: NSLocalizedString("urge_breathe_desc", comment: ""),
                     icon: "wind",
                     color: .aquaTeal,
                     delay: 0.1
@@ -141,8 +141,8 @@ struct UrgeModeView: View {
                 }
                 
                 interventionCard(
-                    title: "Odak Oyunu",
-                    subtitle: "Dikkatini kır (90s)",
+                    title: NSLocalizedString("urge_game_title", comment: ""),
+                    subtitle: NSLocalizedString("urge_game_desc", comment: ""),
                     icon: "gamecontroller.fill",
                     color: .soberBlue,
                     delay: 0.2
@@ -152,8 +152,8 @@ struct UrgeModeView: View {
                 }
                 
                 interventionCard(
-                    title: "Günlük",
-                    subtitle: "İçini dök, düşünceni boşalt",
+                    title: NSLocalizedString("urge_journal_title", comment: ""),
+                    subtitle: NSLocalizedString("urge_journal_desc", comment: ""),
                     icon: "pencil.line",
                     color: .amberGold,
                     delay: 0.3
@@ -172,7 +172,7 @@ struct UrgeModeView: View {
                 HStack(spacing: 8) {
                     Image(systemName: "arrow.triangle.swap")
                         .font(.system(size: 14, weight: .bold))
-                    Text("Diğer Alternatifler")
+                    Text(NSLocalizedString("urge_alternatives", comment: ""))
                         .font(.system(size: 15, weight: .semibold, design: .rounded))
                 }
                 .foregroundStyle(Color.greenClean)

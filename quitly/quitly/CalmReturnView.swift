@@ -51,11 +51,11 @@ struct CalmReturnView: View {
 
                 // Message
                 VStack(spacing: 12) {
-                    Text("Kontrol Sende")
+                    Text(NSLocalizedString("calm_return_title", comment: ""))
                         .font(.system(size: 28, weight: .black, design: .rounded))
                         .foregroundStyle(.white)
 
-                    Text("Dürtünün dalgasını başarıyla kırdın.\nŞimdi yoluna devam et.")
+                    Text(NSLocalizedString("calm_return_desc", comment: ""))
                         .font(.system(size: 15, weight: .regular, design: .rounded))
                         .foregroundStyle(Color.textSecondary)
                         .multilineTextAlignment(.center)
@@ -73,7 +73,7 @@ struct CalmReturnView: View {
                     gen.notificationOccurred(.success)
                     onDismiss()
                 } label: {
-                    Text("Devam Et")
+                    Text(NSLocalizedString("calm_return_continue", comment: ""))
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundStyle(Color.aquaTeal)
                         .padding(.horizontal, 40)

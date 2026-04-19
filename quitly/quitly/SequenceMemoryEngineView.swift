@@ -54,7 +54,7 @@ struct SequenceMemoryEngineView: View {
                     Spacer()
                     
                     if phase == .observing || phase == .playing {
-                        Text("Seviye \(level)")
+                        Text(String(format: NSLocalizedString("engine_seq_level", comment: ""), level))
                             .font(.system(size: 18, weight: .black, design: .rounded))
                             .foregroundStyle(Color.amberGold)
                             .contentTransition(.numericText())
@@ -97,11 +97,11 @@ struct SequenceMemoryEngineView: View {
             }
             
             VStack(spacing: 8) {
-                Text("Hafıza Zinciri")
+                Text(NSLocalizedString("engine_seq_title", comment: ""))
                     .font(.system(size: 28, weight: .black, design: .rounded))
                     .foregroundStyle(.white)
                 
-                Text("Kriz anını kırmak için zihnini odakla.\nTopların yanış sırasını aklında tut ve tekrarla.")
+                Text(NSLocalizedString("engine_seq_desc", comment: ""))
                     .font(.system(size: 15, weight: .regular, design: .rounded))
                     .foregroundStyle(Color.textSecondary)
                     .multilineTextAlignment(.center)
@@ -112,7 +112,7 @@ struct SequenceMemoryEngineView: View {
             Button {
                 startGame()
             } label: {
-                Text("Başla")
+                Text(NSLocalizedString("engine_seq_start", comment: ""))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 40)
@@ -128,7 +128,7 @@ struct SequenceMemoryEngineView: View {
     private var playingView: some View {
         VStack(spacing: 60) {
             VStack(spacing: 8) {
-                Text(phase == .observing ? "DİKKATLE İZLE" : "SIRA SENDE")
+                Text(phase == .observing ? NSLocalizedString("engine_seq_watch", comment: "") : NSLocalizedString("engine_seq_turn", comment: ""))
                     .font(.system(size: 16, weight: .black, design: .rounded))
                     .foregroundStyle(phase == .observing ? Color.amberGold : Color.greenClean)
                     .animation(.easeInOut, value: phase)
@@ -175,11 +175,11 @@ struct SequenceMemoryEngineView: View {
             }
             
             VStack(spacing: 8) {
-                Text(hasLost ? "Zincir Kırıldı" : "Zihin Temizlendi")
+                Text(hasLost ? NSLocalizedString("engine_seq_lost_title", comment: "") : NSLocalizedString("engine_seq_won_title", comment: ""))
                     .font(.system(size: 24, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                 
-                Text(hasLost ? "Odağın dağıldı. Zihnini tamamen boşaltana kadar bırakma." : "Mükemmel odaklanma! Dürtü dalgası sönümlendi.")
+                Text(hasLost ? NSLocalizedString("engine_seq_lost_desc", comment: "") : NSLocalizedString("engine_seq_won_desc", comment: ""))
                     .font(.system(size: 15, weight: .regular, design: .rounded))
                     .foregroundStyle(Color.textSecondary)
                     .multilineTextAlignment(.center)
@@ -194,7 +194,7 @@ struct SequenceMemoryEngineView: View {
                         onComplete(level)
                     }
                 } label: {
-                    Text(hasLost ? "Tekrar Dene" : "Geri Dön")
+                    Text(hasLost ? NSLocalizedString("engine_seq_retry", comment: "") : NSLocalizedString("engine_return", comment: ""))
                         .font(.system(size: 16, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                         .padding(.horizontal, 40)
@@ -206,7 +206,7 @@ struct SequenceMemoryEngineView: View {
                     Button {
                         onComplete(level)
                     } label: {
-                        Text("Çıkış Yap")
+                        Text(NSLocalizedString("engine_seq_exit", comment: ""))
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundStyle(Color.textSecondary)
                             .padding(.vertical, 14)

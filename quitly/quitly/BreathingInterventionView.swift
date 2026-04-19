@@ -13,7 +13,7 @@ struct BreathingInterventionView: View {
 
     @State private var breatheScale: CGFloat = 0.6
     @State private var breatheOpacity: Double = 0.4
-    @State private var breatheLabel = "Başlıyoruz..."
+    @State private var breatheLabel = NSLocalizedString("breathe_start", comment: "")
     
     @State private var cycleCount = 0
     private let targetCycles = 8 // approx 2 mins (8 * 14s = 112s)
@@ -61,11 +61,11 @@ struct BreathingInterventionView: View {
                         .font(.system(size: 48, weight: .bold))
                         .foregroundStyle(Color.aquaTeal)
 
-                    Text("Nefes Döngüsü Tamamlandı")
+                    Text(NSLocalizedString("breathe_done_title", comment: ""))
                         .font(.system(size: 24, weight: .black, design: .rounded))
                         .foregroundStyle(.white)
 
-                    Text("Dürtü seviyesi genelde bu noktada büyük oranda düşer.\nKendini nasıl hissediyorsun?")
+                    Text(NSLocalizedString("breathe_done_desc", comment: ""))
                         .font(.system(size: 15, weight: .medium, design: .rounded))
                         .foregroundStyle(Color.textSecondary)
                         .multilineTextAlignment(.center)
@@ -77,7 +77,7 @@ struct BreathingInterventionView: View {
                         gen.notificationOccurred(.success)
                         onComplete()
                     } label: {
-                        Text("Devam Et")
+                        Text(NSLocalizedString("breathe_continue", comment: ""))
                             .font(.system(size: 16, weight: .bold, design: .rounded))
                             .foregroundStyle(.white)
                             .padding(.horizontal, 40)
@@ -124,7 +124,7 @@ struct BreathingInterventionView: View {
                         .contentTransition(.identity)
                         .animation(.easeInOut(duration: 0.3), value: breatheLabel)
                         
-                    Text("Adım \(cycleCount + 1) / \(targetCycles)")
+                    Text(String(format: NSLocalizedString("breathe_step_format", comment: ""), cycleCount + 1, targetCycles))
                         .font(.system(size: 14, weight: .semibold, design: .rounded))
                         .foregroundStyle(Color.textMuted)
                 }
@@ -149,9 +149,9 @@ struct BreathingInterventionView: View {
         }
         
         let steps: [(String, Double, CGFloat, Double)] = [
-            ("Nefes Al...", 4.0, 1.0, 0.9), // Inhale
-            ("Tut...",      4.0, 1.0, 0.6), // Hold
-            ("Nefes Ver...", 6.0, 0.4, 0.3) // Exhale
+            (NSLocalizedString("breathe_inhale", comment: ""), 4.0, 1.0, 0.9), // Inhale
+            (NSLocalizedString("breathe_hold", comment: ""),      4.0, 1.0, 0.6), // Hold
+            (NSLocalizedString("breathe_exhale", comment: ""), 6.0, 0.4, 0.3) // Exhale
         ]
         
         var delay = 0.0

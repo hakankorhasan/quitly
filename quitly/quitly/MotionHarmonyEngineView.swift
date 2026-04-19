@@ -84,9 +84,9 @@ struct MotionHarmonyEngineView: View {
             
             // Overlays
             if phase == .observation && totalTimeElapsed < 5 {
-                engineMessage("Akışı izle. Fiziksel olarak yavaşla.")
+                engineMessage(NSLocalizedString("engine_harmony_obs", comment: ""))
             } else if phase == .sync && totalTimeElapsed > 20 && totalTimeElapsed < 26 {
-                engineMessage("Ekranda sürekli ve yavaş bir iz bırak...")
+                engineMessage(NSLocalizedString("engine_harmony_sync", comment: ""))
             } else if phase == .dissolution {
                 exitMessage
             }
@@ -116,11 +116,11 @@ struct MotionHarmonyEngineView: View {
                 .font(.system(size: 48))
                 .foregroundStyle(Color.aquaTeal)
             
-            Text("Hareket Uyumu Sağlandı")
+            Text(NSLocalizedString("engine_harmony_end_title", comment: ""))
                 .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
             
-            Text("Fiziksel hızın dengelendi.\nDürtüsel enerjin tamamen sönümlendi.")
+            Text(NSLocalizedString("engine_harmony_end_desc", comment: ""))
                 .font(.system(size: 15, weight: .regular, design: .rounded))
                 .foregroundStyle(Color.textSecondary)
                 .multilineTextAlignment(.center)
@@ -130,7 +130,7 @@ struct MotionHarmonyEngineView: View {
                 cleanUp()
                 onComplete(100)
             } label: {
-                Text("Devreye Dön")
+                Text(NSLocalizedString("engine_return", comment: ""))
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 40)
